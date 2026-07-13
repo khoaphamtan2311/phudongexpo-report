@@ -1,0 +1,4 @@
+# Staff roster includes login passwords — do not publish to public repo
+*.xlsx
+.DS_Store
+*.tmp

@@ -1,0 +1,2164 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Báo cáo hệ thống — Phường Xuân Hòa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --blue: #0848a0; --blue-deep: #063a82; --blue-mid: #3058a8; --blue-soft: #e8eef8; --blue-mist: #b8c0e0;
+      --red: #e81820; --red-soft: #fde8e9; --gold: #f8f000;
+      --green: #1a7a4c; --green-soft: #e8f5ee;
+      --amber: #c45c1a; --amber-soft: #fff1e6;
+      --purple: #6b4ea3;
+      --ink: #14233a; --muted: #5a6b82; --line: #d0d8e8; --paper: #f4f6fb; --card: #ffffff;
+      --shadow: 0 10px 32px rgba(8, 72, 160, 0.10); --radius: 16px;
+      --font: "Be Vietnam Pro", "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; font-family: var(--font); color: var(--ink);
+      background:
+        radial-gradient(ellipse 70% 45% at 0% 0%, rgba(8, 72, 160, 0.12) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 35% at 100% 0%, rgba(232, 24, 32, 0.07) 0%, transparent 50%),
+        linear-gradient(180deg, #eef2fa 0%, var(--paper) 40%, #f7f8fc 100%);
+      line-height: 1.5; min-height: 100vh;
+    }
+    .wrap { width: min(1180px, calc(100% - 2rem)); margin: 0 auto; padding: 1.5rem 0 4rem; }
+    .topnav {
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+      margin-bottom: 1.25rem; padding: 0.75rem 1rem; background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(8px); border: 1px solid var(--line); border-radius: 999px;
+      box-shadow: var(--shadow); position: sticky; top: 0.75rem; z-index: 20;
+    }
+    .topnav-brand { display: flex; align-items: center; gap: 0.65rem; font-weight: 800; color: var(--blue); font-size: 0.95rem; }
+    .topnav-brand img { width: 36px; height: 36px; object-fit: contain; }
+    .nav-tabs { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+    .nav-tab {
+      border: 0; background: transparent; color: var(--muted); font: inherit; font-weight: 600;
+      font-size: 0.88rem; padding: 0.55rem 1rem; border-radius: 999px; cursor: pointer; transition: 0.15s ease;
+    }
+    .nav-tab:hover { color: var(--blue); background: var(--blue-soft); }
+    .nav-tab.active { background: var(--blue); color: #fff; box-shadow: 0 4px 14px rgba(8,72,160,0.28); }
+    .view { display: none; } .view.active { display: block; }
+    .hero {
+      display: grid; gap: 1.35rem; padding: 1.6rem 1.75rem 1.5rem;
+      background: linear-gradient(135deg, #ffffff 0%, #f5f8fd 55%, #eef3fb 100%);
+      border: 1px solid var(--line); border-top: 4px solid var(--blue);
+      border-radius: calc(var(--radius) + 2px); box-shadow: var(--shadow);
+      margin-bottom: 1.5rem; position: relative; overflow: hidden;
+    }
+    .hero::after {
+      content: ""; position: absolute; top: 0; right: 0; width: 180px; height: 6px;
+      background: linear-gradient(90deg, var(--red), var(--gold)); border-radius: 0 0 0 8px;
+    }
+    .hero-top { display: flex; align-items: center; justify-content: space-between; gap: 1.25rem; flex-wrap: wrap; }
+    .brand-row { display: flex; align-items: center; gap: 1.1rem; }
+    .brand-logo { width: 88px; height: 88px; object-fit: contain; flex-shrink: 0; filter: drop-shadow(0 4px 12px rgba(8, 72, 160, 0.18)); }
+    .brand-text h1 { margin: 0; font-size: clamp(1.25rem, 2.4vw, 1.75rem); font-weight: 800; letter-spacing: -0.02em; color: var(--blue); text-transform: uppercase; }
+    .brand-text p { margin: 0.2rem 0 0; color: var(--muted); font-size: 0.95rem; font-weight: 500; }
+    .meta-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: flex-end; }
+    .pill { background: var(--blue-soft); color: var(--blue); border: 1px solid #c5d2ea; padding: 0.38rem 0.75rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600; }
+    .pill.neutral { background: #fff; color: var(--muted); border-color: var(--line); font-weight: 500; }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.85rem; }
+    @media (max-width: 900px) { .stats { grid-template-columns: repeat(2, 1fr); } .brand-logo { width: 72px; height: 72px; } }
+    .stat { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem 1.1rem; border-left: 3px solid var(--blue); }
+    .stat:nth-child(2) { border-left-color: var(--green); }
+    .stat:nth-child(3) { border-left-color: var(--amber); }
+    .stat:nth-child(4) { border-left-color: var(--red); }
+    .stat .label { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); margin-bottom: 0.35rem; font-weight: 600; }
+    .stat .value { font-size: 1.55rem; font-weight: 800; letter-spacing: -0.03em; color: var(--blue-deep); }
+    .stat .hint { font-size: 0.8rem; color: var(--muted); margin-top: 0.2rem; }
+    .section-title { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin: 2rem 0 0.9rem; flex-wrap: wrap; }
+    .section-title h2 { margin: 0; font-size: 1.2rem; letter-spacing: -0.02em; color: var(--blue-deep); }
+    .section-title p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+    .room-grid, .dash-grid, .mod-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0.85rem; margin-bottom: 1.25rem; }
+    .room-card {
+      display: flex; align-items: center; gap: 0.9rem; padding: 1.1rem 1.15rem; background: var(--card);
+      border: 1px solid var(--line); border-radius: var(--radius); text-decoration: none; color: inherit;
+      box-shadow: var(--shadow); transition: transform 0.18s ease, border-color 0.18s ease;
+    }
+    .room-card:hover { transform: translateY(-2px); border-color: var(--blue-mist); }
+    .room-card-icon { flex-shrink: 0; width: 52px; height: 52px; border-radius: 50%; background: var(--blue-soft); display: grid; place-items: center; overflow: hidden; }
+    .room-card-icon img { width: 44px; height: 44px; object-fit: contain; }
+    .room-card-body { flex: 1; min-width: 0; }
+    .room-card-body h3 { margin: 0 0 0.4rem; font-size: 0.98rem; line-height: 1.35; color: var(--blue-deep); }
+    .room-card-stats { display: flex; flex-wrap: wrap; gap: 0.55rem 0.85rem; font-size: 0.82rem; color: var(--muted); }
+    .room-card-stats strong { color: var(--ink); font-weight: 700; }
+    .room-card-arrow { color: var(--blue); font-size: 1.2rem; opacity: 0.75; }
+    .panel { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: 1.25rem 1.35rem; margin-bottom: 1.25rem; }
+    .panel h3 { margin: 0 0 1rem; font-size: 1rem; color: var(--blue-deep); }
+    .split { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 1rem; }
+    @media (max-width: 900px) { .split { grid-template-columns: 1fr; } }
+    .bar-row { display: grid; grid-template-columns: 72px 1fr 110px; gap: 0.65rem; align-items: center; margin-bottom: 0.55rem; font-size: 0.88rem; }
+    .bar-row.role { grid-template-columns: 140px 1fr 90px; }
+    .bar-label { font-weight: 700; font-family: ui-monospace, monospace; font-size: 0.82rem; color: var(--blue-deep); }
+    .bar-label.wide { font-family: var(--font); font-size: 0.85rem; }
+    .bar-track { height: 10px; background: var(--blue-soft); border-radius: 999px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 999px; min-width: 3px; }
+    .bar-val { text-align: right; color: var(--ink); font-variant-numeric: tabular-nums; }
+    .bar-val span { color: var(--muted); font-size: 0.8rem; }
+    .room-section { background: var(--card); border: 1px solid var(--line); border-radius: calc(var(--radius) + 2px); box-shadow: var(--shadow); padding: 1.4rem 1.4rem 1.5rem; margin: 1.25rem 0; scroll-margin-top: 4.5rem; }
+    .room-header { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 0.9rem; }
+    .room-header-icon { width: 56px; height: 56px; border-radius: 50%; background: var(--blue-soft); flex-shrink: 0; display: grid; place-items: center; overflow: hidden; }
+    .room-header-icon img { width: 48px; height: 48px; object-fit: contain; }
+    .eyebrow { margin: 0; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--red); font-weight: 700; }
+    .room-header h2 { margin: 0.15rem 0 0.25rem; font-size: 1.15rem; color: var(--blue-deep); }
+    .room-summary { margin: 0; color: var(--muted); font-size: 0.9rem; }
+    .type-row { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1rem; }
+    .type-badge { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.28rem 0.55rem; border-radius: 8px; background: var(--blue-soft); border: 1px solid var(--line); font-size: 0.78rem; color: var(--muted); margin-right: 4px }
+    .type-badge .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--c); }
+    .type-badge strong { color: var(--ink); font-weight: 700; }
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    th, td { padding: 0.7rem 0.65rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--blue); font-weight: 700; background: var(--blue-soft); }
+    td.num { font-variant-numeric: tabular-nums; white-space: nowrap; font-weight: 700; color: var(--blue-deep); }
+    td.col-name { min-width: 200px; font-weight: 500; }
+    .folder-ico { display: inline-block; width: 10px; height: 10px; margin-right: 0.45rem; border-radius: 2px; background: var(--blue); vertical-align: middle; }
+    td.empty { text-align: center; color: var(--muted); padding: 1.25rem; }
+    .loose-box { margin-top: 1.1rem; padding: 0.9rem 1rem; background: var(--red-soft); border: 1px solid #f5c4c6; border-radius: 12px; }
+    .loose-box h4 { margin: 0 0 0.55rem; font-size: 0.88rem; color: var(--red); }
+    .loose-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.35rem; }
+    .loose-list li { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font-size: 0.85rem; padding: 0.35rem 0; border-bottom: 1px dashed #f0c9cb; }
+    .loose-list li:last-child { border-bottom: 0; }
+    .fname { word-break: break-word; } .fmeta { color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .dept-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: 1.2rem 1.25rem; border-top: 4px solid var(--accent, var(--blue)); }
+    .dept-card-top { display: flex; gap: 0.85rem; align-items: center; margin-bottom: 1rem; }
+    .dept-card-top img { width: 48px; height: 48px; object-fit: contain; }
+    .dept-card-top h3 { margin: 0.1rem 0 0; font-size: 1rem; color: var(--blue-deep); line-height: 1.3; }
+    .dept-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-bottom: 0.9rem; text-align: center; }
+    .dept-metrics div { background: var(--blue-soft); border-radius: 12px; padding: 0.65rem 0.4rem; }
+    .dept-metrics strong { display: block; font-size: 1.35rem; color: var(--blue-deep); font-weight: 800; }
+    .dept-metrics span { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+    .chip-row { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .chip { background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 0.25rem 0.55rem; font-size: 0.75rem; color: var(--muted); }
+    .chip strong { color: var(--ink); }
+    .filters { display: flex; flex-wrap: wrap; gap: 0.65rem; margin-bottom: 1rem; align-items: center; }
+    .filters input, .filters select { font: inherit; font-size: 0.9rem; padding: 0.6rem 0.85rem; border: 1px solid var(--line); border-radius: 10px; background: #fff; color: var(--ink); min-width: 0; }
+    .filters input { flex: 1; min-width: 180px; }
+    .filters select { min-width: 160px; }
+    .filters input:focus, .filters select:focus { outline: 2px solid rgba(8,72,160,0.25); border-color: var(--blue); }
+    .result-count { margin-left: auto; font-size: 0.85rem; color: var(--muted); font-weight: 600; }
+    .user-table td { vertical-align: middle; }
+    .user-name { font-weight: 700; color: var(--ink); }
+    .user-role { color: var(--muted); font-size: 0.82rem; margin-top: 0.15rem; }
+    .badge { display: inline-block; padding: 0.2rem 0.5rem; border-radius: 999px; font-size: 0.72rem; font-weight: 700; background: var(--blue-soft); color: var(--blue); }
+    .badge.leader { background: #fff3cd; color: #8a6d00; }
+    .badge.deputy { background: #e8eef8; color: var(--blue); }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.82rem; color: var(--blue-deep); }
+    .mono-stt { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.8rem; }
+    .muted { color: var(--muted); }
+
+    /* Scope / features */
+    .mod-card {
+      display: block; text-decoration: none; color: inherit; background: var(--card);
+      border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow);
+      padding: 1.15rem 1.2rem; border-top: 4px solid var(--accent, var(--blue));
+      transition: transform 0.18s ease;
+    }
+    .mod-card:hover { transform: translateY(-2px); }
+    .mod-card-top { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.85rem; }
+    .mod-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--accent, var(--blue)); flex-shrink: 0; }
+    .mod-card-top h3 { margin: 0; font-size: 1.02rem; color: var(--blue-deep); }
+    .mod-progress-bar { height: 8px; background: #eef2f7; border-radius: 999px; overflow: hidden; margin-bottom: 0.4rem; }
+    .mod-progress-bar span { display: block; height: 100%; border-radius: 999px; }
+    .mod-progress-label { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.75rem; }
+    .mod-progress-label strong { color: var(--ink); }
+    .mod-stats { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .st { font-size: 0.72rem; font-weight: 700; padding: 0.22rem 0.5rem; border-radius: 999px; }
+    .st.done { background: var(--green-soft); color: var(--green); }
+    .st.progress { background: var(--amber-soft); color: var(--amber); }
+    .st.todo { background: var(--red-soft); color: var(--red); }
+
+    .status-pill {
+      display: inline-block; padding: 0.25rem 0.55rem; border-radius: 999px;
+      font-size: 0.72rem; font-weight: 700; white-space: nowrap;
+    }
+    .status-pill.done { background: var(--green-soft); color: var(--green); }
+    .status-pill.progress { background: var(--amber-soft); color: var(--amber); }
+    .status-pill.todo { background: var(--red-soft); color: var(--red); }
+
+    .overall-ring {
+      display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap;
+    }
+    .ring {
+      --p: 0; width: 96px; height: 96px; border-radius: 50%;
+      background: conic-gradient(var(--green) calc(var(--p) * 1%), #e6ebf2 0);
+      display: grid; place-items: center; flex-shrink: 0;
+    }
+    .ring-inner {
+      width: 72px; height: 72px; border-radius: 50%; background: #fff;
+      display: grid; place-items: center; font-weight: 800; color: var(--blue-deep); font-size: 1.2rem;
+    }
+    .overall-copy h3 { margin: 0 0 0.35rem; color: var(--blue-deep); font-size: 1.05rem; }
+    .overall-copy p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+
+    .chart-wrap {
+      position: relative;
+      height: 320px;
+      width: 100%;
+    }
+    .chart-note {
+      margin: -0.35rem 0 1rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    .chart-legend-inline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.1rem;
+      margin-top: 0.85rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .chart-legend-inline span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .chart-legend-inline i {
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+      display: inline-block;
+    }
+    .chart-legend-inline i.line {
+      height: 3px;
+      width: 16px;
+      border-radius: 999px;
+    }
+
+    .feat-group { margin-top: 1.1rem; }
+    .feat-group h4 {
+      margin: 0 0 0.55rem; font-size: 0.95rem; color: var(--blue-deep);
+      padding-bottom: 0.4rem; border-bottom: 1px solid var(--line);
+    }
+    .feat-sub { font-weight: 600; color: var(--ink); margin-bottom: 0.25rem; }
+    .feat-detail { font-size: 0.82rem; color: var(--muted); line-height: 1.45; }
+    .feat-table tr.hidden { display: none; }
+
+    footer { margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; color: var(--muted); font-size: 0.85rem; }
+    footer img { width: 52px; height: 52px; object-fit: contain; }
+  
+    .auto-done-tag {
+      display: inline-block; margin-left: 0.35rem; padding: 0.15rem 0.45rem;
+      border-radius: 999px; font-size: 0.68rem; font-weight: 700;
+      background: #e8eef8; color: #0848a0;
+    }
+    
+    .feedback-banner {
+      margin-bottom: 1.25rem;
+      border-top: 4px solid var(--red);
+      background: linear-gradient(135deg, #ffffff 0%, #fff7f7 55%, #f5f8fd 100%);
+    }
+    .feedback-banner h3 {
+      margin: 0.15rem 0 0.35rem;
+      color: var(--blue-deep);
+      font-size: 1.15rem;
+    }
+    .feedback-banner-lead {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      max-width: 52rem;
+    }
+    .feedback-banner-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .feedback-jump {
+      color: var(--blue);
+      font-weight: 700;
+      font-size: 0.88rem;
+      text-decoration: none;
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      background: var(--blue-soft);
+      border: 1px solid #c5d2ea;
+      white-space: nowrap;
+    }
+    .feedback-jump:hover { background: #dbe6f5; }
+    .feedback-kpis {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.65rem;
+    }
+    @media (max-width: 800px) {
+      .feedback-kpis { grid-template-columns: repeat(2, 1fr); }
+    }
+    .feedback-kpi {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 0.75rem 0.85rem;
+      text-align: center;
+    }
+    .feedback-kpi strong {
+      display: block;
+      font-size: 1.4rem;
+      color: var(--blue-deep);
+      font-weight: 800;
+    }
+    .feedback-kpi span {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+    .feedback-detail-panel { padding-top: 1rem; }
+    .fb-group { margin-bottom: 1.5rem; }
+    .fb-group:last-child { margin-bottom: 0; }
+    .fb-group-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .fb-group-head h3 {
+      margin: 0;
+      font-size: 1.05rem;
+      color: var(--blue-deep);
+    }
+    .fb-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 0.75rem;
+    }
+    .fb-card {
+      background: var(--blue-soft);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 0.9rem 1rem;
+    }
+    .fb-card-head {
+      display: flex;
+      gap: 0.65rem;
+      align-items: flex-start;
+      margin-bottom: 0.45rem;
+    }
+    .fb-num {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: var(--blue);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 800;
+      display: grid;
+      place-items: center;
+    }
+    .fb-card h4 {
+      margin: 0;
+      font-size: 0.92rem;
+      color: var(--ink);
+      line-height: 1.35;
+    }
+    .fb-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .fb-empty {
+      margin: 0;
+      font-size: 0.82rem;
+      color: #8a97a8;
+      font-style: italic;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="topnav">
+      <div class="topnav-brand"><img src="logo-xuan-hoa.png" alt="" /><span>Phường Xuân Hòa</span></div>
+      <div class="nav-tabs">
+        <button class="nav-tab active" data-view="docs" type="button">Văn bản</button>
+        <button class="nav-tab" data-view="users" type="button">Người dùng</button>
+        <button class="nav-tab" data-view="scope" type="button">Phạm vi &amp; tính năng</button>
+      </div>
+    </nav>
+
+    <div class="view active" id="view-docs">
+      <header class="hero">
+        <div class="hero-top">
+          <div class="brand-row">
+            <img class="brand-logo" src="logo-xuan-hoa.png" alt="Logo Phường Xuân Hòa" />
+            <div class="brand-text">
+              <h1>Văn bản trên hệ thống</h1>
+              <p>Báo cáo tổng hợp văn bản trên hệ thống · TP. Hồ Chí Minh</p>
+            </div>
+          </div>
+          <div class="meta-pills">
+            <span class="pill">Xuất dữ liệu: 13/07/2026</span>
+          </div>
+        </div>
+        <div class="stats">
+          <div class="stat"><div class="label">Tổng tệp</div><div class="value">3,076</div><div class="hint">Tài liệu đã tải lên</div></div>
+          <div class="stat"><div class="label">Thư mục</div><div class="value">464</div><div class="hint">Cấu trúc thư mục</div></div>
+          <div class="stat"><div class="label">Dung lượng</div><div class="value">5.2 GB</div><div class="hint">Tổng kích thước tệp</div></div>
+          <div class="stat"><div class="label">Phòng ban</div><div class="value">2</div><div class="hint">Đang có trên hệ thống</div></div>
+        </div>
+      </header>
+      <div class="section-title"><h2>Theo phòng ban</h2><p>Nhấn vào thẻ để xem chi tiết tổ / chuyên mục</p></div>
+      <div class="room-grid">
+    <a class="room-card" href="#room-0">
+      <div class="room-card-icon"><img src="logo-xuan-hoa.png" alt="" /></div>
+      <div class="room-card-body">
+        <h3>1. Phòng Kinh Tế - Hạ Tầng và Đô Thị</h3>
+        <div class="room-card-stats">
+          <span><strong>677</strong> tệp</span>
+          <span><strong>75</strong> thư mục</span>
+          <span><strong>3.1 GB</strong></span>
+        </div>
+      </div>
+      <span class="room-card-arrow">→</span>
+    </a>
+    <a class="room-card" href="#room-1">
+      <div class="room-card-icon"><img src="logo-xuan-hoa.png" alt="" /></div>
+      <div class="room-card-body">
+        <h3>2. Phòng Văn Hoá - Xã Hội</h3>
+        <div class="room-card-stats">
+          <span><strong>2,398</strong> tệp</span>
+          <span><strong>386</strong> thư mục</span>
+          <span><strong>2.1 GB</strong></span>
+        </div>
+      </div>
+      <span class="room-card-arrow">→</span>
+    </a></div>
+      <div class="panel"><h3>Phân bố định dạng tệp (toàn hệ thống)</h3>
+    <div class="bar-row">
+      <div class="bar-label">.pdf</div>
+      <div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#e81820"></div></div>
+      <div class="bar-val">1,919 <span>(62.4%)</span></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">.docx</div>
+      <div class="bar-track"><div class="bar-fill" style="width:33.8%;background:#0848a0"></div></div>
+      <div class="bar-val">649 <span>(21.1%)</span></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">.doc</div>
+      <div class="bar-track"><div class="bar-fill" style="width:15.8%;background:#0848a0"></div></div>
+      <div class="bar-val">304 <span>(9.9%)</span></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">.jpg</div>
+      <div class="bar-track"><div class="bar-fill" style="width:3.5%;background:#6b4ea3"></div></div>
+      <div class="bar-val">68 <span>(2.2%)</span></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">.xlsx</div>
+      <div class="bar-track"><div class="bar-fill" style="width:3.4%;background:#1a7a4c"></div></div>
+      <div class="bar-val">65 <span>(2.1%)</span></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">.xls</div>
+      <div class="bar-track"><div class="bar-fill" style="width:1.3%;background:#1a7a4c"></div></div>
+      <div class="bar-val">25 <span>(0.8%)</span></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">.png</div>
+      <div class="bar-track"><div class="bar-fill" style="width:1.3%;background:#6b4ea3"></div></div>
+      <div class="bar-val">25 <span>(0.8%)</span></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">.pptx</div>
+      <div class="bar-track"><div class="bar-fill" style="width:0.5%;background:#c45c1a"></div></div>
+      <div class="bar-val">9 <span>(0.3%)</span></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">.lnk</div>
+      <div class="bar-track"><div class="bar-fill" style="width:0.3%;background:#7f8c8d"></div></div>
+      <div class="bar-val">5 <span>(0.2%)</span></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">.zip</div>
+      <div class="bar-track"><div class="bar-fill" style="width:0.2%;background:#c9a227"></div></div>
+      <div class="bar-val">3 <span>(0.1%)</span></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">.tmp</div>
+      <div class="bar-track"><div class="bar-fill" style="width:0.1%;background:#95a5a6"></div></div>
+      <div class="bar-val">2 <span>(0.1%)</span></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">.rtf</div>
+      <div class="bar-track"><div class="bar-fill" style="width:0.1%;background:#5a6a7a"></div></div>
+      <div class="bar-val">1 <span>(0.0%)</span></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">.ai</div>
+      <div class="bar-track"><div class="bar-fill" style="width:0.1%;background:#5a6a7a"></div></div>
+      <div class="bar-val">1 <span>(0.0%)</span></div>
+    </div></div>
+      <div class="section-title"><h2>Chi tiết từng phòng</h2><p>Số tệp · thư mục · dung lượng theo tổ/chuyên mục</p></div>
+      
+    <section class="room-section" id="room-0">
+      <header class="room-header">
+        <div class="room-header-icon"><img src="logo-xuan-hoa.png" alt="" /></div>
+        <div>
+          <p class="eyebrow">Phòng ban</p>
+          <h2>1. Phòng Kinh Tế - Hạ Tầng và Đô Thị</h2>
+          <p class="room-summary">677 tệp · 75 thư mục · 3.1 GB</p>
+        </div>
+      </header>
+      <div class="type-row"><span class="type-badge" style="--c:#e81820"><span class="dot"></span>.pdf <strong>623</strong></span><span class="type-badge" style="--c:#1a7a4c"><span class="dot"></span>.xlsx <strong>23</strong></span><span class="type-badge" style="--c:#0848a0"><span class="dot"></span>.docx <strong>20</strong></span><span class="type-badge" style="--c:#c45c1a"><span class="dot"></span>.pptx <strong>8</strong></span><span class="type-badge" style="--c:#1a7a4c"><span class="dot"></span>.xls <strong>1</strong></span><span class="type-badge" style="--c:#0848a0"><span class="dot"></span>.doc <strong>1</strong></span><span class="type-badge" style="--c:#6b4ea3"><span class="dot"></span>.jpg <strong>1</strong></span></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Tổ / chuyên mục</th><th>Tệp</th><th>Thư mục</th><th>Dung lượng</th><th>Định dạng</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="col-name"><span class="folder-ico"></span>1. Tổ Kỹ thuật</td>
+          <td class="num">367</td>
+          <td class="num">18</td>
+          <td class="num">2.0 GB</td>
+          <td class="types"><span class="type-badge" style="--c:#e81820"><span class="dot"></span>.pdf <strong>331</strong></span><span class="type-badge" style="--c:#1a7a4c"><span class="dot"></span>.xlsx <strong>17</strong></span><span class="type-badge" style="--c:#0848a0"><span class="dot"></span>.docx <strong>10</strong></span><span class="type-badge" style="--c:#c45c1a"><span class="dot"></span>.pptx <strong>7</strong></span></td>
+        </tr>
+        <tr>
+          <td class="col-name"><span class="folder-ico"></span>2. Tổ Tài chính - Ngân sách - Kinh tế</td>
+          <td class="num">282</td>
+          <td class="num">48</td>
+          <td class="num">1.0 GB</td>
+          <td class="types"><span class="type-badge" style="--c:#e81820"><span class="dot"></span>.pdf <strong>267</strong></span><span class="type-badge" style="--c:#0848a0"><span class="dot"></span>.docx <strong>7</strong></span><span class="type-badge" style="--c:#1a7a4c"><span class="dot"></span>.xlsx <strong>6</strong></span><span class="type-badge" style="--c:#6b4ea3"><span class="dot"></span>.jpg <strong>1</strong></span></td>
+        </tr>
+        <tr>
+          <td class="col-name"><span class="folder-ico"></span>3. Tổ Địa chính</td>
+          <td class="num">14</td>
+          <td class="num">3</td>
+          <td class="num">52.2 MB</td>
+          <td class="types"><span class="type-badge" style="--c:#e81820"><span class="dot"></span>.pdf <strong>13</strong></span><span class="type-badge" style="--c:#0848a0"><span class="dot"></span>.docx <strong>1</strong></span></td>
+        </tr>
+        <tr>
+          <td class="col-name"><span class="folder-ico"></span>4. Tổ Trật tự đô thị</td>
+          <td class="num">12</td>
+          <td class="num">2</td>
+          <td class="num">30.0 MB</td>
+          <td class="types"><span class="type-badge" style="--c:#e81820"><span class="dot"></span>.pdf <strong>10</strong></span><span class="type-badge" style="--c:#0848a0"><span class="dot"></span>.docx <strong>2</strong></span></td>
+        </tr></tbody>
+        </table>
+      </div>
+      <div class="loose-box"><h4>Tệp đặt trực tiếp trong phòng (2)</h4><ul class="loose-list"><li><span class="fname">CV-2509-2026_hướng dẫn ký hợp đồng NĐ173 copy.pdf</span><span class="fmeta">.pdf · 1.9 MB</span></li><li><span class="fname">CV-2509-2026_hướng dẫn ký hợp đồng NĐ173.pdf</span><span class="fmeta">.pdf · 1.9 MB</span></li></ul></div>
+    </section>
+    <section class="room-section" id="room-1">
+      <header class="room-header">
+        <div class="room-header-icon"><img src="logo-xuan-hoa.png" alt="" /></div>
+        <div>
+          <p class="eyebrow">Phòng ban</p>
+          <h2>2. Phòng Văn Hoá - Xã Hội</h2>
+          <p class="room-summary">2,398 tệp · 386 thư mục · 2.1 GB</p>
+        </div>
+      </header>
+      <div class="type-row"><span class="type-badge" style="--c:#e81820"><span class="dot"></span>.pdf <strong>1295</strong></span><span class="type-badge" style="--c:#0848a0"><span class="dot"></span>.docx <strong>629</strong></span><span class="type-badge" style="--c:#0848a0"><span class="dot"></span>.doc <strong>303</strong></span><span class="type-badge" style="--c:#6b4ea3"><span class="dot"></span>.jpg <strong>67</strong></span><span class="type-badge" style="--c:#1a7a4c"><span class="dot"></span>.xlsx <strong>42</strong></span><span class="type-badge" style="--c:#6b4ea3"><span class="dot"></span>.png <strong>25</strong></span><span class="type-badge" style="--c:#1a7a4c"><span class="dot"></span>.xls <strong>24</strong></span><span class="type-badge" style="--c:#7f8c8d"><span class="dot"></span>.lnk <strong>5</strong></span><span class="type-badge" style="--c:#c9a227"><span class="dot"></span>.zip <strong>3</strong></span><span class="type-badge" style="--c:#95a5a6"><span class="dot"></span>.tmp <strong>2</strong></span><span class="type-badge" style="--c:#c45c1a"><span class="dot"></span>.pptx <strong>1</strong></span><span class="type-badge" style="--c:#5a6a7a"><span class="dot"></span>.rtf <strong>1</strong></span><span class="type-badge" style="--c:#5a6a7a"><span class="dot"></span>.ai <strong>1</strong></span></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Tổ / chuyên mục</th><th>Tệp</th><th>Thư mục</th><th>Dung lượng</th><th>Định dạng</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="col-name"><span class="folder-ico"></span>Lao động - Việc làm</td>
+          <td class="num">856</td>
+          <td class="num">174</td>
+          <td class="num">542.1 MB</td>
+          <td class="types"><span class="type-badge" style="--c:#e81820"><span class="dot"></span>.pdf <strong>430</strong></span><span class="type-badge" style="--c:#0848a0"><span class="dot"></span>.doc <strong>187</strong></span><span class="type-badge" style="--c:#0848a0"><span class="dot"></span>.docx <strong>149</strong></span><span class="type-badge" style="--c:#6b4ea3"><span class="dot"></span>.jpg <strong>38</strong></span></td>
+        </tr>
+        <tr>
+          <td class="col-name"><span class="folder-ico"></span>XÉT DUYỆT NGHỈ PHÉP - ĐI NƯỚC NGOÀI</td>
+          <td class="num">564</td>
+          <td class="num">122</td>
+          <td class="num">107.3 MB</td>
+          <td class="types"><span class="type-badge" style="--c:#0848a0"><span class="dot"></span>.docx <strong>368</strong></span><span class="type-badge" style="--c:#e81820"><span class="dot"></span>.pdf <strong>154</strong></span><span class="type-badge" style="--c:#0848a0"><span class="dot"></span>.doc <strong>32</strong></span><span class="type-badge" style="--c:#1a7a4c"><span class="dot"></span>.xls <strong>4</strong></span></td>
+        </tr>
+        <tr>
+          <td class="col-name"><span class="folder-ico"></span>Dân Số - Dược - YHCT</td>
+          <td class="num">238</td>
+          <td class="num">47</td>
+          <td class="num">99.2 MB</td>
+          <td class="types"><span class="type-badge" style="--c:#0848a0"><span class="dot"></span>.doc <strong>68</strong></span><span class="type-badge" style="--c:#0848a0"><span class="dot"></span>.docx <strong>57</strong></span><span class="type-badge" style="--c:#e81820"><span class="dot"></span>.pdf <strong>56</strong></span><span class="type-badge" style="--c:#6b4ea3"><span class="dot"></span>.jpg <strong>27</strong></span></td>
+        </tr>
+        <tr>
+          <td class="col-name"><span class="folder-ico"></span>Quản lý an toàn thực phẩm</td>
+          <td class="num">118</td>
+          <td class="num">1</td>
+          <td class="num">126.1 MB</td>
+          <td class="types"><span class="type-badge" style="--c:#e81820"><span class="dot"></span>.pdf <strong>101</strong></span><span class="type-badge" style="--c:#0848a0"><span class="dot"></span>.docx <strong>12</strong></span><span class="type-badge" style="--c:#0848a0"><span class="dot"></span>.doc <strong>4</strong></span><span class="type-badge" style="--c:#1a7a4c"><span class="dot"></span>.xlsx <strong>1</strong></span></td>
+        </tr>
+        <tr>
+          <td class="col-name"><span class="folder-ico"></span>Tổ chức bộ máy, nhân sự, chế độ  2025</td>
+          <td class="num">103</td>
+          <td class="num">0</td>
+          <td class="num">153.5 MB</td>
+          <td class="types"><span class="type-badge" style="--c:#e81820"><span class="dot"></span>.pdf <strong>103</strong></span></td>
+        </tr>
+        <tr>
+          <td class="col-name"><span class="folder-ico"></span>Người có công</td>
+          <td class="num">96</td>
+          <td class="num">0</td>
+          <td class="num">82.0 MB</td>
+          <td class="types"><span class="type-badge" style="--c:#e81820"><span class="dot"></span>.pdf <strong>76</strong></span><span class="type-badge" style="--c:#0848a0"><span class="dot"></span>.docx <strong>10</strong></span><span class="type-badge" style="--c:#1a7a4c"><span class="dot"></span>.xls <strong>5</strong></span><span class="type-badge" style="--c:#1a7a4c"><span class="dot"></span>.xlsx <strong>3</strong></span></td>
+        </tr>
+        <tr>
+          <td class="col-name"><span class="folder-ico"></span>Giáo dục - đào tạo</td>
+          <td class="num">74</td>
+          <td class="num">16</td>
+          <td class="num">227.5 MB</td>
+          <td class="types"><span class="type-badge" style="--c:#e81820"><span class="dot"></span>.pdf <strong>70</strong></span><span class="type-badge" style="--c:#0848a0"><span class="dot"></span>.docx <strong>4</strong></span></td>
+        </tr>
+        <tr>
+          <td class="col-name"><span class="folder-ico"></span>Bảo hiểm y tế</td>
+          <td class="num">53</td>
+          <td class="num">1</td>
+          <td class="num">58.5 MB</td>
+          <td class="types"><span class="type-badge" style="--c:#e81820"><span class="dot"></span>.pdf <strong>53</strong></span></td>
+        </tr>
+        <tr>
+          <td class="col-name"><span class="folder-ico"></span>Du lich</td>
+          <td class="num">45</td>
+          <td class="num">0</td>
+          <td class="num">91.2 MB</td>
+          <td class="types"><span class="type-badge" style="--c:#e81820"><span class="dot"></span>.pdf <strong>35</strong></span><span class="type-badge" style="--c:#0848a0"><span class="dot"></span>.docx <strong>9</strong></span><span class="type-badge" style="--c:#0848a0"><span class="dot"></span>.doc <strong>1</strong></span></td>
+        </tr>
+        <tr>
+          <td class="col-name"><span class="folder-ico"></span>Tổ chức bộ máy, chế độ chính sách nhân sự năm 2026</td>
+          <td class="num">44</td>
+          <td class="num">0</td>
+          <td class="num">100.7 MB</td>
+          <td class="types"><span class="type-badge" style="--c:#e81820"><span class="dot"></span>.pdf <strong>44</strong></span></td>
+        </tr>
+        <tr>
+          <td class="col-name"><span class="folder-ico"></span>Di tích - Di sản</td>
+          <td class="num">39</td>
+          <td class="num">0</td>
+          <td class="num">54.1 MB</td>
+          <td class="types"><span class="type-badge" style="--c:#e81820"><span class="dot"></span>.pdf <strong>22</strong></span><span class="type-badge" style="--c:#0848a0"><span class="dot"></span>.docx <strong>12</strong></span><span class="type-badge" style="--c:#0848a0"><span class="dot"></span>.doc <strong>4</strong></span><span class="type-badge" style="--c:#1a7a4c"><span class="dot"></span>.xlsx <strong>1</strong></span></td>
+        </tr>
+        <tr>
+          <td class="col-name"><span class="folder-ico"></span>Khoa học công nghệ</td>
+          <td class="num">32</td>
+          <td class="num">0</td>
+          <td class="num">87.0 MB</td>
+          <td class="types"><span class="type-badge" style="--c:#e81820"><span class="dot"></span>.pdf <strong>32</strong></span></td>
+        </tr>
+        <tr>
+          <td class="col-name"><span class="folder-ico"></span>Văn hóa</td>
+          <td class="num">32</td>
+          <td class="num">0</td>
+          <td class="num">120.6 MB</td>
+          <td class="types"><span class="type-badge" style="--c:#e81820"><span class="dot"></span>.pdf <strong>31</strong></span><span class="type-badge" style="--c:#0848a0"><span class="dot"></span>.docx <strong>1</strong></span></td>
+        </tr>
+        <tr>
+          <td class="col-name"><span class="folder-ico"></span>Văn thư - Lưu trữ</td>
+          <td class="num">17</td>
+          <td class="num">0</td>
+          <td class="num">35.7 MB</td>
+          <td class="types"><span class="type-badge" style="--c:#e81820"><span class="dot"></span>.pdf <strong>17</strong></span></td>
+        </tr>
+        <tr>
+          <td class="col-name"><span class="folder-ico"></span>Thi đua - khen thưởng</td>
+          <td class="num">14</td>
+          <td class="num">0</td>
+          <td class="num">49.5 MB</td>
+          <td class="types"><span class="type-badge" style="--c:#e81820"><span class="dot"></span>.pdf <strong>14</strong></span></td>
+        </tr>
+        <tr>
+          <td class="col-name"><span class="folder-ico"></span>Dân tộc và Tôn Giáo</td>
+          <td class="num">13</td>
+          <td class="num">0</td>
+          <td class="num">16.5 MB</td>
+          <td class="types"><span class="type-badge" style="--c:#e81820"><span class="dot"></span>.pdf <strong>11</strong></span><span class="type-badge" style="--c:#1a7a4c"><span class="dot"></span>.xlsx <strong>1</strong></span><span class="type-badge" style="--c:#5a6a7a"><span class="dot"></span>.rtf <strong>1</strong></span></td>
+        </tr>
+        <tr>
+          <td class="col-name"><span class="folder-ico"></span>Dân só - dươc</td>
+          <td class="num">12</td>
+          <td class="num">0</td>
+          <td class="num">18.8 MB</td>
+          <td class="types"><span class="type-badge" style="--c:#e81820"><span class="dot"></span>.pdf <strong>8</strong></span><span class="type-badge" style="--c:#6b4ea3"><span class="dot"></span>.jpg <strong>2</strong></span><span class="type-badge" style="--c:#0848a0"><span class="dot"></span>.doc <strong>1</strong></span><span class="type-badge" style="--c:#0848a0"><span class="dot"></span>.docx <strong>1</strong></span></td>
+        </tr>
+        <tr>
+          <td class="col-name"><span class="folder-ico"></span>Thực hiện Dân chủ cơ sở trong QC HCNN</td>
+          <td class="num">8</td>
+          <td class="num">0</td>
+          <td class="num">37.8 MB</td>
+          <td class="types"><span class="type-badge" style="--c:#e81820"><span class="dot"></span>.pdf <strong>8</strong></span></td>
+        </tr>
+        <tr>
+          <td class="col-name"><span class="folder-ico"></span>y học dự phòng và ctvskcđ</td>
+          <td class="num">6</td>
+          <td class="num">0</td>
+          <td class="num">66.7 MB</td>
+          <td class="types"><span class="type-badge" style="--c:#e81820"><span class="dot"></span>.pdf <strong>5</strong></span><span class="type-badge" style="--c:#0848a0"><span class="dot"></span>.doc <strong>1</strong></span></td>
+        </tr>
+        <tr>
+          <td class="col-name"><span class="folder-ico"></span>Đào tạo - Bồi dưỡng</td>
+          <td class="num">6</td>
+          <td class="num">0</td>
+          <td class="num">13.0 MB</td>
+          <td class="types"><span class="type-badge" style="--c:#e81820"><span class="dot"></span>.pdf <strong>6</strong></span></td>
+        </tr>
+        <tr>
+          <td class="col-name"><span class="folder-ico"></span>Bảo trợ xã hội</td>
+          <td class="num">5</td>
+          <td class="num">0</td>
+          <td class="num">6.6 MB</td>
+          <td class="types"><span class="type-badge" style="--c:#e81820"><span class="dot"></span>.pdf <strong>4</strong></span><span class="type-badge" style="--c:#0848a0"><span class="dot"></span>.doc <strong>1</strong></span></td>
+        </tr>
+        <tr>
+          <td class="col-name"><span class="folder-ico"></span>Quỹ Hội</td>
+          <td class="num">5</td>
+          <td class="num">0</td>
+          <td class="num">4.2 MB</td>
+          <td class="types"><span class="type-badge" style="--c:#e81820"><span class="dot"></span>.pdf <strong>5</strong></span></td>
+        </tr>
+        <tr>
+          <td class="col-name"><span class="folder-ico"></span>Sáng kiến</td>
+          <td class="num">4</td>
+          <td class="num">0</td>
+          <td class="num">2.8 MB</td>
+          <td class="types"><span class="type-badge" style="--c:#e81820"><span class="dot"></span>.pdf <strong>4</strong></span></td>
+        </tr>
+        <tr>
+          <td class="col-name"><span class="folder-ico"></span>ANCS</td>
+          <td class="num">3</td>
+          <td class="num">0</td>
+          <td class="num">19.1 MB</td>
+          <td class="types"><span class="type-badge" style="--c:#e81820"><span class="dot"></span>.pdf <strong>3</strong></span></td>
+        </tr>
+        <tr>
+          <td class="col-name"><span class="folder-ico"></span>Cải cách hành chính</td>
+          <td class="num">3</td>
+          <td class="num">0</td>
+          <td class="num">4.0 MB</td>
+          <td class="types"><span class="type-badge" style="--c:#e81820"><span class="dot"></span>.pdf <strong>3</strong></span></td>
+        </tr></tbody>
+        </table>
+      </div>
+      <div class="loose-box"><h4>Tệp đặt trực tiếp trong phòng (8)</h4><ul class="loose-list"><li><span class="fname">10_CHUYÊN ĐỀ 7. XÂY DỰNG BÁO CÁO ĐỊNH KỲ VÀ CÔNG TÁC THI ĐUA KHEN THƯỞNG.docx</span><span class="fmeta">.docx · 33.3 KB</span></li><li><span class="fname">1_BÌA TÀI LIỆU.doc</span><span class="fmeta">.doc · 85.0 KB</span></li><li><span class="fname">2_DANH MỤC TÀI LIỆU TẬP HUẤN.docx</span><span class="fmeta">.docx · 17.7 KB</span></li><li><span class="fname">4_CHUYÊN ĐỀ 1. TỔNG QUAN VỀ DU LỊCH.docx</span><span class="fmeta">.docx · 57.7 KB</span></li><li><span class="fname">5_CHUYÊN ĐỀ 2. QLNN VỀ LỮ HÀNH.docx</span><span class="fmeta">.docx · 92.4 KB</span></li><li><span class="fname">6_CHUYÊN ĐỀ 3. QLNN VỀ CƠ SỞ LƯU TRÚ.docx</span><span class="fmeta">.docx · 50.5 KB</span></li><li><span class="fname">7_CHUYÊN ĐỀ 4. PHÁT TRIỂN SẢN PHẨM DU LỊCH VÀ QUẢNG BÁ DU LỊCH CỘNG ĐỒNG.docx</span><span class="fmeta">.docx · 28.1 KB</span></li><li><span class="fname">9_CHUYÊN ĐỀ 6. HOẠT ĐỘNG TỔ CHỨC SỰ KIỆN.doc</span><span class="fmeta">.doc · 112.5 KB</span></li></ul></div>
+    </section>
+    </div>
+
+    <div class="view" id="view-users">
+      <header class="hero">
+        <div class="hero-top">
+          <div class="brand-row">
+            <img class="brand-logo" src="logo-xuan-hoa.png" alt="Logo Phường Xuân Hòa" />
+            <div class="brand-text">
+              <h1>Người dùng hệ thống</h1>
+              <p>Danh sách tài khoản cán bộ theo phòng ban</p>
+            </div>
+          </div>
+          <div class="meta-pills">
+            <span class="pill neutral">45 tài khoản</span>
+            <span class="pill">Dữ liệu ngày: 13/07/2026</span>
+          </div>
+        </div>
+        <div class="stats">
+          <div class="stat"><div class="label">Tổng người dùng</div><div class="value">45</div><div class="hint">Đã cấp tài khoản</div></div>
+          <div class="stat"><div class="label">Kinh tế, hạ tầng &amp; đô thị</div><div class="value">26</div><div class="hint">Phòng ban</div></div>
+          <div class="stat"><div class="label">Văn hóa - Xã hội</div><div class="value">19</div><div class="hint">Phòng ban</div></div>
+          <div class="stat"><div class="label">Chuyên viên</div><div class="value">36</div><div class="hint">Trong tổng số người dùng</div></div>
+        </div>
+      </header>
+      <div class="section-title"><h2>Theo phòng ban</h2><p>Phân bổ tài khoản và tổ chuyên môn</p></div>
+      <div class="dash-grid">
+    <div class="dept-card" style="--accent:#0848a0">
+      <div class="dept-card-top">
+        <img src="logo-xuan-hoa.png" alt="" />
+        <div><p class="eyebrow">Phòng ban</p><h3>Phòng Kinh tế, hạ tầng &amp; đô thị</h3></div>
+      </div>
+      <div class="dept-metrics">
+        <div><strong>26</strong><span>tài khoản</span></div>
+        <div><strong>3</strong><span>lãnh đạo</span></div>
+        <div><strong>20</strong><span>chuyên viên</span></div>
+      </div>
+      <div class="chip-row"><span class="chip">Tổ Trật tự đô thị <strong>7</strong></span><span class="chip">Tổ Kỹ thuật <strong>6</strong></span><span class="chip">Tổ Địa chính <strong>5</strong></span><span class="chip">Tổ Tài chính - Ngân sách - Kinh tế <strong>4</strong></span><span class="chip">Lãnh đạo phòng <strong>3</strong></span><span class="chip">Văn phòng UBND <strong>1</strong></span></div>
+    </div>
+    <div class="dept-card" style="--accent:#e81820">
+      <div class="dept-card-top">
+        <img src="logo-xuan-hoa.png" alt="" />
+        <div><p class="eyebrow">Phòng ban</p><h3>Phòng Văn hóa - Xã hội</h3></div>
+      </div>
+      <div class="dept-metrics">
+        <div><strong>19</strong><span>tài khoản</span></div>
+        <div><strong>3</strong><span>lãnh đạo</span></div>
+        <div><strong>16</strong><span>chuyên viên</span></div>
+      </div>
+      <div class="chip-row"><span class="chip">Phòng Văn hóa - Xã hội <strong>16</strong></span><span class="chip">Lãnh đạo phòng <strong>3</strong></span></div>
+    </div></div>
+      <div class="split">
+        <div class="panel"><h3>Phân bố theo chức vụ</h3>
+    <div class="bar-row role">
+      <div class="bar-label wide">Trưởng phòng</div>
+      <div class="bar-track"><div class="bar-fill" style="width:5.6%;background:var(--blue)"></div></div>
+      <div class="bar-val">2 <span>(4%)</span></div>
+    </div>
+    <div class="bar-row role">
+      <div class="bar-label wide">Phó Trưởng phòng</div>
+      <div class="bar-track"><div class="bar-fill" style="width:11.1%;background:var(--blue)"></div></div>
+      <div class="bar-val">4 <span>(9%)</span></div>
+    </div>
+    <div class="bar-row role">
+      <div class="bar-label wide">Tổ trưởng</div>
+      <div class="bar-track"><div class="bar-fill" style="width:8.3%;background:var(--blue)"></div></div>
+      <div class="bar-val">3 <span>(7%)</span></div>
+    </div>
+    <div class="bar-row role">
+      <div class="bar-label wide">Chuyên viên</div>
+      <div class="bar-track"><div class="bar-fill" style="width:100.0%;background:var(--blue)"></div></div>
+      <div class="bar-val">36 <span>(80%)</span></div>
+    </div></div>
+        <div class="panel">
+          <h3>Tóm tắt nhanh</h3>
+          <div class="dept-metrics" style="grid-template-columns:1fr 1fr; margin-bottom:0;">
+            <div><strong>6</strong><span>Lãnh đạo phòng</span></div>
+            <div><strong>3</strong><span>Tổ trưởng</span></div>
+            <div><strong>36</strong><span>Chuyên viên</span></div>
+            <div><strong>45</strong><span>Tổng tài khoản</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="section-title"><h2>Danh sách tài khoản</h2><p>Tìm theo tên, tài khoản, phòng ban hoặc tổ</p></div>
+      <div class="panel">
+        <div class="filters">
+          <input id="user-search" type="search" placeholder="Tìm tên, tài khoản, SĐT, email..." />
+          <select id="user-dept">
+            <option value="">Tất cả phòng ban</option>
+            <option value="kt">Kinh tế, hạ tầng &amp; đô thị</option>
+            <option value="vhxh">Văn hóa - Xã hội</option>
+          </select>
+          <select id="user-role">
+            <option value="">Tất cả chức vụ</option>
+            <option value="Trưởng phòng">Trưởng phòng</option><option value="Phó Trưởng phòng">Phó Trưởng phòng</option><option value="Tổ trưởng">Tổ trưởng</option><option value="Chuyên viên">Chuyên viên</option>
+          </select>
+          <span class="result-count" id="user-count">45 người</span>
+        </div>
+        <div class="table-wrap">
+          <table class="user-table">
+            <thead><tr><th>#</th><th>Họ và tên</th><th>Phòng / Tổ</th><th>Tên đăng nhập</th><th>Liên hệ</th></tr></thead>
+            <tbody id="user-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="view" id="view-scope">
+      <header class="hero">
+        <div class="hero-top">
+          <div class="brand-row">
+            <img class="brand-logo" src="logo-xuan-hoa.png" alt="Logo Phường Xuân Hòa" />
+            <div class="brand-text">
+              <h1>Phạm vi &amp; tính năng</h1>
+              <p>Danh sách tính năng phân bổ theo giai đoạn · Phù Đổng Expo AI Chat</p>
+            </div>
+          </div>
+          <div class="meta-pills">
+            <span class="pill neutral">53 hạng mục</span>
+            <span class="pill">Dữ liệu ngày: 13/07/2026</span>
+          </div>
+        </div>
+        <div class="stats" id="scope-stats">
+          <div class="stat"><div class="label">Tổng hạng mục</div><div class="value" id="stat-total">53</div><div class="hint">Trong phạm vi dự án</div></div>
+          <div class="stat"><div class="label">Đã hoàn thành</div><div class="value" id="stat-done">35</div><div class="hint" id="stat-pct">66% tiến độ</div></div>
+          <div class="stat"><div class="label">Đang triển khai</div><div class="value" id="stat-progress">8</div><div class="hint">Đang thực hiện</div></div>
+          <div class="stat"><div class="label">Chưa triển khai</div><div class="value" id="stat-todo">10</div><div class="hint">Còn lại trong backlog</div></div>
+        </div>
+      </header>
+
+      <div class="panel" style="margin-bottom:1.25rem;">
+        <h3>Tiến độ tổng thể</h3>
+        <div class="overall-ring">
+          <div class="ring" id="overall-ring" style="--p:66">
+            <div class="ring-inner" id="overall-pct">66%</div>
+          </div>
+          <div class="overall-copy">
+            <h3 id="overall-title">35/53 hạng mục đã hoàn thành</h3>
+            <p id="overall-sub">8 đang triển khai · 10 chưa triển khai · 4 module chính</p>
+            <div class="mod-stats" style="margin-top:0.75rem;">
+              <span class="st done" id="chip-done">35 xong</span>
+              <span class="st progress" id="chip-progress">8 đang làm</span>
+              <span class="st todo" id="chip-todo">10 chưa làm</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" style="margin-bottom:1.25rem;">
+        <h3>Mốc bàn giao</h3>
+
+        <div class="chart-wrap">
+          <canvas id="milestone-chart" aria-label="Biểu đồ mốc bàn giao"></canvas>
+        </div>
+        <div class="chart-legend-inline">
+          <span><i style="background:#1a7a4c"></i>Đã hoàn thành</span>
+          <span><i style="background:#c45c1a"></i>Đang triển khai</span>
+          <span><i style="background:#e81820"></i>Chưa triển khai</span>
+          <span><i class="line" style="background:#0848a0"></i>% hoàn thành lũy kế</span>
+        </div>
+      </div>
+
+      <div class="section-title"><h2>Theo module</h2><p>Nhấn vào thẻ để xem chi tiết hạng mục</p></div>
+      <div class="mod-grid" id="mod-grid">
+    <a class="mod-card" href="#mod-Phân quyền" style="--accent:#0848a0">
+      <div class="mod-card-top"><span class="mod-dot"></span><h3>Phân quyền</h3></div>
+      <div class="mod-progress">
+        <div class="mod-progress-bar"><span style="width:56%;background:#0848a0"></span></div>
+        <div class="mod-progress-label"><strong>56%</strong> hoàn thành · 9 hạng mục</div>
+      </div>
+      <div class="mod-stats">
+        <span class="st done">5 xong</span>
+        <span class="st progress">0 đang làm</span>
+        <span class="st todo">4 chưa làm</span>
+      </div>
+    </a>
+    <a class="mod-card" href="#mod-Quản lý tài liệu" style="--accent:#1a7a4c">
+      <div class="mod-card-top"><span class="mod-dot"></span><h3>Quản lý tài liệu</h3></div>
+      <div class="mod-progress">
+        <div class="mod-progress-bar"><span style="width:83%;background:#1a7a4c"></span></div>
+        <div class="mod-progress-label"><strong>83%</strong> hoàn thành · 18 hạng mục</div>
+      </div>
+      <div class="mod-stats">
+        <span class="st done">15 xong</span>
+        <span class="st progress">0 đang làm</span>
+        <span class="st todo">3 chưa làm</span>
+      </div>
+    </a>
+    <a class="mod-card" href="#mod-Trợ lý AI" style="--accent:#6b4ea3">
+      <div class="mod-card-top"><span class="mod-dot"></span><h3>Trợ lý AI</h3></div>
+      <div class="mod-progress">
+        <div class="mod-progress-bar"><span style="width:83%;background:#6b4ea3"></span></div>
+        <div class="mod-progress-label"><strong>83%</strong> hoàn thành · 18 hạng mục</div>
+      </div>
+      <div class="mod-stats">
+        <span class="st done">15 xong</span>
+        <span class="st progress">0 đang làm</span>
+        <span class="st todo">3 chưa làm</span>
+      </div>
+    </a>
+    <a class="mod-card" href="#mod-Dashboard" style="--accent:#c45c1a">
+      <div class="mod-card-top"><span class="mod-dot"></span><h3>Dashboard</h3></div>
+      <div class="mod-progress">
+        <div class="mod-progress-bar"><span style="width:0%;background:#c45c1a"></span></div>
+        <div class="mod-progress-label"><strong>0%</strong> hoàn thành · 8 hạng mục</div>
+      </div>
+      <div class="mod-stats">
+        <span class="st done">0 xong</span>
+        <span class="st progress">8 đang làm</span>
+        <span class="st todo">0 chưa làm</span>
+      </div>
+    </a></div>
+
+      <div class="section-title"><h2>Chi tiết tính năng</h2><p>Lọc theo trạng thái / module / mốc bàn giao</p></div>
+      <div class="panel" style="margin-bottom:0.5rem;">
+        <div class="filters">
+          <input id="feat-search" type="search" placeholder="Tìm tính năng, chi tiết..." />
+          <select id="feat-module">
+            <option value="">Tất cả module</option>
+            <option value="Phân quyền">Phân quyền</option><option value="Quản lý tài liệu">Quản lý tài liệu</option><option value="Trợ lý AI">Trợ lý AI</option><option value="Dashboard">Dashboard</option>
+          </select>
+          <select id="feat-status">
+            <option value="">Tất cả trạng thái</option>
+            <option value="done">Đã hoàn thành</option>
+            <option value="progress">Đang triển khai</option>
+            <option value="todo">Chưa triển khai</option>
+          </select>
+          <select id="feat-deadline">
+            <option value="">Tất cả mốc bàn giao</option>
+            <option value="05/07/2026">05/07/2026</option><option value="15/07/2026">15/07/2026</option><option value="20/07/2026">20/07/2026</option><option value="24/07/2026">24/07/2026</option><option value="31/07/2026">31/07/2026</option>
+          </select>
+          <span class="result-count" id="feat-count">53 hạng mục</span>
+        </div>
+      </div>
+      
+    <section class="room-section" id="mod-Phân quyền" style="border-top: 4px solid #0848a0">
+      <header class="room-header">
+        <div class="room-header-icon" style="background:#0848a018"><span class="mod-dot" style="background:#0848a0;width:18px;height:18px;border-radius:50%;display:block"></span></div>
+        <div>
+          <p class="eyebrow">Module</p>
+          <h2>Phân quyền</h2>
+          <p class="room-summary">9 hạng mục · 5 đã hoàn thành</p>
+        </div>
+      </header>
+      
+        <div class="feat-group">
+          <h4>Phân quyền người dùng theo cấp bậc và chức vụ</h4>
+          <div class="table-wrap">
+            <table class="feat-table">
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <tbody>
+            <tr data-status="done" data-module="Phân quyền" data-deadline="05/07/2026">
+              <td class="num mono-stt">1</td>
+              <td>
+                <div class="feat-sub">1. Quản lý danh sách chức danh/vai trò.</div>
+                <div class="feat-detail">Cấu hình phân quyền truy cập, xem và thao tác trên hệ thống cho các vai trò cụ thể: - Admin: Quản lý tài khoản - Bí thư: Xem toàn bộ tài liệu - Phó bí thư: Xem toàn bộ tài liệu - Chủ tịch: Xem toàn bộ tài liệu - Phó chủ tịch: Xem toàn bộ tài liệu - Trưởng phòng / Chánh văn phòng: Xem toàn bộ tài liệu của phòng - Chuyên viên: Xem tài liệu của phòng trong khuông khổ được quy định</div>
+              </td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
+              <td class="num">05/07/2026</td>
+            </tr>
+            <tr data-status="done" data-module="Phân quyền" data-deadline="05/07/2026">
+              <td class="num mono-stt">1.1</td>
+              <td>
+                <div class="feat-sub">2. Giao diện gán vai trò và phòng ban cho tài khoản.</div>
+                <div class="feat-detail">Cung cấp giao diện để quản trị viên thiết lập vai trò và chỉ định phòng ban trực thuộc cho từng tài khoản.</div>
+              </td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
+              <td class="num">05/07/2026</td>
+            </tr>
+            <tr data-status="done" data-module="Phân quyền" data-deadline="05/07/2026">
+              <td class="num mono-stt">1.2</td>
+              <td>
+                <div class="feat-sub">3. Logic kiểm soát hiển thị tài liệu theo chức danh.</div>
+                <div class="feat-detail">Thuật toán tự động nhận diện chức danh của người dùng để hiển thị/che giấu tài liệu tương ứng.</div>
+              </td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
+              <td class="num">05/07/2026</td>
+            </tr>
+            <tr data-status="todo" data-module="Phân quyền" data-deadline="31/07/2026">
+              <td class="num mono-stt">1.3</td>
+              <td>
+                <div class="feat-sub">4. Cấu hình phân quyền cho vai trò &quot;AI Owner&quot; chuyên kiểm duyệt dữ liệu AI.</div>
+                <div class="feat-detail">Thiết lập quyền đặc biệt cho &quot;AI Owner&quot; để xem toàn bộ đánh giá trợ lý AI trên hệ thống và có quyền thao tác duyệt/từ chối tri thức AI.</div>
+              </td>
+              <td><span class="status-pill todo">Chưa triển khai</span></td>
+              <td class="num">31/07/2026</td>
+            </tr></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="feat-group">
+          <h4>Xem danh sách tài khoản</h4>
+          <div class="table-wrap">
+            <table class="feat-table">
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <tbody>
+            <tr data-status="done" data-module="Phân quyền" data-deadline="05/07/2026">
+              <td class="num mono-stt">1.4</td>
+              <td>
+                <div class="feat-sub">1. Hiển thị danh sách tài khoản dưới dạng bảng.</div>
+                <div class="feat-detail">Trình bày thông tin các tài khoản (tên, chức vụ, phòng ban, trạng thái) dưới dạng bảng lưới (grid) dễ nhìn.</div>
+              </td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
+              <td class="num">05/07/2026</td>
+            </tr>
+            <tr data-status="todo" data-module="Phân quyền" data-deadline="31/07/2026">
+              <td class="num mono-stt">1.5</td>
+              <td>
+                <div class="feat-sub">2. Logic lọc danh sách tài khoản theo cấp quản lý.</div>
+                <div class="feat-detail">Lọc theo các tiêu chí: - Ngày tạo - Tên bao gồm - Trạng thái tài khoản - Vai trò - Phòng ban - Email</div>
+              </td>
+              <td><span class="status-pill todo">Chưa triển khai</span></td>
+              <td class="num">31/07/2026</td>
+            </tr>
+            <tr data-status="done" data-module="Phân quyền" data-deadline="05/07/2026">
+              <td class="num mono-stt">1.6</td>
+              <td>
+                <div class="feat-sub">3. Thanh tìm kiếm tài khoản.</div>
+                <div class="feat-detail">Người dùng có thể tìm kiếm tài khoản theo tên đăng nhập, tên người dùng</div>
+              </td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
+              <td class="num">05/07/2026</td>
+            </tr>
+            <tr data-status="todo" data-module="Phân quyền" data-deadline="20/07/2026">
+              <td class="num mono-stt">1.7</td>
+              <td>
+                <div class="feat-sub">4. Cắt bỏ yêu cầu điền chức danh, chỉ giữ chức vụ</div>
+                <div class="feat-detail">Loại bỏ yêu cầu bắt buộc điền chức danh cho người dùng</div>
+              </td>
+              <td><span class="status-pill todo">Chưa triển khai</span></td>
+              <td class="num">20/07/2026</td>
+            </tr>
+            <tr data-status="todo" data-module="Phân quyền" data-deadline="20/07/2026">
+              <td class="num mono-stt">1.8</td>
+              <td>
+                <div class="feat-sub">5. Gộp nhân viên và người dùng lại thành 1 module</div>
+                <div class="feat-detail">Tích hợp quy trình tạo tài khoản đồng thười với tạo người dùng, không cần tạo riêng lẻ</div>
+              </td>
+              <td><span class="status-pill todo">Chưa triển khai</span></td>
+              <td class="num">20/07/2026</td>
+            </tr></tbody>
+            </table>
+          </div>
+        </div>
+    </section>
+    <section class="room-section" id="mod-Quản lý tài liệu" style="border-top: 4px solid #1a7a4c">
+      <header class="room-header">
+        <div class="room-header-icon" style="background:#1a7a4c18"><span class="mod-dot" style="background:#1a7a4c;width:18px;height:18px;border-radius:50%;display:block"></span></div>
+        <div>
+          <p class="eyebrow">Module</p>
+          <h2>Quản lý tài liệu</h2>
+          <p class="room-summary">18 hạng mục · 15 đã hoàn thành</p>
+        </div>
+      </header>
+      
+        <div class="feat-group">
+          <h4>Tải lên tài liệu</h4>
+          <div class="table-wrap">
+            <table class="feat-table">
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <tbody>
+            <tr data-status="done" data-module="Quản lý tài liệu" data-deadline="05/07/2026">
+              <td class="num mono-stt">2</td>
+              <td>
+                <div class="feat-sub">1. Giao diện chọn/kéo thả tệp tin</div>
+                <div class="feat-detail">Cho phép người dùng tải các định dạng tài liệu, văn bản lên hệ thống lưu trữ tập trung.</div>
+              </td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
+              <td class="num">05/07/2026</td>
+            </tr>
+            <tr data-status="done" data-module="Quản lý tài liệu" data-deadline="05/07/2026">
+              <td class="num mono-stt">2.1</td>
+              <td>
+                <div class="feat-sub">2. Logic kiểm tra định dạng và dung lượng</div>
+                <div class="feat-detail">Hệ thống tự động chặn các file không đúng định dạng cho phép hoặc vượt quá dung lượng quy định trước khi tải lên.</div>
+              </td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
+              <td class="num">05/07/2026</td>
+            </tr>
+            <tr data-status="done" data-module="Quản lý tài liệu" data-deadline="05/07/2026">
+              <td class="num mono-stt">2.2</td>
+              <td>
+                <div class="feat-sub">3. Logic kiểm tra đặt tên</div>
+                <div class="feat-detail">Hệ thống tự động chặn các file không đúng định dạng cho phép hoặc vượt quá dung lượng quy định trước khi tải lên.</div>
+              </td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
+              <td class="num">05/07/2026</td>
+            </tr>
+            <tr data-status="done" data-module="Quản lý tài liệu" data-deadline="05/07/2026">
+              <td class="num mono-stt">2.3</td>
+              <td>
+                <div class="feat-sub">4. Theo dõi tiến độ tải lên</div>
+                <div class="feat-detail">Có cửa sổ nhỏ ở góc màn hình theo dõi tiến độ tải lên của các tài liệu</div>
+              </td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
+              <td class="num">05/07/2026</td>
+            </tr></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="feat-group">
+          <h4>Theo dõi tiến độ bổ sung tri thức</h4>
+          <div class="table-wrap">
+            <table class="feat-table">
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <tbody>
+            <tr data-status="todo" data-module="Quản lý tài liệu" data-deadline="24/07/2026">
+              <td class="num mono-stt">2.4</td>
+              <td>
+                <div class="feat-sub">1. Xem danh sách các tài liệu đang được AI học</div>
+                <div class="feat-detail">Giao diện liệt kê chi tiết các văn bản, tài liệu đang nằm trong hàng đợi chờ hệ thống xử lý để đưa vào bộ nhớ AI. Bảng bao gồm các trường thông tin: Tên tài liệu, Loại dữ liệu, Người phê duyệt, Thời gian bắt đầu học, Trạng thái (Chờ xử lý, Đang học, Hoàn tất, Lỗi).</div>
+              </td>
+              <td><span class="status-pill todo">Chưa triển khai</span></td>
+              <td class="num">24/07/2026</td>
+            </tr>
+            <tr data-status="done" data-module="Quản lý tài liệu" data-deadline="05/07/2026">
+              <td class="num mono-stt">2.5</td>
+              <td>
+                <div class="feat-sub">2. Hiển thị tiến độ học tập tổng quan và của từng tài liệu</div>
+                <div class="feat-detail">Tiến độ tổng quan: Thanh tiến trình thể hiện tổng khối lượng công việc hiện tại (Ví dụ: Đã học xong 45/100 tài liệu). Tiến độ chi tiết: Hiển thị tỷ lệ % hoàn thành tại từng dòng tài liệu cụ thể. Tích hợp cảnh báo đỏ và nút &quot;Thử lại&quot; nếu tài liệu đó bị lỗi trong quá trình AI phân tích (do tài liệu hỏng, mã hóa...).</div>
+              </td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
+              <td class="num">05/07/2026</td>
+            </tr></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="feat-group">
+          <h4>Tải xuống tài liệu</h4>
+          <div class="table-wrap">
+            <table class="feat-table">
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <tbody>
+            <tr data-status="done" data-module="Quản lý tài liệu" data-deadline="05/07/2026">
+              <td class="num mono-stt">2.6</td>
+              <td>
+                <div class="feat-sub">1. Nút hành động tải tài liệu</div>
+                <div class="feat-detail">Nút cho phép người dùng chọn để lưu tệp tin gốc từ máy chủ lưu trữ về thiết bị cá nhân.</div>
+              </td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
+              <td class="num">05/07/2026</td>
+            </tr></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="feat-group">
+          <h4>Xem tài liệu</h4>
+          <div class="table-wrap">
+            <table class="feat-table">
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <tbody>
+            <tr data-status="done" data-module="Quản lý tài liệu" data-deadline="05/07/2026">
+              <td class="num mono-stt">2.7</td>
+              <td>
+                <div class="feat-sub">1. Tích hợp công cụ xem trước (Document Viewer)</div>
+                <div class="feat-detail">Hỗ trợ xem trước nội dung tài liệu trực tiếp trên trình duyệt mà không cần tải về.</div>
+              </td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
+              <td class="num">05/07/2026</td>
+            </tr>
+            <tr data-status="done" data-module="Quản lý tài liệu" data-deadline="05/07/2026">
+              <td class="num mono-stt">2.8</td>
+              <td>
+                <div class="feat-sub">2. Hỗ trợ phóng to, thu nhỏ, lật trang</div>
+                <div class="feat-detail">Cung cấp các nút công cụ cơ bản (Phóng to/Thu nhỏ, Tiến tới/Lùi trang) để thao tác khi đọc tài liệu trực tuyến.</div>
+              </td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
+              <td class="num">05/07/2026</td>
+            </tr>
+            <tr data-status="done" data-module="Quản lý tài liệu" data-deadline="05/07/2026">
+              <td class="num mono-stt">2.9</td>
+              <td>
+                <div class="feat-sub">3. Xem dữ liệu được trích xuất từ tài liệu</div>
+                <div class="feat-detail">Cho phép người dùng xem được các thông tin mà AI đã trích xuất ra được từ tài liệu nhằm mục đích kiểm tra nội dung</div>
+              </td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
+              <td class="num">05/07/2026</td>
+            </tr>
+            <tr data-status="done" data-module="Quản lý tài liệu" data-deadline="05/07/2026">
+              <td class="num mono-stt">2.10</td>
+              <td>
+                <div class="feat-sub">4. Xem lịch sử tương tác tài liệu</div>
+                <div class="feat-detail">Cho phép người dùng xem được lịch sử tương tác của tài liệu, như được tải lên vào ngày mấy, ai thay đổi tên,...</div>
+              </td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
+              <td class="num">05/07/2026</td>
+            </tr>
+            <tr data-status="done" data-module="Quản lý tài liệu" data-deadline="05/07/2026">
+              <td class="num mono-stt">2.11</td>
+              <td>
+                <div class="feat-sub">5. Xem được ghi chú tài liệu</div>
+                <div class="feat-detail">Cho phép người dùng để lại bình luận, ghi chú trên tài liệu để có thể xem lại</div>
+              </td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
+              <td class="num">05/07/2026</td>
+            </tr>
+            <tr data-status="done" data-module="Quản lý tài liệu" data-deadline="05/07/2026">
+              <td class="num mono-stt">2.12</td>
+              <td>
+                <div class="feat-sub">6. Xem thông tin tổng quan tài liệu/thư mục</div>
+                <div class="feat-detail">Cho phép người dùng xem thông tin tổng quan của tài liệu/thư mục, bao gồm: tên, loại, dung lượng, ngày tạo, ngày cập nhật,...</div>
+              </td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
+              <td class="num">05/07/2026</td>
+            </tr>
+            <tr data-status="done" data-module="Quản lý tài liệu" data-deadline="05/07/2026">
+              <td class="num mono-stt">2.13</td>
+              <td>
+                <div class="feat-sub">3. Hỗ trợ các file excel, docx, microsoft</div>
+                <div class="feat-detail">Hỗ trợ xem được định dạng các file microsoft như: pptx, excel, docx.</div>
+              </td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
+              <td class="num">05/07/2026</td>
+            </tr></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="feat-group">
+          <h4>Phân loại tài liệu</h4>
+          <div class="table-wrap">
+            <table class="feat-table">
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <tbody>
+            <tr data-status="todo" data-module="Quản lý tài liệu" data-deadline="24/07/2026">
+              <td class="num mono-stt">2.14</td>
+              <td>
+                <div class="feat-sub">1. Hiển thị cửa sổ yêu cầu phân loại (Popup)</div>
+                <div class="feat-detail">Hỗ trợ sắp xếp, gán nhãn và phân loại tài liệu theo từng thư mục/chuyên mục cụ thể. Khi tải tài liệu lên, cửa sổ phân loại sẽ hiện lên để chọn các tiêu chuẩn phân loại theo: - Nghị Định, Nghị Quyết, Luật - Phân loại: VB Quy phạm pháp luật; Hành chính cá biệt, thông thường - Đơn vị: Phòng Văn hóa xã hội,...</div>
+              </td>
+              <td><span class="status-pill todo">Chưa triển khai</span></td>
+              <td class="num">24/07/2026</td>
+            </tr></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="feat-group">
+          <h4>Tra cứu và tìm kiếm tài liệu</h4>
+          <div class="table-wrap">
+            <table class="feat-table">
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <tbody>
+            <tr data-status="done" data-module="Quản lý tài liệu" data-deadline="05/07/2026">
+              <td class="num mono-stt">2.18</td>
+              <td>
+                <div class="feat-sub">1. Thanh tìm kiếm nhanh</div>
+                <div class="feat-detail">Tìm kiếm nhanh tài liệu dựa trên từ khóa, tiêu đề văn bản hoặc tìm kiếm sâu (full-text search) trong nội dung tài liệu.</div>
+              </td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
+              <td class="num">05/07/2026</td>
+            </tr></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="feat-group">
+          <h4>Lọc tài liệu</h4>
+          <div class="table-wrap">
+            <table class="feat-table">
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <tbody>
+            <tr data-status="todo" data-module="Quản lý tài liệu" data-deadline="24/07/2026">
+              <td class="num mono-stt">2.19</td>
+              <td>
+                <div class="feat-sub">Lọc tài liệu</div>
+                <div class="feat-detail">Cung cấp bộ lọc nâng cao đa chiều để tìm kiếm nhanh văn bản theo các tiêu chí: - Năm. - Cơ quan ban hành. - Trích yếu nội dung - Số ký hiệu</div>
+              </td>
+              <td><span class="status-pill todo">Chưa triển khai</span></td>
+              <td class="num">24/07/2026</td>
+            </tr></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="feat-group">
+          <h4>Di chuyển tài liệu</h4>
+          <div class="table-wrap">
+            <table class="feat-table">
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <tbody>
+            <tr data-status="done" data-module="Quản lý tài liệu" data-deadline="05/07/2026">
+              <td class="num mono-stt">2.20</td>
+              <td>
+                <div class="feat-sub">Di chuyển tài liệu</div>
+                <div class="feat-detail">Cho phép di chuyển tài liệu, folder xung quanh không gian lưu trữ</div>
+              </td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
+              <td class="num">05/07/2026</td>
+            </tr></tbody>
+            </table>
+          </div>
+        </div>
+    </section>
+    <section class="room-section" id="mod-Trợ lý AI" style="border-top: 4px solid #6b4ea3">
+      <header class="room-header">
+        <div class="room-header-icon" style="background:#6b4ea318"><span class="mod-dot" style="background:#6b4ea3;width:18px;height:18px;border-radius:50%;display:block"></span></div>
+        <div>
+          <p class="eyebrow">Module</p>
+          <h2>Trợ lý AI</h2>
+          <p class="room-summary">18 hạng mục · 15 đã hoàn thành</p>
+        </div>
+      </header>
+      
+        <div class="feat-group">
+          <h4>Truy vấn thông tin chung</h4>
+          <div class="table-wrap">
+            <table class="feat-table">
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <tbody>
+            <tr data-status="done" data-module="Trợ lý AI" data-deadline="05/07/2026">
+              <td class="num mono-stt">3</td>
+              <td>
+                <div class="feat-sub">1. Giao diện khung Chat</div>
+                <div class="feat-detail">Khu vực cho phép người dùng gõ câu hỏi bằng ngôn ngữ tự nhiên và gửi yêu cầu.</div>
+              </td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
+              <td class="num">05/07/2026</td>
+            </tr>
+            <tr data-status="done" data-module="Trợ lý AI" data-deadline="05/07/2026">
+              <td class="num mono-stt">3.1</td>
+              <td>
+                <div class="feat-sub">2. Hiển thị lịch sử hội thoại</div>
+                <div class="feat-detail">Lưu và hiển thị danh sách các câu hỏi - câu trả lời cũ trong cùng một phiên làm việc để người dùng theo dõi.</div>
+              </td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
+              <td class="num">05/07/2026</td>
+            </tr>
+            <tr data-status="done" data-module="Trợ lý AI" data-deadline="05/07/2026">
+              <td class="num mono-stt">3.2</td>
+              <td>
+                <div class="feat-sub">3. Liên kết các văn bản tri thức cùng chủ đề</div>
+                <div class="feat-detail">Trí tuệ nhân tạo có khả năng liên kết các tài liệu liên quan để trả lời cho cùng 1 chủ đề. Khả năng phân tích thay đổi trong văn bản để tìm các thông tin mới nhất</div>
+              </td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
+              <td class="num">05/07/2026</td>
+            </tr>
+            <tr data-status="todo" data-module="Trợ lý AI" data-deadline="20/07/2026">
+              <td class="num mono-stt">3.3</td>
+              <td>
+                <div class="feat-sub">4. Xây dựng văn bản chính quy</div>
+                <div class="feat-detail">Trợ lý AI sẽ xây dựng được một số các văn bản theo công văn phường đăng tải lên kho tài liệu</div>
+              </td>
+              <td><span class="status-pill todo">Chưa triển khai</span></td>
+              <td class="num">20/07/2026</td>
+            </tr>
+            <tr data-status="done" data-module="Trợ lý AI" data-deadline="05/07/2026">
+              <td class="num mono-stt">3.4</td>
+              <td>
+                <div class="feat-sub">5. Tối ưu khả năng tư duy và suy luận của AI</div>
+                <div class="feat-detail">Giới hạn lại khả năng suy luận của AI, nếu vượt quá thời gian sẽ trả lời lại người dùng mà không tiếp tục suy luận nữa</div>
+              </td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
+              <td class="num">05/07/2026</td>
+            </tr></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="feat-group">
+          <h4>Truy vấn thông tin chi tiết trong phòng ban</h4>
+          <div class="table-wrap">
+            <table class="feat-table">
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <tbody>
+            <tr data-status="done" data-module="Trợ lý AI" data-deadline="05/07/2026">
+              <td class="num mono-stt">3.5</td>
+              <td>
+                <div class="feat-sub">1. Logic phân tích giới hạn vùng tài liệu</div>
+                <div class="feat-detail">AI ưu tiên truy xuất và tổng hợp câu trả lời từ tập dữ liệu được gán nhãn thuộc quyền sở hữu của phòng ban mà người dùng trực thuộc.</div>
+              </td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
+              <td class="num">05/07/2026</td>
+            </tr></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="feat-group">
+          <h4>Truy vấn thông tin chéo/không liên quan phòng ban</h4>
+          <div class="table-wrap">
+            <table class="feat-table">
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <tbody>
+            <tr data-status="done" data-module="Trợ lý AI" data-deadline="05/07/2026">
+              <td class="num mono-stt">3.6</td>
+              <td>
+                <div class="feat-sub">1. Cơ chế cảnh báo vượt phòng ban</div>
+                <div class="feat-detail">AI cung cấp được đầy đủ các thông tin mà người dùng cần liên quan đến phòng khác, và có thông báo rằng cần làm rõ lại với phòng ban chịu trách nhiệm</div>
+              </td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
+              <td class="num">05/07/2026</td>
+            </tr>
+            <tr data-status="done" data-module="Trợ lý AI" data-deadline="05/07/2026">
+              <td class="num mono-stt">3.7</td>
+              <td>
+                <div class="feat-sub">2. Kịch bản AI từ chối/điều hướng an toàn</div>
+                <div class="feat-detail">AI có thông tin rằng không tìm thấy thông tin, không có văn bản liên quan</div>
+              </td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
+              <td class="num">05/07/2026</td>
+            </tr></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="feat-group">
+          <h4>Yêu cầu bot phản hồi theo Template</h4>
+          <div class="table-wrap">
+            <table class="feat-table">
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <tbody>
+            <tr data-status="done" data-module="Trợ lý AI" data-deadline="05/07/2026">
+              <td class="num mono-stt">3.8</td>
+              <td>
+                <div class="feat-sub">1. Chức năng đính kèm mẫu</div>
+                <div class="feat-detail">Người dùng cung cấp mẫu (template) và yêu cầu Chatbot tổng hợp thông tin, soạn thảo câu trả lời bám sát theo đúng cấu trúc form mẫu quy định.</div>
+              </td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
+              <td class="num">05/07/2026</td>
+            </tr>
+            <tr data-status="todo" data-module="Trợ lý AI" data-deadline="20/07/2026">
+              <td class="num mono-stt">3.9</td>
+              <td>
+                <div class="feat-sub">2. Thuật toán tự động điền form</div>
+                <div class="feat-detail">AI trích xuất thông tin tìm được và tự động điền vào các trường (fields) tương ứng của biểu mẫu đã chọn.</div>
+              </td>
+              <td><span class="status-pill todo">Chưa triển khai</span></td>
+              <td class="num">20/07/2026</td>
+            </tr></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="feat-group">
+          <h4>Ghi nhận đánh giá câu trả lời</h4>
+          <div class="table-wrap">
+            <table class="feat-table">
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <tbody>
+            <tr data-status="done" data-module="Trợ lý AI" data-deadline="05/07/2026">
+              <td class="num mono-stt">3.10</td>
+              <td>
+                <div class="feat-sub">1. Nút Thích/Không thích</div>
+                <div class="feat-detail">Tích hợp form đánh giá chất lượng câu trả lời của bot trực tiếp trên giao diện. Nếu chưa đạt yêu cầu, cán bộ có thể nhập mô tả, hướng dẫn để bot cập nhật điều chỉnh tri thức vốn có</div>
+              </td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
+              <td class="num">05/07/2026</td>
+            </tr></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="feat-group">
+          <h4>Ghi nhận điều chỉnh câu trả lời</h4>
+          <div class="table-wrap">
+            <table class="feat-table">
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <tbody>
+            <tr data-status="done" data-module="Trợ lý AI" data-deadline="05/07/2026">
+              <td class="num mono-stt">3.11</td>
+              <td>
+                <div class="feat-sub">1. Mô tả lỗi sai và điều chỉnh</div>
+                <div class="feat-detail">Sau khi người dùng đánh giá, nếu đánh giá chưa đúng, hệ thống sẽ cho phép người dùng nhập vào nội dung cần chỉnh sửa của câu trả lời và gửi về hệ thống</div>
+              </td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
+              <td class="num">05/07/2026</td>
+            </tr>
+            <tr data-status="todo" data-module="Trợ lý AI" data-deadline="24/07/2026">
+              <td class="num mono-stt">3.12</td>
+              <td>
+                <div class="feat-sub">2. Tiền phân loại và đánh giá feedback</div>
+                <div class="feat-detail">Tự động kiểm tra loại truy vấn. Nếu là truy vấn chéo phòng ban, feedback đóng góp sẽ bị từ chối lưu vào hàng đợi duyệt của AI Owner.</div>
+              </td>
+              <td><span class="status-pill todo">Chưa triển khai</span></td>
+              <td class="num">24/07/2026</td>
+            </tr>
+            <tr data-status="done" data-module="Trợ lý AI" data-deadline="05/07/2026">
+              <td class="num mono-stt">3.13</td>
+              <td>
+                <div class="feat-sub">3. Tái tư duy và phản hồi lại</div>
+                <div class="feat-detail">Khi nhận được phản hồi &quot;Không thích&quot;, khi được hỏi lại câu hỏi cùng nội dung, AI sẽ tiến hành tìm kiếm và phân tích lại nhằm đưa ra câu trả lời chính xác theo tài liệu hơn. Có dẫn chứng đã tìm kiếm lại</div>
+              </td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
+              <td class="num">05/07/2026</td>
+            </tr></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="feat-group">
+          <h4>Trích dẫn nguồn tài liệu</h4>
+          <div class="table-wrap">
+            <table class="feat-table">
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <tbody>
+            <tr data-status="done" data-module="Trợ lý AI" data-deadline="05/07/2026">
+              <td class="num mono-stt">3.14</td>
+              <td>
+                <div class="feat-sub">1. Hiển thị thẻ liên kết nguồn</div>
+                <div class="feat-detail">Mọi câu trả lời của Chatbot đều phải kèm theo trích dẫn nguồn gốc thông tin. Hệ thống tự động liên kết (ref) chỉ đích danh văn bản gốc</div>
+              </td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
+              <td class="num">05/07/2026</td>
+            </tr>
+            <tr data-status="done" data-module="Trợ lý AI" data-deadline="05/07/2026">
+              <td class="num mono-stt">3.15</td>
+              <td>
+                <div class="feat-sub">2. Gắn link đích danh tài liệu gốc</div>
+                <div class="feat-detail">Các thẻ liên kết được nhúng API để gọi ra chính xác file văn bản gốc tương ứng.</div>
+              </td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
+              <td class="num">05/07/2026</td>
+            </tr></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="feat-group">
+          <h4>Nêu bật đoạn văn được trích dẫn</h4>
+          <div class="table-wrap">
+            <table class="feat-table">
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <tbody>
+            <tr data-status="done" data-module="Trợ lý AI" data-deadline="05/07/2026">
+              <td class="num mono-stt">3.16</td>
+              <td>
+                <div class="feat-sub">1. Chuyển hướng mở file nguồn</div>
+                <div class="feat-detail">Sau khi dẫn nguồn thông tin, nếu người dùng truy cập vào văn bản nguồn do AI đưa ra, người dùng được di chuyển và trỏ chính xác đến phần/mục (section/paragraph) mà AI đã thu thập để trả lời.</div>
+              </td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
+              <td class="num">05/07/2026</td>
+            </tr>
+            <tr data-status="done" data-module="Trợ lý AI" data-deadline="05/07/2026">
+              <td class="num mono-stt">3.17</td>
+              <td>
+                <div class="feat-sub">2. Tự động cuộn và bôi màu</div>
+                <div class="feat-detail">Tự động hiển thị nơi câu trả lời được trích xuất từ văn bản và bôi màu trang đó</div>
+              </td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
+              <td class="num">05/07/2026</td>
+            </tr></tbody>
+            </table>
+          </div>
+        </div>
+    </section>
+    <section class="room-section" id="mod-Dashboard" style="border-top: 4px solid #c45c1a">
+      <header class="room-header">
+        <div class="room-header-icon" style="background:#c45c1a18"><span class="mod-dot" style="background:#c45c1a;width:18px;height:18px;border-radius:50%;display:block"></span></div>
+        <div>
+          <p class="eyebrow">Module</p>
+          <h2>Dashboard</h2>
+          <p class="room-summary">8 hạng mục · 0 đã hoàn thành</p>
+        </div>
+      </header>
+      
+        <div class="feat-group">
+          <h4>Thống kê hiệu suất AI</h4>
+          <div class="table-wrap">
+            <table class="feat-table">
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <tbody>
+            <tr data-status="progress" data-module="Dashboard" data-deadline="15/07/2026">
+              <td class="num mono-stt">4.1</td>
+              <td>
+                <div class="feat-sub">1. Các thẻ chỉ số tổng quan (KPI)</div>
+                <div class="feat-detail">Thống kê số lượng đơn vị đã sử dụng, trung bình đơn vị sử dụng cho một lượt truy vấn</div>
+              </td>
+              <td><span class="status-pill progress">Đang triển khai</span></td>
+              <td class="num">15/07/2026</td>
+            </tr>
+            <tr data-status="progress" data-module="Dashboard" data-deadline="15/07/2026">
+              <td class="num mono-stt">4.2</td>
+              <td>
+                <div class="feat-sub">2. Biểu đồ Lượt truy vấn & Lượng đơn vị sử dụng</div>
+                <div class="feat-detail">Hiển thị xu hướng sử dụng theo thời gian dưới dạng biểu đồ cột (tự động chuyển thành dạng cột chồng để so sánh tỷ trọng khi chọn xem nhiều phòng ban cùng lúc).</div>
+              </td>
+              <td><span class="status-pill progress">Đang triển khai</span></td>
+              <td class="num">15/07/2026</td>
+            </tr></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="feat-group">
+          <h4>Thống kê sử dụng Tài liệu</h4>
+          <div class="table-wrap">
+            <table class="feat-table">
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <tbody>
+            <tr data-status="progress" data-module="Dashboard" data-deadline="15/07/2026">
+              <td class="num mono-stt">5.2</td>
+              <td>
+                <div class="feat-sub">1. Thống kê số lượng tài liệu theo phòng ban</div>
+                <div class="feat-detail">Biểu đồ thanh ngang thống kê tổng số lượng văn bản đang lưu trữ, phân tách rạch ròi theo từng đơn vị (VD: Phòng Lao động, Phòng VHXH, và Các phòng ban còn lại).</div>
+              </td>
+              <td><span class="status-pill progress">Đang triển khai</span></td>
+              <td class="num">15/07/2026</td>
+            </tr>
+            <tr data-status="progress" data-module="Dashboard" data-deadline="15/07/2026">
+              <td class="num mono-stt">5.3</td>
+              <td>
+                <div class="feat-sub">2. Biểu đồ xu hướng tải lên tài liệu theo tháng</div>
+                <div class="feat-detail">Biểu đồ kết hợp thể hiện số lượng văn bản mới được tải lên hệ thống qua từng tháng (T3, T4, T5, T6...).</div>
+              </td>
+              <td><span class="status-pill progress">Đang triển khai</span></td>
+              <td class="num">15/07/2026</td>
+            </tr></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="feat-group">
+          <h4>Thống kê Tương tác Hỏi/Đáp</h4>
+          <div class="table-wrap">
+            <table class="feat-table">
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <tbody>
+            <tr data-status="progress" data-module="Dashboard" data-deadline="15/07/2026">
+              <td class="num mono-stt">5.4</td>
+              <td>
+                <div class="feat-sub">1. Thống kê lượt truy vấn theo phòng ban</div>
+                <div class="feat-detail">Biểu đồ thanh ngang so sánh tổng số lượng câu hỏi/lượt sử dụng AI giữa các đơn vị (Ban Lãnh đạo, Phòng Kinh tế, Phòng VHXH...).</div>
+              </td>
+              <td><span class="status-pill progress">Đang triển khai</span></td>
+              <td class="num">15/07/2026</td>
+            </tr>
+            <tr data-status="progress" data-module="Dashboard" data-deadline="15/07/2026">
+              <td class="num mono-stt">5.5</td>
+              <td>
+                <div class="feat-sub">2. Biểu đồ số lượng người dùng/truy cập theo tháng</div>
+                <div class="feat-detail">Biểu đồ cột thống kê tổng số lượng người dùng (Active users) có phát sinh tương tác hỏi đáp với hệ thống trong từng tháng.</div>
+              </td>
+              <td><span class="status-pill progress">Đang triển khai</span></td>
+              <td class="num">15/07/2026</td>
+            </tr>
+            <tr data-status="progress" data-module="Dashboard" data-deadline="15/07/2026">
+              <td class="num mono-stt">5.6</td>
+              <td>
+                <div class="feat-sub">3. Bảng xếp hạng Top User hỏi nhiều nhất</div>
+                <div class="feat-detail">Biểu đồ thanh ngang xếp hạng (Leaderboard) top các tài khoản có số lượng câu hỏi truy vấn AI nhiều nhất hệ thống.</div>
+              </td>
+              <td><span class="status-pill progress">Đang triển khai</span></td>
+              <td class="num">15/07/2026</td>
+            </tr>
+            <tr data-status="progress" data-module="Dashboard" data-deadline="15/07/2026">
+              <td class="num mono-stt">5.7</td>
+              <td>
+                <div class="feat-sub">4. Biểu đồ tỷ trọng câu hỏi theo chủ đề</div>
+                <div class="feat-detail">Biểu đồ tròn (Pie chart) phân bổ tỷ lệ phần trăm (%) các câu hỏi truy vấn của người dùng theo từng nhóm chủ đề/loại văn bản cụ thể.</div>
+              </td>
+              <td><span class="status-pill progress">Đang triển khai</span></td>
+              <td class="num">15/07/2026</td>
+            </tr></tbody>
+            </table>
+          </div>
+        </div>
+    </section>
+    
+    <div class="section-title" id="feedback-detail">
+      <h2>Góp ý tính năng AI Chat</h2>
+      <p>Nguồn: [20260526] AI Chat Feedback.pdf · 20 hạng mục</p>
+    </div>
+    <!-- FEEDBACK_START -->
+    <div class="feedback-banner panel" id="feedback-summary">
+      <div class="feedback-banner-top">
+        <div>
+          <p class="eyebrow">Góp ý từ cán bộ</p>
+          <h3>Danh sách góp ý tính năng AI Chat</h3>
+          <p class="feedback-banner-lead">Tổng hợp phản hồi thực tế khi dùng hệ thống — dùng để ưu tiên cải tiến phạm vi &amp; tính năng.</p>
+        </div>
+      </div>
+      <div class="feedback-kpis">
+        <div class="feedback-kpi"><strong>20</strong><span>góp ý</span></div>
+        <div class="feedback-kpi"><strong>3</strong><span>nhóm tính năng</span></div>
+        <div class="feedback-kpi"><strong>15</strong><span>về Chatbot AI</span></div>
+        <div class="feedback-kpi"><strong>4</strong><span>về quản lý tài liệu</span></div>
+      </div>
+      <div class="chip-row" style="margin-top:0.85rem;">
+        <span class="chip">Quản lý tài liệu <strong>4</strong></span><span class="chip">Chatbot AI <strong>15</strong></span><span class="chip">Giao diện <strong>1</strong></span>
+      </div>
+    </div>
+    <div class="panel feedback-detail-panel">
+      
+    <div class="fb-group">
+      <div class="fb-group-head">
+        <h3>Quản lý tài liệu</h3>
+        <span class="chip">4 góp ý</span>
+      </div>
+      <div class="fb-grid">
+        <article class="fb-card">
+          <div class="fb-card-head">
+            <span class="fb-num">01</span>
+            <h4>Chính xác bao lâu thì văn bản sẽ sẵn sàng để thực hiện truy vấn</h4>
+          </div>
+          <p class="fb-empty">Chưa có mô tả chi tiết trong tài liệu góp ý.</p>
+        </article>
+        <article class="fb-card">
+          <div class="fb-card-head">
+            <span class="fb-num">02</span>
+            <h4>Cho phép tải tài liệu trên 10MB</h4>
+          </div>
+          <p class="fb-empty">Chưa có mô tả chi tiết trong tài liệu góp ý.</p>
+        </article>
+        <article class="fb-card">
+          <div class="fb-card-head">
+            <span class="fb-num">03</span>
+            <h4>Drag &amp; Drop văn bản</h4>
+          </div>
+          <div class="fb-desc">Chức năng tải lên văn bản hiện chỉ hỗ trợ lựa chọn tệp thông qua hộp thoại (Browse/Chọn tệp), chưa hỗ trợ thao tác kéo và thả (Drag &amp; Drop) từ máy tính vào khu vực tải lên.<br/>Bổ sung cơ chế Drag &amp; Drop Upload, đồng thời vẫn giữ tùy chọn Chọn tệp để đảm bảo tương thích với mọi đối tượng sử dụng.<br/>Kết quả kỳ vọng Hệ thống nên hỗ trợ:<br/>Kéo và thả (Drag &amp; Drop) một hoặc nhiều tệp vào khu vực tải lên.<br/>Hiển thị vùng nhận tệp rõ ràng khi người dùng kéo tệp vào.<br/>Kiểm tra định dạng và dung lượng ngay khi thả tệp.<br/>Hiển thị tiến trình tải lên và thông báo kết quả.</div>
+        </article>
+        <article class="fb-card">
+          <div class="fb-card-head">
+            <span class="fb-num">04</span>
+            <h4>Ghi nhận văn bản bổ sung hoặc trùng khi phân loại tải lên</h4>
+          </div>
+          <p class="fb-empty">Chưa có mô tả chi tiết trong tài liệu góp ý.</p>
+        </article></div>
+    </div>
+    <div class="fb-group">
+      <div class="fb-group-head">
+        <h3>Chatbot AI</h3>
+        <span class="chip">15 góp ý</span>
+      </div>
+      <div class="fb-grid">
+        <article class="fb-card">
+          <div class="fb-card-head">
+            <span class="fb-num">01</span>
+            <h4>Link với Thư viện pháp luật / Cổng thông tin chính phủ</h4>
+          </div>
+          <p class="fb-empty">Chưa có mô tả chi tiết trong tài liệu góp ý.</p>
+        </article>
+        <article class="fb-card">
+          <div class="fb-card-head">
+            <span class="fb-num">02</span>
+            <h4>Đối chiếu với văn bản trùng với TVPL</h4>
+          </div>
+          <p class="fb-empty">Chưa có mô tả chi tiết trong tài liệu góp ý.</p>
+        </article>
+        <article class="fb-card">
+          <div class="fb-card-head">
+            <span class="fb-num">03</span>
+            <h4>AI còn phụ thuộc nguồn dữ liệu nội bộ, chưa liên kết bên ngoài</h4>
+          </div>
+          <p class="fb-empty">Chưa có mô tả chi tiết trong tài liệu góp ý.</p>
+        </article>
+        <article class="fb-card">
+          <div class="fb-card-head">
+            <span class="fb-num">04</span>
+            <h4>Chưa đầy đủ vai trò trợ lý, trích lục, lưu mục tài liệu</h4>
+          </div>
+          <p class="fb-empty">Chưa có mô tả chi tiết trong tài liệu góp ý.</p>
+        </article>
+        <article class="fb-card">
+          <div class="fb-card-head">
+            <span class="fb-num">05</span>
+            <h4>Nghị định 16 — AI chưa hiểu áp dụng cho tổ chức</h4>
+          </div>
+          <div class="fb-desc">Nghị định 16, áp dụng cho tổ chức AI chưa hiểu</div>
+        </article>
+        <article class="fb-card">
+          <div class="fb-card-head">
+            <span class="fb-num">06</span>
+            <h4>Chưa ưu tiên các văn bản có giá trị pháp lý cao</h4>
+          </div>
+          <div class="fb-desc">Hiện trạng: Một số câu trả lời liệt kê văn bản nhưng chưa theo thứ tự ưu tiên.<br/>Nên ưu tiên theo thứ tự: Luật → Nghị định → Quyết định → Thông tư → Công văn</div>
+        </article>
+        <article class="fb-card">
+          <div class="fb-card-head">
+            <span class="fb-num">07</span>
+            <h4>Chưa nhận diện đúng mục đích câu hỏi</h4>
+          </div>
+          <div class="fb-desc">Câu hỏi kiểm thử: &quot;Một UBND phường chuẩn bị triển khai hệ thống quản lý văn bản điện tử. Hãy lập checklist các yêu cầu pháp lý cần đáp ứng theo các văn bản trong kho dữ liệu,<br/>sắp xếp theo thứ tự ưu tiên...&quot;<br/>Kết quả thực tế: Hệ thống tóm tắt Nghị định 30/2020/NĐ-CP, liệt kê Điều 5, Điều 19, Điều 21... nhưng không tạo checklist, không sắp xếp theo ưu tiên và chỉ sử dụng một văn bản.<br/>Vấn đề ghi nhận: Người dùng yêu cầu checklist nhưng nhận được nội dung tóm tắt luật,<br/>vẫn phải tự tổng hợp.<br/>Đề xuất cải thiện: Hệ thống nên sinh checklist theo đầu việc, sắp xếp ưu tiên và tổng hợp nhiều văn bản.</div>
+        </article>
+        <article class="fb-card">
+          <div class="fb-card-head">
+            <span class="fb-num">08</span>
+            <h4>Chưa tổng hợp nhiều văn bản</h4>
+          </div>
+          <div class="fb-desc">Câu hỏi kiểm thử: &quot;Khi một UBND phường triển khai hệ thống chia sẻ dữ liệu giữa các phòng ban và cung cấp dịch vụ công trực tuyến, cần áp dụng những văn bản nào?&quot;<br/>Kết quả thực tế: Chatbot chủ yếu trả lời theo Nghị định 47 hoặc Nghị định 30 dù trước đó đã xác định trong kho còn có Luật Dữ liệu, Luật Giao dịch điện tử, Nghị định 130...<br/>Vấn đề ghi nhận: Thiếu căn cứ pháp lý tổng hợp, câu trả lời chưa đầy đủ.<br/>Đề xuất cải thiện: Tổng hợp theo mức độ liên quan: Luật → Nghị định → Thông tư và giải thích vai trò từng văn bản.</div>
+        </article>
+        <article class="fb-card">
+          <div class="fb-card-head">
+            <span class="fb-num">09</span>
+            <h4>Chưa chuyển hóa quy định thành nghiệp vụ</h4>
+          </div>
+          <div class="fb-desc">Câu hỏi kiểm thử: &quot;Để triển khai hệ thống quản lý văn bản điện tử... cần đáp ứng đồng thời những yêu cầu nào về dữ liệu, giao dịch điện tử, chữ ký số và lưu trữ?&quot;<br/>Kết quả thực tế: Chatbot trả lời theo Điều 5, 19, 21, 29 của Nghị định 30 thay vì các yêu cầu như ký số, lưu trữ, phân quyền, chia sẻ dữ liệu.<br/>Đề xuất cải thiện: Chuyển điều luật thành các đầu việc nghiệp vụ kèm căn cứ.</div>
+        </article>
+        <article class="fb-card">
+          <div class="fb-card-head">
+            <span class="fb-num">10</span>
+            <h4>Chưa tổ chức nội dung theo yêu cầu</h4>
+          </div>
+          <div class="fb-desc">Câu hỏi kiểm thử: Yêu cầu: &quot;Tổng hợp theo từng nhóm yêu cầu&quot;.<br/>Kết quả thực tế: Hệ thống trình bày theo điều luật thay vì nhóm Dữ liệu, Giao dịch điện tử, Chữ ký số, Lưu trữ.</div>
+        </article>
+        <article class="fb-card">
+          <div class="fb-card-head">
+            <span class="fb-num">11</span>
+            <h4>Chưa biết ưu tiên thông tin</h4>
+          </div>
+          <div class="fb-desc">Câu hỏi kiểm thử: Yêu cầu: &quot;Chỉ chọn 03 văn bản quan trọng nhất...&quot;<br/>Kết quả thực tế: Hệ thống vẫn liệt kê nhiều văn bản, không có thứ tự ưu tiên.<br/>Đề xuất cải thiện: Bổ sung cơ chế xếp hạng và giải thích lý do ưu tiên</div>
+        </article>
+        <article class="fb-card">
+          <div class="fb-card-head">
+            <span class="fb-num">12</span>
+            <h4>Chưa hỗ trợ ra quyết định</h4>
+          </div>
+          <div class="fb-desc">Câu hỏi kiểm thử: Nhiều câu hỏi tình huống triển khai Kết quả thực tế: Sau phần phân tích dài, chatbot không kết luận nên áp dụng văn bản nào trước hoặc cần thực hiện bước nào trước.<br/>Đề xuất cải thiện: Luôn có mục &#x27;Kết luận&#x27;.</div>
+        </article>
+        <article class="fb-card">
+          <div class="fb-card-head">
+            <span class="fb-num">13</span>
+            <h4>Nhiều câu trả lời đánh dấu mục bị sai thứ tự</h4>
+          </div>
+          <p class="fb-empty">Chưa có mô tả chi tiết trong tài liệu góp ý.</p>
+        </article>
+        <article class="fb-card">
+          <div class="fb-card-head">
+            <span class="fb-num">14</span>
+            <h4>Khi mở văn bản từ tài liệu từ đoạn chat thì bị mở tab mới</h4>
+          </div>
+          <div class="fb-desc">Hiện tại thì khi ấn vào 1 văn bản do AI cung cấp thì đột nhiên mở một Tab trình duyệt khác Ưu tiên cơ chế xem trước (Preview) hoặc mở trong panel bên cạnh thay vì mặc định mở tab mới. Đồng thời có thể bổ sung tùy chọn:<br/>- Xem nhanh<br/>- Mở toàn văn<br/>- Mở trong tab mới để người dùng lựa chọn theo nhu cầu.</div>
+        </article>
+        <article class="fb-card">
+          <div class="fb-card-head">
+            <span class="fb-num">15</span>
+            <h4>Đưa đúng đến vị trí đã trích dẫn từ văn bản</h4>
+          </div>
+          <div class="fb-desc">Nếu AI đã trích dẫn văn bản, khi người dùng nhấn vào, hệ thống nên đưa đúng đến vị trí đã trích dẫn (ví dụ đúng điều, khoản hoặc trang liên quan) thay vì chỉ mở toàn bộ văn bản từ trang đầu. Điều này sẽ giúp người dùng xác minh thông tin nhanh hơn và giảm thời gian tìm kiếm trong các văn bản dài. Đây là một cải tiến có giá trị thực tế cao đối với hệ thống tra cứu văn bản pháp luật.</div>
+        </article></div>
+    </div>
+    <div class="fb-group">
+      <div class="fb-group-head">
+        <h3>Giao diện</h3>
+        <span class="chip">1 góp ý</span>
+      </div>
+      <div class="fb-grid">
+        <article class="fb-card">
+          <div class="fb-card-head">
+            <span class="fb-num">01</span>
+            <h4>Tối ưu cho điện thoại</h4>
+          </div>
+          <p class="fb-empty">Chưa có mô tả chi tiết trong tài liệu góp ý.</p>
+        </article></div>
+    </div>
+    </div>
+    <!-- FEEDBACK_END -->
+
+    </div>
+
+    <footer>
+      <div>
+        Nguồn văn bản: <code>pxuanhoa-export_202607131204.csv</code><br />
+        Nguồn người dùng: <code>[20260623] Danh sách thông tin cán bộ Phường Xuân Hòa.xlsx</code><br />
+        Nguồn phạm vi: <code>[20260526] Phù Đổng Expo - AI Chat Scope - Timeline Delivery Danh sách tính năng.pdf</code><br />
+        Nguồn góp ý: <code>[20260526] AI Chat Feedback.pdf</code><br />
+        Báo cáo tạo ngày 13/07/2026 · UBND Phường Xuân Hòa
+      </div>
+      <img src="logo-xuan-hoa.png" alt="Logo Phường Xuân Hòa" />
+    </footer>
+  </div>
+
+  <script>
+    const USERS = [{"name": "Dương Minh Hải", "role": "Trưởng phòng", "role_group": "Trưởng phòng", "team": "Lãnh đạo phòng", "phone": "90813659", "email": "dmhai.xuanhoa@tphcm.gov.vn", "username": "dmhai.xuanhoa@tphcm.gov.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Trần Hải Nguyên", "role": "Phó Trưởng phòng", "role_group": "Phó Trưởng phòng", "team": "Lãnh đạo phòng", "phone": "0903 870 085", "email": "thnguyen.xuanhoa@tphcm.gov.vn", "username": "thnguyen.xuanhoa@tphcm.gov.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Trương Ngọc Yến Diên", "role": "Phó Trưởng phòng", "role_group": "Phó Trưởng phòng", "team": "Lãnh đạo phòng", "phone": "0905 913 455", "email": "tnydien.xuanhoa@tphcm.gov.vn", "username": "tnydien.xuanhoa@tphcm.gov.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Triệu Hạnh Vy", "role": "Chuyên viên tổ tài chính ngân sách kinh tế", "role_group": "Chuyên viên", "team": "Tổ Tài chính - Ngân sách - Kinh tế", "phone": "0367 832 933", "email": "", "username": "thvy@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Trần Hồng Kim Vy", "role": "Chuyên viên tổ tài chính ngân sách kinh tế", "role_group": "Chuyên viên", "team": "Tổ Tài chính - Ngân sách - Kinh tế", "phone": "0764 446 459", "email": "", "username": "thkvy@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Lê Minh Tuấn", "role": "Chuyên viên tổ tài chính ngân sách kinh tế", "role_group": "Chuyên viên", "team": "Tổ Tài chính - Ngân sách - Kinh tế", "phone": "0902 661 210", "email": "", "username": "lmtuan@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Đặng Bảo Duy", "role": "Tổ trưởng Tổ kỹ thuật", "role_group": "Tổ trưởng", "team": "Tổ Kỹ thuật", "phone": "0908 666 080", "email": "", "username": "dbduy@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Dương Minh Tùng", "role": "Chuyên viên Tổ kỹ thuật", "role_group": "Chuyên viên", "team": "Tổ Kỹ thuật", "phone": "0904 323 217", "email": "", "username": "dmtung@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Lê Nguyễn Minh Đăng", "role": "Chuyên viên Tổ kỹ thuật", "role_group": "Chuyên viên", "team": "Tổ Kỹ thuật", "phone": "0766 763 131", "email": "", "username": "lnmdang@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Từ Vĩnh Cơ", "role": "Chuyên viên Tổ kỹ thuật", "role_group": "Chuyên viên", "team": "Tổ Kỹ thuật", "phone": "0904 321 584", "email": "", "username": "tvco@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Trương Minh Trung", "role": "Chuyên viên Tổ kỹ thuật", "role_group": "Chuyên viên", "team": "Tổ Kỹ thuật", "phone": "0977 333 900", "email": "", "username": "tmtrung@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Nguyễn Từ Minh Trung", "role": "Chuyên viên Tổ kỹ thuật", "role_group": "Chuyên viên", "team": "Tổ Kỹ thuật", "phone": "0902 640 404", "email": "", "username": "ntmtrung@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Huỳnh Chí Dũng", "role": "Tổ trưởng Tổ Địa chính", "role_group": "Tổ trưởng", "team": "Tổ Địa chính", "phone": "0961 378 341", "email": "", "username": "hcdung@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Nguyễn Công Khanh", "role": "Chuyên viên tổ địa chính", "role_group": "Chuyên viên", "team": "Tổ Địa chính", "phone": "0902 664 689", "email": "", "username": "nckhanh@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Hoàng Chí Trung", "role": "Chuyên viên tổ địa chính", "role_group": "Chuyên viên", "team": "Tổ Địa chính", "phone": "0902 341 224", "email": "", "username": "hctrung@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Lê Đình Chung", "role": "Chuyên viên tổ địa chính", "role_group": "Chuyên viên", "team": "Tổ Địa chính", "phone": "0902 872 045", "email": "", "username": "ldchung@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Liêu Thành lâm", "role": "Chuyên viên tổ địa chính", "role_group": "Chuyên viên", "team": "Tổ Địa chính", "phone": "0816 555 588", "email": "", "username": "ltlam@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Nguyễn Ngọc Phước", "role": "Tổ trưởng tổ trật tự", "role_group": "Tổ trưởng", "team": "Tổ Trật tự đô thị", "phone": "0909 519 981", "email": "", "username": "nnphuoc@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Đặng Quang Huy", "role": "Chuyên viên tổ trật tự", "role_group": "Chuyên viên", "team": "Tổ Trật tự đô thị", "phone": "0902 000 267", "email": "", "username": "dqhuy@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Võ Thành Luân", "role": "Chuyên viên tổ trật tự", "role_group": "Chuyên viên", "team": "Tổ Trật tự đô thị", "phone": "0936 886 553", "email": "", "username": "vtluan@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Nguyễn Trung Thành", "role": "Chuyên viên tổ trật tự", "role_group": "Chuyên viên", "team": "Tổ Trật tự đô thị", "phone": "0378 921 467", "email": "", "username": "ntthanh@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Tăng Quốc Anh", "role": "Chuyên viên tổ trật tự", "role_group": "Chuyên viên", "team": "Tổ Trật tự đô thị", "phone": "0931 599 867", "email": "", "username": "tqanh@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Lưu Minh Duy", "role": "Chuyên viên tổ trật tự", "role_group": "Chuyên viên", "team": "Tổ Trật tự đô thị", "phone": "0793 445 825", "email": "", "username": "lmduy@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Ong Phạm Ngọc Thanh", "role": "Chuyên viên tổ trật tự", "role_group": "Chuyên viên", "team": "Tổ Trật tự đô thị", "phone": "0913 277 494", "email": "", "username": "opnthanh@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Nguyễn Thanh Tâm", "role": "Chuyên viên Văn phòng UBND", "role_group": "Chuyên viên", "team": "Văn phòng UBND", "phone": "0932 075 533", "email": "", "username": "nttam@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Nguyễn Từ Hoàng Quân", "role": "Chuyên viên tổ tài chính ngân sách kinh tế", "role_group": "Chuyên viên", "team": "Tổ Tài chính - Ngân sách - Kinh tế", "phone": "0968 687 739", "email": "quanmap27121991@gmail.com", "username": "quanmap27121991@gmail.com", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Nguyễn Thị Thu Dung", "role": "Trưởng phòng", "role_group": "Trưởng phòng", "team": "Lãnh đạo phòng", "phone": "0984 236 686", "email": "nttdung.xuanhoa@tphcm.gov.vn", "username": "nttdung.xuanhoa@tphcm.gov.vn", "dept": "Phòng Văn hóa - Xã hội", "dept_short": "Văn hóa - Xã hội", "dept_key": "vhxh"}, {"name": "NGUYỄN TRẦN HOÀNG PHÚC", "role": "Phó Phòng", "role_group": "Phó Trưởng phòng", "team": "Lãnh đạo phòng", "phone": "0908 810 852", "email": "nthphuc.xuanhoa@tphcm.gov.vn", "username": "nthphuc.xuanhoa@tphcm.gov.vn", "dept": "Phòng Văn hóa - Xã hội", "dept_short": "Văn hóa - Xã hội", "dept_key": "vhxh"}, {"name": "Vũ Thị Thùy Linh", "role": "Phó Trường phòng", "role_group": "Phó Trưởng phòng", "team": "Lãnh đạo phòng", "phone": "0903 199 450", "email": "vttlinhxuanhoa@tphcm.gov.vn", "username": "vttlinh.xuanhoa@tphcm.gov.vn", "dept": "Phòng Văn hóa - Xã hội", "dept_short": "Văn hóa - Xã hội", "dept_key": "vhxh"}, {"name": "Hoàng Thị Tú Trinh", "role": "Chuyên viên", "role_group": "Chuyên viên", "team": "Phòng Văn hóa - Xã hội", "phone": "0987 825 405", "email": "htttrinh.xuanhoaf@tphcm.gov.vn", "username": "htttrinh.xuanhoaf@tphcm.gov.vn", "dept": "Phòng Văn hóa - Xã hội", "dept_short": "Văn hóa - Xã hội", "dept_key": "vhxh"}, {"name": "Trần Huy Hoàng", "role": "Chuyên viên", "role_group": "Chuyên viên", "team": "Phòng Văn hóa - Xã hội", "phone": "0976 077 145", "email": "thhoang.xuanhoa@tphcm.gov.vn", "username": "thhoang.xuanhoa@tphcm.gov.vn", "dept": "Phòng Văn hóa - Xã hội", "dept_short": "Văn hóa - Xã hội", "dept_key": "vhxh"}, {"name": "Nguyễn Thị Mai Thy", "role": "Chuyên viên", "role_group": "Chuyên viên", "team": "Phòng Văn hóa - Xã hội", "phone": "0908 624 750", "email": "ntmthy.xuanhoa@tphcm.gov.vn", "username": "ntmthy.xuanhoa@tphcm.gov.vn", "dept": "Phòng Văn hóa - Xã hội", "dept_short": "Văn hóa - Xã hội", "dept_key": "vhxh"}, {"name": "Nguyễn Tấn Đức", "role": "Chuyên viên", "role_group": "Chuyên viên", "team": "Phòng Văn hóa - Xã hội", "phone": "0908 216 475", "email": "ntduc,xuanhoa@tphcm.gov.vn", "username": "ntdu.xuanhoa@tphcm.gov.vn", "dept": "Phòng Văn hóa - Xã hội", "dept_short": "Văn hóa - Xã hội", "dept_key": "vhxh"}, {"name": "Lưu Ngọc Hồng Khương", "role": "Chuyên viên", "role_group": "Chuyên viên", "team": "Phòng Văn hóa - Xã hội", "phone": "0903 174 811", "email": "lnhkhuong.xuanhoa@tphcm.gov.vn", "username": "lnhkhuong.xuanhoa@tphcm.gov.vn", "dept": "Phòng Văn hóa - Xã hội", "dept_short": "Văn hóa - Xã hội", "dept_key": "vhxh"}, {"name": "Đỗ Anh Tuấn", "role": "Chuyên viên - Phụ trách kế toán", "role_group": "Chuyên viên", "team": "Phòng Văn hóa - Xã hội", "phone": "0908 451 976", "email": "datuan.xuanhoa@tphcm.gov.vn", "username": "datuan.xuanhoa@tphcm.gov.vn", "dept": "Phòng Văn hóa - Xã hội", "dept_short": "Văn hóa - Xã hội", "dept_key": "vhxh"}, {"name": "Huỳnh Xuân Nghị", "role": "Chuyên viên", "role_group": "Chuyên viên", "team": "Phòng Văn hóa - Xã hội", "phone": "0909 317 805", "email": "hxnghi.xuanhoa@tphcm.gov.vn", "username": "hxnghi.xuanhoa@tphcm.gov.vn", "dept": "Phòng Văn hóa - Xã hội", "dept_short": "Văn hóa - Xã hội", "dept_key": "vhxh"}, {"name": "Bùi Long Vũ", "role": "Chuyên viên", "role_group": "Chuyên viên", "team": "Phòng Văn hóa - Xã hội", "phone": "0962 940 522", "email": "blvu.xuanhoa@tphcm.gov.vn", "username": "blvu.xuanhoa@tphcm.gov.vn", "dept": "Phòng Văn hóa - Xã hội", "dept_short": "Văn hóa - Xã hội", "dept_key": "vhxh"}, {"name": "Trần Phạm Hiền", "role": "Chuyên viên", "role_group": "Chuyên viên", "team": "Phòng Văn hóa - Xã hội", "phone": "0777 010 178", "email": "tphien.xuanhoa@tphcm.gov.vn", "username": "tphien.xuanhoa@tphcm.gov.vn", "dept": "Phòng Văn hóa - Xã hội", "dept_short": "Văn hóa - Xã hội", "dept_key": "vhxh"}, {"name": "Nguyễn Thị Thanh Mai", "role": "Chuyên viên", "role_group": "Chuyên viên", "team": "Phòng Văn hóa - Xã hội", "phone": "0907 905 206", "email": "nttmai.xuanhoa@tphcm.gov.vn", "username": "nttmai.xuanhoa@tphcm.gov.vn", "dept": "Phòng Văn hóa - Xã hội", "dept_short": "Văn hóa - Xã hội", "dept_key": "vhxh"}, {"name": "Đỗ Quốc Nam", "role": "Chuyên viên", "role_group": "Chuyên viên", "team": "Phòng Văn hóa - Xã hội", "phone": "0938 836 807", "email": "dqnam.xuanhoa@tphcm.gov.vn", "username": "dqnam.xuanhoa@tphcm.gov.vn", "dept": "Phòng Văn hóa - Xã hội", "dept_short": "Văn hóa - Xã hội", "dept_key": "vhxh"}, {"name": "Nguyễn Thị Thu Thảo", "role": "Chuyên viên", "role_group": "Chuyên viên", "team": "Phòng Văn hóa - Xã hội", "phone": "0909 540 091", "email": "nttthao.xuanhoa@tphcm.gov.vn", "username": "nttthao.xuanhoa@tphcm.gov.vn", "dept": "Phòng Văn hóa - Xã hội", "dept_short": "Văn hóa - Xã hội", "dept_key": "vhxh"}, {"name": "Trần Phương Thảo", "role": "Chuyên viên", "role_group": "Chuyên viên", "team": "Phòng Văn hóa - Xã hội", "phone": "0903 679 132", "email": "tpthao.xuanhoa@tphcm.gov.vn", "username": "tpthao.xuanhoa@tphcm.gov.vn", "dept": "Phòng Văn hóa - Xã hội", "dept_short": "Văn hóa - Xã hội", "dept_key": "vhxh"}, {"name": "Nguyễn Thị Kim Thi", "role": "Chuyên viên", "role_group": "Chuyên viên", "team": "Phòng Văn hóa - Xã hội", "phone": "0902 563 705", "email": "ntkthi.xuanhoa@tphcm.gov.vn", "username": "ntkthi.xuanhoa@tphcm.gov.vn", "dept": "Phòng Văn hóa - Xã hội", "dept_short": "Văn hóa - Xã hội", "dept_key": "vhxh"}, {"name": "Lê Thị Luyến", "role": "Chuyên viên", "role_group": "Chuyên viên", "team": "Phòng Văn hóa - Xã hội", "phone": "0392 369 278", "email": "lltluyen.xuanhoa@tphcm.gov.vn", "username": "lltluyen.xuanhoa@tphcm.gov.vn", "dept": "Phòng Văn hóa - Xã hội", "dept_short": "Văn hóa - Xã hội", "dept_key": "vhxh"}, {"name": "Nguyễn Thị Thùy Linh", "role": "Chuyên viên", "role_group": "Chuyên viên", "team": "Phòng Văn hóa - Xã hội", "phone": "0778 724 935", "email": "nttl.xuanhoa@tphcm.gov.com", "username": "nttl.xuanhoa@tphcm.gov.com", "dept": "Phòng Văn hóa - Xã hội", "dept_short": "Văn hóa - Xã hội", "dept_key": "vhxh"}];
+    const FEATURES_RAW = [{"stt": "1", "module": "Phân quyền", "feature": "Phân quyền người dùng theo cấp bậc và chức vụ", "sub": "1. Quản lý danh sách chức danh/vai trò.", "status_raw": "done", "deadline": "05/07/2026", "detail": "Cấu hình phân quyền truy cập, xem và thao tác trên hệ thống cho các vai trò cụ thể: - Admin: Quản lý tài khoản - Bí thư: Xem toàn bộ tài liệu - Phó bí thư: Xem toàn bộ tài liệu - Chủ tịch: Xem toàn bộ tài liệu - Phó chủ tịch: Xem toàn bộ tài liệu - Trưởng phòng / Chánh văn phòng: Xem toàn bộ tài liệu của phòng - Chuyên viên: Xem tài liệu của phòng trong khuông khổ được quy định"}, {"stt": "1.1", "module": "Phân quyền", "feature": "Phân quyền người dùng theo cấp bậc và chức vụ", "sub": "2. Giao diện gán vai trò và phòng ban cho tài khoản.", "status_raw": "done", "deadline": "05/07/2026", "detail": "Cung cấp giao diện để quản trị viên thiết lập vai trò và chỉ định phòng ban trực thuộc cho từng tài khoản."}, {"stt": "1.2", "module": "Phân quyền", "feature": "Phân quyền người dùng theo cấp bậc và chức vụ", "sub": "3. Logic kiểm soát hiển thị tài liệu theo chức danh.", "status_raw": "done", "deadline": "05/07/2026", "detail": "Thuật toán tự động nhận diện chức danh của người dùng để hiển thị/che giấu tài liệu tương ứng."}, {"stt": "1.3", "module": "Phân quyền", "feature": "Phân quyền người dùng theo cấp bậc và chức vụ", "sub": "4. Cấu hình phân quyền cho vai trò \"AI Owner\" chuyên kiểm duyệt dữ liệu AI.", "status_raw": "todo", "deadline": "31/07/2026", "detail": "Thiết lập quyền đặc biệt cho \"AI Owner\" để xem toàn bộ đánh giá trợ lý AI trên hệ thống và có quyền thao tác duyệt/từ chối tri thức AI."}, {"stt": "1.4", "module": "Phân quyền", "feature": "Xem danh sách tài khoản", "sub": "1. Hiển thị danh sách tài khoản dưới dạng bảng.", "status_raw": "done", "deadline": "05/07/2026", "detail": "Trình bày thông tin các tài khoản (tên, chức vụ, phòng ban, trạng thái) dưới dạng bảng lưới (grid) dễ nhìn."}, {"stt": "1.5", "module": "Phân quyền", "feature": "Xem danh sách tài khoản", "sub": "2. Logic lọc danh sách tài khoản theo cấp quản lý.", "status_raw": "todo", "deadline": "31/07/2026", "detail": "Lọc theo các tiêu chí: - Ngày tạo - Tên bao gồm - Trạng thái tài khoản - Vai trò - Phòng ban - Email"}, {"stt": "1.6", "module": "Phân quyền", "feature": "Xem danh sách tài khoản", "sub": "3. Thanh tìm kiếm tài khoản.", "status_raw": "done", "deadline": "05/07/2026", "detail": "Người dùng có thể tìm kiếm tài khoản theo tên đăng nhập, tên người dùng"}, {"stt": "1.7", "module": "Phân quyền", "feature": "Xem danh sách tài khoản", "sub": "4. Cắt bỏ yêu cầu điền chức danh, chỉ giữ chức vụ", "status_raw": "todo", "deadline": "20/07/2026", "detail": "Loại bỏ yêu cầu bắt buộc điền chức danh cho người dùng"}, {"stt": "1.8", "module": "Phân quyền", "feature": "Xem danh sách tài khoản", "sub": "5. Gộp nhân viên và người dùng lại thành 1 module", "status_raw": "todo", "deadline": "20/07/2026", "detail": "Tích hợp quy trình tạo tài khoản đồng thười với tạo người dùng, không cần tạo riêng lẻ"}, {"stt": "2", "module": "Quản lý tài liệu", "feature": "Tải lên tài liệu", "sub": "1. Giao diện chọn/kéo thả tệp tin", "status_raw": "done", "deadline": "05/07/2026", "detail": "Cho phép người dùng tải các định dạng tài liệu, văn bản lên hệ thống lưu trữ tập trung."}, {"stt": "2.1", "module": "Quản lý tài liệu", "feature": "Tải lên tài liệu", "sub": "2. Logic kiểm tra định dạng và dung lượng", "status_raw": "done", "deadline": "05/07/2026", "detail": "Hệ thống tự động chặn các file không đúng định dạng cho phép hoặc vượt quá dung lượng quy định trước khi tải lên."}, {"stt": "2.2", "module": "Quản lý tài liệu", "feature": "Tải lên tài liệu", "sub": "3. Logic kiểm tra đặt tên", "status_raw": "done", "deadline": "05/07/2026", "detail": "Hệ thống tự động chặn các file không đúng định dạng cho phép hoặc vượt quá dung lượng quy định trước khi tải lên."}, {"stt": "2.3", "module": "Quản lý tài liệu", "feature": "Tải lên tài liệu", "sub": "4. Theo dõi tiến độ tải lên", "status_raw": "done", "deadline": "05/07/2026", "detail": "Có cửa sổ nhỏ ở góc màn hình theo dõi tiến độ tải lên của các tài liệu"}, {"stt": "2.4", "module": "Quản lý tài liệu", "feature": "Theo dõi tiến độ bổ sung tri thức", "sub": "1. Xem danh sách các tài liệu đang được AI học", "status_raw": "todo", "deadline": "24/07/2026", "detail": "Giao diện liệt kê chi tiết các văn bản, tài liệu đang nằm trong hàng đợi chờ hệ thống xử lý để đưa vào bộ nhớ AI. Bảng bao gồm các trường thông tin: Tên tài liệu, Loại dữ liệu, Người phê duyệt, Thời gian bắt đầu học, Trạng thái (Chờ xử lý, Đang học, Hoàn tất, Lỗi)."}, {"stt": "2.5", "module": "Quản lý tài liệu", "feature": "Theo dõi tiến độ bổ sung tri thức", "sub": "2. Hiển thị tiến độ học tập tổng quan và của từng tài liệu", "status_raw": "done", "deadline": "05/07/2026", "detail": "Tiến độ tổng quan: Thanh tiến trình thể hiện tổng khối lượng công việc hiện tại (Ví dụ: Đã học xong 45/100 tài liệu). Tiến độ chi tiết: Hiển thị tỷ lệ % hoàn thành tại từng dòng tài liệu cụ thể. Tích hợp cảnh báo đỏ và nút \"Thử lại\" nếu tài liệu đó bị lỗi trong quá trình AI phân tích (do tài liệu hỏng, mã hóa...)."}, {"stt": "2.6", "module": "Quản lý tài liệu", "feature": "Tải xuống tài liệu", "sub": "1. Nút hành động tải tài liệu", "status_raw": "done", "deadline": "05/07/2026", "detail": "Nút cho phép người dùng chọn để lưu tệp tin gốc từ máy chủ lưu trữ về thiết bị cá nhân."}, {"stt": "2.7", "module": "Quản lý tài liệu", "feature": "Xem tài liệu", "sub": "1. Tích hợp công cụ xem trước (Document Viewer)", "status_raw": "done", "deadline": "05/07/2026", "detail": "Hỗ trợ xem trước nội dung tài liệu trực tiếp trên trình duyệt mà không cần tải về."}, {"stt": "2.8", "module": "Quản lý tài liệu", "feature": "Xem tài liệu", "sub": "2. Hỗ trợ phóng to, thu nhỏ, lật trang", "status_raw": "done", "deadline": "05/07/2026", "detail": "Cung cấp các nút công cụ cơ bản (Phóng to/Thu nhỏ, Tiến tới/Lùi trang) để thao tác khi đọc tài liệu trực tuyến."}, {"stt": "2.9", "module": "Quản lý tài liệu", "feature": "Xem tài liệu", "sub": "3. Xem dữ liệu được trích xuất từ tài liệu", "status_raw": "done", "deadline": "05/07/2026", "detail": "Cho phép người dùng xem được các thông tin mà AI đã trích xuất ra được từ tài liệu nhằm mục đích kiểm tra nội dung"}, {"stt": "2.10", "module": "Quản lý tài liệu", "feature": "Xem tài liệu", "sub": "4. Xem lịch sử tương tác tài liệu", "status_raw": "done", "deadline": "05/07/2026", "detail": "Cho phép người dùng xem được lịch sử tương tác của tài liệu, như được tải lên vào ngày mấy, ai thay đổi tên,..."}, {"stt": "2.11", "module": "Quản lý tài liệu", "feature": "Xem tài liệu", "sub": "5. Xem được ghi chú tài liệu", "status_raw": "done", "deadline": "05/07/2026", "detail": "Cho phép người dùng để lại bình luận, ghi chú trên tài liệu để có thể xem lại"}, {"stt": "2.12", "module": "Quản lý tài liệu", "feature": "Xem tài liệu", "sub": "6. Xem thông tin tổng quan tài liệu/thư mục", "status_raw": "done", "deadline": "05/07/2026", "detail": "Cho phép người dùng xem thông tin tổng quan của tài liệu/thư mục, bao gồm: tên, loại, dung lượng, ngày tạo, ngày cập nhật,..."}, {"stt": "2.13", "module": "Quản lý tài liệu", "feature": "Xem tài liệu", "sub": "3. Hỗ trợ các file excel, docx, microsoft", "status_raw": "done", "deadline": "05/07/2026", "detail": "Hỗ trợ xem được định dạng các file microsoft như: pptx, excel, docx."}, {"stt": "2.14", "module": "Quản lý tài liệu", "feature": "Phân loại tài liệu", "sub": "1. Hiển thị cửa sổ yêu cầu phân loại (Popup)", "status_raw": "todo", "deadline": "24/07/2026", "detail": "Hỗ trợ sắp xếp, gán nhãn và phân loại tài liệu theo từng thư mục/chuyên mục cụ thể. Khi tải tài liệu lên, cửa sổ phân loại sẽ hiện lên để chọn các tiêu chuẩn phân loại theo: - Nghị Định, Nghị Quyết, Luật - Phân loại: VB Quy phạm pháp luật; Hành chính cá biệt, thông thường - Đơn vị: Phòng Văn hóa xã hội,..."}, {"stt": "2.18", "module": "Quản lý tài liệu", "feature": "Tra cứu và tìm kiếm tài liệu", "sub": "1. Thanh tìm kiếm nhanh", "status_raw": "done", "deadline": "05/07/2026", "detail": "Tìm kiếm nhanh tài liệu dựa trên từ khóa, tiêu đề văn bản hoặc tìm kiếm sâu (full-text search) trong nội dung tài liệu."}, {"stt": "2.19", "module": "Quản lý tài liệu", "feature": "Lọc tài liệu", "sub": "Lọc tài liệu", "status_raw": "todo", "deadline": "24/07/2026", "detail": "Cung cấp bộ lọc nâng cao đa chiều để tìm kiếm nhanh văn bản theo các tiêu chí: - Năm. - Cơ quan ban hành. - Trích yếu nội dung - Số ký hiệu"}, {"stt": "2.20", "module": "Quản lý tài liệu", "feature": "Di chuyển tài liệu", "sub": "Di chuyển tài liệu", "status_raw": "done", "deadline": "05/07/2026", "detail": "Cho phép di chuyển tài liệu, folder xung quanh không gian lưu trữ"}, {"stt": "3", "module": "Trợ lý AI", "feature": "Truy vấn thông tin chung", "sub": "1. Giao diện khung Chat", "status_raw": "done", "deadline": "05/07/2026", "detail": "Khu vực cho phép người dùng gõ câu hỏi bằng ngôn ngữ tự nhiên và gửi yêu cầu."}, {"stt": "3.1", "module": "Trợ lý AI", "feature": "Truy vấn thông tin chung", "sub": "2. Hiển thị lịch sử hội thoại", "status_raw": "done", "deadline": "05/07/2026", "detail": "Lưu và hiển thị danh sách các câu hỏi - câu trả lời cũ trong cùng một phiên làm việc để người dùng theo dõi."}, {"stt": "3.2", "module": "Trợ lý AI", "feature": "Truy vấn thông tin chung", "sub": "3. Liên kết các văn bản tri thức cùng chủ đề", "status_raw": "done", "deadline": "05/07/2026", "detail": "Trí tuệ nhân tạo có khả năng liên kết các tài liệu liên quan để trả lời cho cùng 1 chủ đề. Khả năng phân tích thay đổi trong văn bản để tìm các thông tin mới nhất"}, {"stt": "3.3", "module": "Trợ lý AI", "feature": "Truy vấn thông tin chung", "sub": "4. Xây dựng văn bản chính quy", "status_raw": "todo", "deadline": "20/07/2026", "detail": "Trợ lý AI sẽ xây dựng được một số các văn bản theo công văn phường đăng tải lên kho tài liệu"}, {"stt": "3.4", "module": "Trợ lý AI", "feature": "Truy vấn thông tin chung", "sub": "5. Tối ưu khả năng tư duy và suy luận của AI", "status_raw": "done", "deadline": "05/07/2026", "detail": "Giới hạn lại khả năng suy luận của AI, nếu vượt quá thời gian sẽ trả lời lại người dùng mà không tiếp tục suy luận nữa"}, {"stt": "3.5", "module": "Trợ lý AI", "feature": "Truy vấn thông tin chi tiết trong phòng ban", "sub": "1. Logic phân tích giới hạn vùng tài liệu", "status_raw": "done", "deadline": "05/07/2026", "detail": "AI ưu tiên truy xuất và tổng hợp câu trả lời từ tập dữ liệu được gán nhãn thuộc quyền sở hữu của phòng ban mà người dùng trực thuộc."}, {"stt": "3.6", "module": "Trợ lý AI", "feature": "Truy vấn thông tin chéo/không liên quan phòng ban", "sub": "1. Cơ chế cảnh báo vượt phòng ban", "status_raw": "done", "deadline": "05/07/2026", "detail": "AI cung cấp được đầy đủ các thông tin mà người dùng cần liên quan đến phòng khác, và có thông báo rằng cần làm rõ lại với phòng ban chịu trách nhiệm"}, {"stt": "3.7", "module": "Trợ lý AI", "feature": "Truy vấn thông tin chéo/không liên quan phòng ban", "sub": "2. Kịch bản AI từ chối/điều hướng an toàn", "status_raw": "done", "deadline": "05/07/2026", "detail": "AI có thông tin rằng không tìm thấy thông tin, không có văn bản liên quan"}, {"stt": "3.8", "module": "Trợ lý AI", "feature": "Yêu cầu bot phản hồi theo Template", "sub": "1. Chức năng đính kèm mẫu", "status_raw": "done", "deadline": "05/07/2026", "detail": "Người dùng cung cấp mẫu (template) và yêu cầu Chatbot tổng hợp thông tin, soạn thảo câu trả lời bám sát theo đúng cấu trúc form mẫu quy định."}, {"stt": "3.9", "module": "Trợ lý AI", "feature": "Yêu cầu bot phản hồi theo Template", "sub": "2. Thuật toán tự động điền form", "status_raw": "todo", "deadline": "20/07/2026", "detail": "AI trích xuất thông tin tìm được và tự động điền vào các trường (fields) tương ứng của biểu mẫu đã chọn."}, {"stt": "3.10", "module": "Trợ lý AI", "feature": "Ghi nhận đánh giá câu trả lời", "sub": "1. Nút Thích/Không thích", "status_raw": "done", "deadline": "05/07/2026", "detail": "Tích hợp form đánh giá chất lượng câu trả lời của bot trực tiếp trên giao diện. Nếu chưa đạt yêu cầu, cán bộ có thể nhập mô tả, hướng dẫn để bot cập nhật điều chỉnh tri thức vốn có"}, {"stt": "3.11", "module": "Trợ lý AI", "feature": "Ghi nhận điều chỉnh câu trả lời", "sub": "1. Mô tả lỗi sai và điều chỉnh", "status_raw": "done", "deadline": "05/07/2026", "detail": "Sau khi người dùng đánh giá, nếu đánh giá chưa đúng, hệ thống sẽ cho phép người dùng nhập vào nội dung cần chỉnh sửa của câu trả lời và gửi về hệ thống"}, {"stt": "3.12", "module": "Trợ lý AI", "feature": "Ghi nhận điều chỉnh câu trả lời", "sub": "2. Tiền phân loại và đánh giá feedback", "status_raw": "todo", "deadline": "24/07/2026", "detail": "Tự động kiểm tra loại truy vấn. Nếu là truy vấn chéo phòng ban, feedback đóng góp sẽ bị từ chối lưu vào hàng đợi duyệt của AI Owner."}, {"stt": "3.13", "module": "Trợ lý AI", "feature": "Ghi nhận điều chỉnh câu trả lời", "sub": "3. Tái tư duy và phản hồi lại", "status_raw": "done", "deadline": "05/07/2026", "detail": "Khi nhận được phản hồi \"Không thích\", khi được hỏi lại câu hỏi cùng nội dung, AI sẽ tiến hành tìm kiếm và phân tích lại nhằm đưa ra câu trả lời chính xác theo tài liệu hơn. Có dẫn chứng đã tìm kiếm lại"}, {"stt": "3.14", "module": "Trợ lý AI", "feature": "Trích dẫn nguồn tài liệu", "sub": "1. Hiển thị thẻ liên kết nguồn", "status_raw": "done", "deadline": "05/07/2026", "detail": "Mọi câu trả lời của Chatbot đều phải kèm theo trích dẫn nguồn gốc thông tin. Hệ thống tự động liên kết (ref) chỉ đích danh văn bản gốc"}, {"stt": "3.15", "module": "Trợ lý AI", "feature": "Trích dẫn nguồn tài liệu", "sub": "2. Gắn link đích danh tài liệu gốc", "status_raw": "done", "deadline": "05/07/2026", "detail": "Các thẻ liên kết được nhúng API để gọi ra chính xác file văn bản gốc tương ứng."}, {"stt": "3.16", "module": "Trợ lý AI", "feature": "Nêu bật đoạn văn được trích dẫn", "sub": "1. Chuyển hướng mở file nguồn", "status_raw": "done", "deadline": "05/07/2026", "detail": "Sau khi dẫn nguồn thông tin, nếu người dùng truy cập vào văn bản nguồn do AI đưa ra, người dùng được di chuyển và trỏ chính xác đến phần/mục (section/paragraph) mà AI đã thu thập để trả lời."}, {"stt": "3.17", "module": "Trợ lý AI", "feature": "Nêu bật đoạn văn được trích dẫn", "sub": "2. Tự động cuộn và bôi màu", "status_raw": "done", "deadline": "05/07/2026", "detail": "Tự động hiển thị nơi câu trả lời được trích xuất từ văn bản và bôi màu trang đó"}, {"stt": "4.1", "module": "Dashboard", "feature": "Thống kê hiệu suất AI", "sub": "1. Biểu đồ Tỷ lệ trả lời chính xác theo tháng", "status_raw": "progress", "deadline": "15/07/2026", "detail": "Trực quan hóa dưới dạng biểu đồ cột/đường (Bar/Line chart). Trục Y thể hiện phần trăm (%), trục X thể hiện các tháng. Dữ liệu lấy từ tỷ lệ đánh giá Hữu ích (Like) / Tổng số đánh giá."}, {"stt": "4.2", "module": "Dashboard", "feature": "Thống kê hiệu suất AI", "sub": "2. Biểu đồ Số lượng tri thức được cập nhật", "status_raw": "progress", "deadline": "15/07/2026", "detail": "Biểu đồ cột thể hiện số lượng tri thức (feedback hoặc tài liệu mới) đã được duyệt và nạp thành công vào hệ thống AI theo thời gian."}, {"stt": "5.2", "module": "Dashboard", "feature": "Thống kê sử dụng Tài liệu", "sub": "1. Thống kê số lượng tài liệu theo phòng ban", "status_raw": "progress", "deadline": "15/07/2026", "detail": "Biểu đồ thanh ngang thống kê tổng số lượng văn bản đang lưu trữ, phân tách rạch ròi theo từng đơn vị (VD: Phòng Lao động, Phòng VHXH, và Các phòng ban còn lại)."}, {"stt": "5.3", "module": "Dashboard", "feature": "Thống kê sử dụng Tài liệu", "sub": "2. Biểu đồ xu hướng tải lên tài liệu theo tháng", "status_raw": "progress", "deadline": "15/07/2026", "detail": "Biểu đồ kết hợp thể hiện số lượng văn bản mới được tải lên hệ thống qua từng tháng (T3, T4, T5, T6...)."}, {"stt": "5.4", "module": "Dashboard", "feature": "Thống kê Tương tác Hỏi/Đáp", "sub": "1. Thống kê lượt truy vấn theo phòng ban", "status_raw": "progress", "deadline": "15/07/2026", "detail": "Biểu đồ thanh ngang so sánh tổng số lượng câu hỏi/lượt sử dụng AI giữa các đơn vị (Ban Lãnh đạo, Phòng Kinh tế, Phòng VHXH...)."}, {"stt": "5.5", "module": "Dashboard", "feature": "Thống kê Tương tác Hỏi/Đáp", "sub": "2. Biểu đồ số lượng người dùng/truy cập theo tháng", "status_raw": "progress", "deadline": "15/07/2026", "detail": "Biểu đồ cột thống kê tổng số lượng người dùng (Active users) có phát sinh tương tác hỏi đáp với hệ thống trong từng tháng."}, {"stt": "5.6", "module": "Dashboard", "feature": "Thống kê Tương tác Hỏi/Đáp", "sub": "3. Bảng xếp hạng Top User hỏi nhiều nhất", "status_raw": "progress", "deadline": "15/07/2026", "detail": "Biểu đồ thanh ngang xếp hạng (Leaderboard) top các tài khoản có số lượng câu hỏi truy vấn AI nhiều nhất hệ thống."}, {"stt": "5.7", "module": "Dashboard", "feature": "Thống kê Tương tác Hỏi/Đáp", "sub": "4. Biểu đồ tỷ trọng câu hỏi theo chủ đề", "status_raw": "progress", "deadline": "15/07/2026", "detail": "Biểu đồ tròn (Pie chart) phân bổ tỷ lệ phần trăm (%) các câu hỏi truy vấn của người dùng theo từng nhóm chủ đề/loại văn bản cụ thể."}];
+    const MODULE_ORDER = ["Phân quyền", "Quản lý tài liệu", "Trợ lý AI", "Dashboard"];
+
+    function parseVNDate(s) {
+      const p = String(s || "").split("/");
+      if (p.length !== 3) return null;
+      return new Date(+p[2], +p[1] - 1, +p[0]);
+    }
+    function startOfToday() {
+      const t = new Date();
+      t.setHours(0,0,0,0);
+      return t;
+    }
+    function effectiveStatus(raw, deadline, today) {
+      const d = parseVNDate(deadline);
+      if (d && d <= today) return "done"; // past delivery date => done
+      return (raw === "done" || raw === "progress" || raw === "todo") ? raw : "todo";
+    }
+    function buildMilestones(today) {
+      const totalAll = FEATURES_RAW.length;
+      // Group by deadline with per-milestone raw/effective counts
+      const map = {};
+      FEATURES_RAW.forEach(f => {
+        if (!map[f.deadline]) map[f.deadline] = { full: f.deadline, items: [] };
+        map[f.deadline].items.push(f);
+      });
+      const list = Object.values(map).sort((a, b) => parseVNDate(a.full) - parseVNDate(b.full));
+
+      let cumDelivered = 0;
+      let priorCount = 0; // items from earlier milestones — always "done" in later stacks
+
+      return list.map(m => {
+        const d = parseVNDate(m.full);
+        const count = m.items.length;
+        cumDelivered += count;
+
+        // Current milestone status (today rule: past delivery => done)
+        let curDone = 0, curProgress = 0, curTodo = 0;
+        m.items.forEach(f => {
+          const st = effectiveStatus(f.status_raw, f.deadline, today);
+          if (st === "done") curDone++;
+          else if (st === "progress") curProgress++;
+          else curTodo++;
+        });
+
+        // Cumulative stack: all prior milestones count as done
+        // e.g. 15/07 = 35 done(prior) + 8 progress
+        //      20/07 = 43 done(05/07+15/07) + 4 todo
+        const done = priorCount + curDone;
+        const progress = curProgress;
+        const todo = curTodo;
+
+        const result = {
+          label: m.full.slice(0, 5),
+          full: m.full,
+          done, progress, todo,
+          prior_done: priorCount,
+          current_done: curDone,
+          milestone_count: count,
+          cum_pct: totalAll ? Math.round(cumDelivered / totalAll * 1000) / 10 : 0,
+          cum_count: cumDelivered,
+          total_all: totalAll,
+          past: !!(d && d <= today)
+        };
+
+        priorCount += count; // next columns treat this whole milestone as done
+        return result;
+      });
+    }
+
+    document.querySelectorAll(".nav-tab").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".nav-tab").forEach(b => b.classList.remove("active"));
+        document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
+        btn.classList.add("active");
+        document.getElementById("view-" + btn.dataset.view).classList.add("active");
+        history.replaceState(null, "", "#" + btn.dataset.view);
+        if (btn.dataset.view === "scope") {
+          requestAnimationFrame(() => {
+            ensureMilestoneChart(true);
+          });
+        }
+      });
+    });
+    const hash = location.hash.replace("#", "");
+    if (["users", "scope", "docs"].includes(hash)) {
+      const tab = document.querySelector('[data-view="' + hash + '"]');
+      if (tab) tab.click();
+    }
+
+    function roleBadge(group) {
+      if (group === "Trưởng phòng") return '<span class="badge leader">Trưởng phòng</span>';
+      if (group === "Phó Trưởng phòng") return '<span class="badge deputy">Phó Trưởng phòng</span>';
+      if (group === "Tổ trưởng") return '<span class="badge">Tổ trưởng</span>';
+      return '<span class="badge">' + group + '</span>';
+    }
+    function escapeHtml(s) {
+      return String(s || "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
+    }
+    function renderUsers() {
+      const q = (document.getElementById("user-search").value || "").toLowerCase().trim();
+      const dept = document.getElementById("user-dept").value;
+      const role = document.getElementById("user-role").value;
+      const filtered = USERS.filter(u => {
+        if (dept && u.dept_key !== dept) return false;
+        if (role && u.role_group !== role) return false;
+        if (!q) return true;
+        const hay = [u.name, u.role, u.team, u.username, u.email, u.phone, u.dept, u.dept_short].join(" ").toLowerCase();
+        return hay.includes(q);
+      });
+      document.getElementById("user-count").textContent = filtered.length + " người";
+      const tbody = document.getElementById("user-tbody");
+      if (!filtered.length) {
+        tbody.innerHTML = '<tr><td colspan="5" class="empty">Không tìm thấy người dùng phù hợp</td></tr>';
+        return;
+      }
+      tbody.innerHTML = filtered.map((u, i) => `
+        <tr>
+          <td class="num">${i + 1}</td>
+          <td>
+            <div class="user-name">${escapeHtml(u.name)}</div>
+            <div class="user-role">${escapeHtml(u.role)} · ${roleBadge(u.role_group)}</div>
+          </td>
+          <td>
+            <div><strong>${escapeHtml(u.dept_short)}</strong></div>
+            <div class="muted" style="font-size:0.82rem;margin-top:0.15rem">${escapeHtml(u.team)}</div>
+          </td>
+          <td class="mono">${escapeHtml(u.username || "—")}</td>
+          <td>
+            <div>${escapeHtml(u.phone || "—")}</div>
+            <div class="muted" style="font-size:0.82rem;margin-top:0.15rem">${escapeHtml(u.email || "—")}</div>
+          </td>
+        </tr>
+      `).join("");
+    }
+    ["user-search", "user-dept", "user-role"].forEach(id => {
+      document.getElementById(id).addEventListener("input", renderUsers);
+      document.getElementById(id).addEventListener("change", renderUsers);
+    });
+    renderUsers();
+
+    function filterFeatures() {
+      const q = (document.getElementById("feat-search").value || "").toLowerCase().trim();
+      const mod = document.getElementById("feat-module").value;
+      const st = document.getElementById("feat-status").value;
+      const dl = document.getElementById("feat-deadline").value;
+      let shown = 0;
+      document.querySelectorAll(".feat-table tbody tr").forEach(tr => {
+        const hay = tr.textContent.toLowerCase();
+        const okQ = !q || hay.includes(q);
+        const okM = !mod || tr.dataset.module === mod;
+        const okS = !st || tr.dataset.status === st;
+        const okD = !dl || tr.dataset.deadline === dl;
+        const show = okQ && okM && okS && okD;
+        tr.classList.toggle("hidden", !show);
+        if (show) shown++;
+      });
+      document.getElementById("feat-count").textContent = shown + " hạng mục";
+      document.querySelectorAll(".feat-group").forEach(g => {
+        g.style.display = g.querySelectorAll("tbody tr:not(.hidden)").length ? "" : "none";
+      });
+      document.querySelectorAll(".room-section[id^='mod-']").forEach(sec => {
+        sec.style.display = sec.querySelectorAll("tbody tr:not(.hidden)").length ? "" : "none";
+      });
+    }
+    ["feat-search", "feat-module", "feat-status", "feat-deadline"].forEach(id => {
+      document.getElementById(id).addEventListener("input", filterFeatures);
+      document.getElementById(id).addEventListener("change", filterFeatures);
+    });
+
+    function ensureMilestoneChart(forceResize) {
+      const today = startOfToday();
+      const MILESTONES = buildMilestones(today);
+      const canvas = document.getElementById("milestone-chart");
+      if (!canvas || typeof Chart === "undefined") return;
+
+      const labels = MILESTONES.map(m => m.label);
+      const data = {
+        labels,
+        datasets: [
+          { type: "bar", label: "Đã hoàn thành", data: MILESTONES.map(m => m.done), backgroundColor: "#1a7a4c", borderRadius: 4, stack: "items", yAxisID: "y", order: 2 },
+          { type: "bar", label: "Đang triển khai", data: MILESTONES.map(m => m.progress), backgroundColor: "#c45c1a", borderRadius: 4, stack: "items", yAxisID: "y", order: 2 },
+          { type: "bar", label: "Chưa triển khai", data: MILESTONES.map(m => m.todo), backgroundColor: "#e81820", borderRadius: 4, stack: "items", yAxisID: "y", order: 2 },
+          {
+            type: "line", label: "% hoàn thành lũy kế", data: MILESTONES.map(m => m.cum_pct),
+            borderColor: "#0848a0", backgroundColor: "rgba(8,72,160,0.12)", borderWidth: 3,
+            pointRadius: 5, pointHoverRadius: 7, pointBackgroundColor: "#0848a0",
+            pointBorderColor: "#fff", pointBorderWidth: 2, tension: 0.35, fill: false, yAxisID: "y1", order: 1
+          }
+        ]
+      };
+
+      if (window.milestoneChart) {
+        window.milestoneChart.data = data;
+        window.milestoneChart.options.plugins.tooltip.callbacks = tooltipCallbacks(MILESTONES);
+        window.milestoneChart.update();
+        if (forceResize) window.milestoneChart.resize();
+        return;
+      }
+
+      window.milestoneChart = new Chart(canvas, {
+        type: "bar",
+        data,
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: { mode: "index", intersect: false },
+          plugins: {
+            legend: { display: false },
+            tooltip: { callbacks: tooltipCallbacks(MILESTONES) }
+          },
+          scales: {
+            x: {
+              stacked: true, grid: { display: false },
+              ticks: { font: { family: "'Be Vietnam Pro', sans-serif", weight: "600" }, color: "#14233a" }
+            },
+            y: {
+              stacked: true, position: "left", beginAtZero: true,
+              title: { display: true, text: "Số hạng mục", color: "#5a6b82", font: { family: "'Be Vietnam Pro', sans-serif", size: 12 } },
+              grid: { color: "rgba(208, 216, 232, 0.7)" },
+              ticks: { precision: 0, color: "#5a6b82" }
+            },
+            y1: {
+              position: "right", beginAtZero: true, max: 100,
+              title: { display: true, text: "% hoàn thành lũy kế", color: "#0848a0", font: { family: "'Be Vietnam Pro', sans-serif", size: 12, weight: "600" } },
+              grid: { drawOnChartArea: false },
+              ticks: { color: "#0848a0", callback: (v) => v + "%" }
+            }
+          }
+        }
+      });
+    }
+
+    function tooltipCallbacks(MILESTONES) {
+      return {
+        title(items) {
+          const i = items[0].dataIndex;
+          const m = MILESTONES[i];
+          return "Mốc " + m.full + (m.past ? " (đã qua → tính hoàn thành)" : "");
+        },
+        label(ctx) {
+          if (ctx.dataset.yAxisID === "y1") return ctx.dataset.label + ": " + ctx.parsed.y + "%";
+          return ctx.dataset.label + ": " + ctx.parsed.y + " hạng mục";
+        },
+        afterBody(items) {
+          const i = items[0].dataIndex;
+          const m = MILESTONES[i];
+          const total = m.done + m.progress + m.todo;
+          const lines = [
+            "",
+            "Cộng dồn cột: " + total + " hạng mục",
+            "— Mốc trước (tính xong): " + m.prior_done,
+            "— Mốc này: " + m.milestone_count + " (xong " + m.current_done + " · đang " + m.progress + " · chưa " + m.todo + ")",
+            "Lũy kế phạm vi: " + m.cum_count + "/" + m.total_all + " (" + m.cum_pct + "%)"
+          ];
+          return lines;
+        }
+      };
+    }
+
+    if (document.getElementById("view-scope").classList.contains("active")) {
+      ensureMilestoneChart(false);
+    }
+  </script>
+</body>
+</html>
