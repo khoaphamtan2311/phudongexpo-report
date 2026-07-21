@@ -396,6 +396,7 @@
     .fb-desc-block { font-size: 0.82rem; color: var(--muted); line-height: 1.45; margin-top: 0.35rem; }
     .fb-desc-block strong { color: var(--ink); font-weight: 600; }
     .fb-table tr.hidden { display: none; }
+    .fb-source { font-size: 0.82rem; color: var(--ink); line-height: 1.35; }
     .fb-mod-section { scroll-margin-top: 4.5rem; }
 
   </style>
@@ -889,43 +890,30 @@
         </div>
         <div class="stats" id="scope-stats">
           <div class="stat"><div class="label">Tổng hạng mục</div><div class="value" id="stat-total">53</div><div class="hint">Trong phạm vi dự án</div></div>
-          <div class="stat"><div class="label">Đã hoàn thành</div><div class="value" id="stat-done">35</div><div class="hint" id="stat-pct">66% tiến độ</div></div>
-          <div class="stat"><div class="label">Đang triển khai</div><div class="value" id="stat-progress">8</div><div class="hint">Đang thực hiện</div></div>
-          <div class="stat"><div class="label">Chưa triển khai</div><div class="value" id="stat-todo">10</div><div class="hint">Còn lại trong backlog</div></div>
+          <div class="stat"><div class="label">Đã hoàn thành</div><div class="value" id="stat-done">43</div><div class="hint" id="stat-pct">81% tiến độ</div></div>
+          <div class="stat"><div class="label">Đang triển khai</div><div class="value" id="stat-progress">4</div><div class="hint">Đang thực hiện</div></div>
+          <div class="stat"><div class="label">Chưa triển khai</div><div class="value" id="stat-todo">6</div><div class="hint">Còn lại trong backlog</div></div>
         </div>
       </header>
 
       <div class="panel" style="margin-bottom:1.25rem;">
         <h3>Tiến độ tổng thể</h3>
         <div class="overall-ring">
-          <div class="ring" id="overall-ring" style="--p:66">
-            <div class="ring-inner" id="overall-pct">66%</div>
+          <div class="ring" id="overall-ring" style="--p:81">
+            <div class="ring-inner" id="overall-pct">81%</div>
           </div>
           <div class="overall-copy">
-            <h3 id="overall-title">35/53 hạng mục đã hoàn thành</h3>
-            <p id="overall-sub">8 đang triển khai · 10 chưa triển khai · 4 module chính</p>
+            <h3 id="overall-title">43/53 hạng mục đã hoàn thành</h3>
+            <p id="overall-sub">4 đang triển khai · 6 chưa triển khai · 4 module chính</p>
             <div class="mod-stats" style="margin-top:0.75rem;">
-              <span class="st done" id="chip-done">35 xong</span>
-              <span class="st progress" id="chip-progress">8 đang làm</span>
-              <span class="st todo" id="chip-todo">10 chưa làm</span>
+              <span class="st done" id="chip-done">43 xong</span>
+              <span class="st progress" id="chip-progress">4 đang làm</span>
+              <span class="st todo" id="chip-todo">6 chưa làm</span>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="panel" style="margin-bottom:1.25rem;">
-        <h3>Mốc bàn giao</h3>
-
-        <div class="chart-wrap">
-          <canvas id="milestone-chart" aria-label="Biểu đồ mốc bàn giao"></canvas>
-        </div>
-        <div class="chart-legend-inline">
-          <span><i style="background:#1a7a4c"></i>Đã hoàn thành</span>
-          <span><i style="background:#c45c1a"></i>Đang triển khai</span>
-          <span><i style="background:#e81820"></i>Chưa triển khai</span>
-          <span><i class="line" style="background:#0848a0"></i>% hoàn thành lũy kế</span>
-        </div>
-      </div>
 
       <div class="section-title"><h2>Theo module</h2><p>Nhấn vào thẻ để xem chi tiết hạng mục</p></div>
       <div class="mod-grid" id="mod-grid">
@@ -937,8 +925,8 @@
       </div>
       <div class="mod-stats">
         <span class="st done">5 xong</span>
-        <span class="st progress">0 đang làm</span>
-        <span class="st todo">4 chưa làm</span>
+        <span class="st progress">2 đang làm</span>
+        <span class="st todo">2 chưa làm</span>
       </div>
     </a>
     <a class="mod-card" href="#mod-Quản lý tài liệu" style="--accent:#1a7a4c">
@@ -961,24 +949,24 @@
       </div>
       <div class="mod-stats">
         <span class="st done">15 xong</span>
-        <span class="st progress">0 đang làm</span>
-        <span class="st todo">3 chưa làm</span>
+        <span class="st progress">2 đang làm</span>
+        <span class="st todo">1 chưa làm</span>
       </div>
     </a>
     <a class="mod-card" href="#mod-Dashboard" style="--accent:#c45c1a">
       <div class="mod-card-top"><span class="mod-dot"></span><h3>Dashboard</h3></div>
       <div class="mod-progress">
-        <div class="mod-progress-bar"><span style="width:0%;background:#c45c1a"></span></div>
-        <div class="mod-progress-label"><strong>0%</strong> hoàn thành · 8 hạng mục</div>
+        <div class="mod-progress-bar"><span style="width:100%;background:#c45c1a"></span></div>
+        <div class="mod-progress-label"><strong>100%</strong> hoàn thành · 8 hạng mục</div>
       </div>
       <div class="mod-stats">
-        <span class="st done">0 xong</span>
-        <span class="st progress">8 đang làm</span>
+        <span class="st done">8 xong</span>
+        <span class="st progress">0 đang làm</span>
         <span class="st todo">0 chưa làm</span>
       </div>
     </a></div>
 
-      <div class="section-title"><h2>Chi tiết tính năng</h2><p>Lọc theo trạng thái / module / mốc bàn giao</p></div>
+      <div class="section-title"><h2>Chi tiết tính năng</h2><p>Lọc theo trạng thái / module</p></div>
       <div class="panel" style="margin-bottom:0.5rem;">
         <div class="filters">
           <input id="feat-search" type="search" placeholder="Tìm tính năng, chi tiết..." />
@@ -991,10 +979,6 @@
             <option value="done">Đã hoàn thành</option>
             <option value="progress">Đang triển khai</option>
             <option value="todo">Chưa triển khai</option>
-          </select>
-          <select id="feat-deadline">
-            <option value="">Tất cả mốc bàn giao</option>
-            <option value="05/07/2026">05/07/2026</option><option value="15/07/2026">15/07/2026</option><option value="20/07/2026">20/07/2026</option><option value="24/07/2026">24/07/2026</option><option value="31/07/2026">31/07/2026</option>
           </select>
           <span class="result-count" id="feat-count">53 hạng mục</span>
         </div>
@@ -1014,43 +998,39 @@
           <h4>Phân quyền người dùng theo cấp bậc và chức vụ</h4>
           <div class="table-wrap">
             <table class="feat-table">
-              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th></tr></thead>
               <tbody>
-            <tr data-status="done" data-module="Phân quyền" data-deadline="05/07/2026">
+            <tr data-status="done" data-module="Phân quyền">
               <td class="num mono-stt">1</td>
               <td>
                 <div class="feat-sub">1. Quản lý danh sách chức danh/vai trò.</div>
                 <div class="feat-detail">Cấu hình phân quyền truy cập, xem và thao tác trên hệ thống cho các vai trò cụ thể: - Admin: Quản lý tài khoản - Bí thư: Xem toàn bộ tài liệu - Phó bí thư: Xem toàn bộ tài liệu - Chủ tịch: Xem toàn bộ tài liệu - Phó chủ tịch: Xem toàn bộ tài liệu - Trưởng phòng / Chánh văn phòng: Xem toàn bộ tài liệu của phòng - Chuyên viên: Xem tài liệu của phòng trong khuông khổ được quy định</div>
               </td>
               <td><span class="status-pill done">Đã hoàn thành</span></td>
-              <td class="num">05/07/2026</td>
             </tr>
-            <tr data-status="done" data-module="Phân quyền" data-deadline="05/07/2026">
+            <tr data-status="done" data-module="Phân quyền">
               <td class="num mono-stt">1.1</td>
               <td>
                 <div class="feat-sub">2. Giao diện gán vai trò và phòng ban cho tài khoản.</div>
                 <div class="feat-detail">Cung cấp giao diện để quản trị viên thiết lập vai trò và chỉ định phòng ban trực thuộc cho từng tài khoản.</div>
               </td>
               <td><span class="status-pill done">Đã hoàn thành</span></td>
-              <td class="num">05/07/2026</td>
             </tr>
-            <tr data-status="done" data-module="Phân quyền" data-deadline="05/07/2026">
+            <tr data-status="done" data-module="Phân quyền">
               <td class="num mono-stt">1.2</td>
               <td>
                 <div class="feat-sub">3. Logic kiểm soát hiển thị tài liệu theo chức danh.</div>
                 <div class="feat-detail">Thuật toán tự động nhận diện chức danh của người dùng để hiển thị/che giấu tài liệu tương ứng.</div>
               </td>
               <td><span class="status-pill done">Đã hoàn thành</span></td>
-              <td class="num">05/07/2026</td>
             </tr>
-            <tr data-status="todo" data-module="Phân quyền" data-deadline="31/07/2026">
+            <tr data-status="todo" data-module="Phân quyền">
               <td class="num mono-stt">1.3</td>
               <td>
                 <div class="feat-sub">4. Cấu hình phân quyền cho vai trò &quot;AI Owner&quot; chuyên kiểm duyệt dữ liệu AI.</div>
                 <div class="feat-detail">Thiết lập quyền đặc biệt cho &quot;AI Owner&quot; để xem toàn bộ đánh giá trợ lý AI trên hệ thống và có quyền thao tác duyệt/từ chối tri thức AI.</div>
               </td>
               <td><span class="status-pill todo">Chưa triển khai</span></td>
-              <td class="num">31/07/2026</td>
             </tr></tbody>
             </table>
           </div>
@@ -1059,52 +1039,47 @@
           <h4>Xem danh sách tài khoản</h4>
           <div class="table-wrap">
             <table class="feat-table">
-              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th></tr></thead>
               <tbody>
-            <tr data-status="done" data-module="Phân quyền" data-deadline="05/07/2026">
+            <tr data-status="done" data-module="Phân quyền">
               <td class="num mono-stt">1.4</td>
               <td>
                 <div class="feat-sub">1. Hiển thị danh sách tài khoản dưới dạng bảng.</div>
                 <div class="feat-detail">Trình bày thông tin các tài khoản (tên, chức vụ, phòng ban, trạng thái) dưới dạng bảng lưới (grid) dễ nhìn.</div>
               </td>
               <td><span class="status-pill done">Đã hoàn thành</span></td>
-              <td class="num">05/07/2026</td>
             </tr>
-            <tr data-status="todo" data-module="Phân quyền" data-deadline="31/07/2026">
+            <tr data-status="todo" data-module="Phân quyền">
               <td class="num mono-stt">1.5</td>
               <td>
                 <div class="feat-sub">2. Logic lọc danh sách tài khoản theo cấp quản lý.</div>
                 <div class="feat-detail">Lọc theo các tiêu chí: - Ngày tạo - Tên bao gồm - Trạng thái tài khoản - Vai trò - Phòng ban - Email</div>
               </td>
               <td><span class="status-pill todo">Chưa triển khai</span></td>
-              <td class="num">31/07/2026</td>
             </tr>
-            <tr data-status="done" data-module="Phân quyền" data-deadline="05/07/2026">
+            <tr data-status="done" data-module="Phân quyền">
               <td class="num mono-stt">1.6</td>
               <td>
                 <div class="feat-sub">3. Thanh tìm kiếm tài khoản.</div>
                 <div class="feat-detail">Người dùng có thể tìm kiếm tài khoản theo tên đăng nhập, tên người dùng</div>
               </td>
               <td><span class="status-pill done">Đã hoàn thành</span></td>
-              <td class="num">05/07/2026</td>
             </tr>
-            <tr data-status="todo" data-module="Phân quyền" data-deadline="20/07/2026">
+            <tr data-status="progress" data-module="Phân quyền">
               <td class="num mono-stt">1.7</td>
               <td>
                 <div class="feat-sub">4. Cắt bỏ yêu cầu điền chức danh, chỉ giữ chức vụ</div>
                 <div class="feat-detail">Loại bỏ yêu cầu bắt buộc điền chức danh cho người dùng</div>
               </td>
-              <td><span class="status-pill todo">Chưa triển khai</span></td>
-              <td class="num">20/07/2026</td>
+              <td><span class="status-pill progress">Đang triển khai</span></td>
             </tr>
-            <tr data-status="todo" data-module="Phân quyền" data-deadline="20/07/2026">
+            <tr data-status="progress" data-module="Phân quyền">
               <td class="num mono-stt">1.8</td>
               <td>
                 <div class="feat-sub">5. Gộp nhân viên và người dùng lại thành 1 module</div>
                 <div class="feat-detail">Tích hợp quy trình tạo tài khoản đồng thười với tạo người dùng, không cần tạo riêng lẻ</div>
               </td>
-              <td><span class="status-pill todo">Chưa triển khai</span></td>
-              <td class="num">20/07/2026</td>
+              <td><span class="status-pill progress">Đang triển khai</span></td>
             </tr></tbody>
             </table>
           </div>
@@ -1124,43 +1099,39 @@
           <h4>Tải lên tài liệu</h4>
           <div class="table-wrap">
             <table class="feat-table">
-              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th></tr></thead>
               <tbody>
-            <tr data-status="done" data-module="Quản lý tài liệu" data-deadline="05/07/2026">
+            <tr data-status="done" data-module="Quản lý tài liệu">
               <td class="num mono-stt">2</td>
               <td>
                 <div class="feat-sub">1. Giao diện chọn/kéo thả tệp tin</div>
                 <div class="feat-detail">Cho phép người dùng tải các định dạng tài liệu, văn bản lên hệ thống lưu trữ tập trung.</div>
               </td>
               <td><span class="status-pill done">Đã hoàn thành</span></td>
-              <td class="num">05/07/2026</td>
             </tr>
-            <tr data-status="done" data-module="Quản lý tài liệu" data-deadline="05/07/2026">
+            <tr data-status="done" data-module="Quản lý tài liệu">
               <td class="num mono-stt">2.1</td>
               <td>
                 <div class="feat-sub">2. Logic kiểm tra định dạng và dung lượng</div>
                 <div class="feat-detail">Hệ thống tự động chặn các file không đúng định dạng cho phép hoặc vượt quá dung lượng quy định trước khi tải lên.</div>
               </td>
               <td><span class="status-pill done">Đã hoàn thành</span></td>
-              <td class="num">05/07/2026</td>
             </tr>
-            <tr data-status="done" data-module="Quản lý tài liệu" data-deadline="05/07/2026">
+            <tr data-status="done" data-module="Quản lý tài liệu">
               <td class="num mono-stt">2.2</td>
               <td>
                 <div class="feat-sub">3. Logic kiểm tra đặt tên</div>
                 <div class="feat-detail">Hệ thống tự động chặn các file không đúng định dạng cho phép hoặc vượt quá dung lượng quy định trước khi tải lên.</div>
               </td>
               <td><span class="status-pill done">Đã hoàn thành</span></td>
-              <td class="num">05/07/2026</td>
             </tr>
-            <tr data-status="done" data-module="Quản lý tài liệu" data-deadline="05/07/2026">
+            <tr data-status="done" data-module="Quản lý tài liệu">
               <td class="num mono-stt">2.3</td>
               <td>
                 <div class="feat-sub">4. Theo dõi tiến độ tải lên</div>
                 <div class="feat-detail">Có cửa sổ nhỏ ở góc màn hình theo dõi tiến độ tải lên của các tài liệu</div>
               </td>
               <td><span class="status-pill done">Đã hoàn thành</span></td>
-              <td class="num">05/07/2026</td>
             </tr></tbody>
             </table>
           </div>
@@ -1169,25 +1140,23 @@
           <h4>Theo dõi tiến độ bổ sung tri thức</h4>
           <div class="table-wrap">
             <table class="feat-table">
-              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th></tr></thead>
               <tbody>
-            <tr data-status="todo" data-module="Quản lý tài liệu" data-deadline="24/07/2026">
+            <tr data-status="todo" data-module="Quản lý tài liệu">
               <td class="num mono-stt">2.4</td>
               <td>
                 <div class="feat-sub">1. Xem danh sách các tài liệu đang được AI học</div>
                 <div class="feat-detail">Giao diện liệt kê chi tiết các văn bản, tài liệu đang nằm trong hàng đợi chờ hệ thống xử lý để đưa vào bộ nhớ AI. Bảng bao gồm các trường thông tin: Tên tài liệu, Loại dữ liệu, Người phê duyệt, Thời gian bắt đầu học, Trạng thái (Chờ xử lý, Đang học, Hoàn tất, Lỗi).</div>
               </td>
               <td><span class="status-pill todo">Chưa triển khai</span></td>
-              <td class="num">24/07/2026</td>
             </tr>
-            <tr data-status="done" data-module="Quản lý tài liệu" data-deadline="05/07/2026">
+            <tr data-status="done" data-module="Quản lý tài liệu">
               <td class="num mono-stt">2.5</td>
               <td>
                 <div class="feat-sub">2. Hiển thị tiến độ học tập tổng quan và của từng tài liệu</div>
                 <div class="feat-detail">Tiến độ tổng quan: Thanh tiến trình thể hiện tổng khối lượng công việc hiện tại (Ví dụ: Đã học xong 45/100 tài liệu). Tiến độ chi tiết: Hiển thị tỷ lệ % hoàn thành tại từng dòng tài liệu cụ thể. Tích hợp cảnh báo đỏ và nút &quot;Thử lại&quot; nếu tài liệu đó bị lỗi trong quá trình AI phân tích (do tài liệu hỏng, mã hóa...).</div>
               </td>
               <td><span class="status-pill done">Đã hoàn thành</span></td>
-              <td class="num">05/07/2026</td>
             </tr></tbody>
             </table>
           </div>
@@ -1196,16 +1165,15 @@
           <h4>Tải xuống tài liệu</h4>
           <div class="table-wrap">
             <table class="feat-table">
-              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th></tr></thead>
               <tbody>
-            <tr data-status="done" data-module="Quản lý tài liệu" data-deadline="05/07/2026">
+            <tr data-status="done" data-module="Quản lý tài liệu">
               <td class="num mono-stt">2.6</td>
               <td>
                 <div class="feat-sub">1. Nút hành động tải tài liệu</div>
                 <div class="feat-detail">Nút cho phép người dùng chọn để lưu tệp tin gốc từ máy chủ lưu trữ về thiết bị cá nhân.</div>
               </td>
               <td><span class="status-pill done">Đã hoàn thành</span></td>
-              <td class="num">05/07/2026</td>
             </tr></tbody>
             </table>
           </div>
@@ -1214,70 +1182,63 @@
           <h4>Xem tài liệu</h4>
           <div class="table-wrap">
             <table class="feat-table">
-              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th></tr></thead>
               <tbody>
-            <tr data-status="done" data-module="Quản lý tài liệu" data-deadline="05/07/2026">
+            <tr data-status="done" data-module="Quản lý tài liệu">
               <td class="num mono-stt">2.7</td>
               <td>
                 <div class="feat-sub">1. Tích hợp công cụ xem trước (Document Viewer)</div>
                 <div class="feat-detail">Hỗ trợ xem trước nội dung tài liệu trực tiếp trên trình duyệt mà không cần tải về.</div>
               </td>
               <td><span class="status-pill done">Đã hoàn thành</span></td>
-              <td class="num">05/07/2026</td>
             </tr>
-            <tr data-status="done" data-module="Quản lý tài liệu" data-deadline="05/07/2026">
+            <tr data-status="done" data-module="Quản lý tài liệu">
               <td class="num mono-stt">2.8</td>
               <td>
                 <div class="feat-sub">2. Hỗ trợ phóng to, thu nhỏ, lật trang</div>
                 <div class="feat-detail">Cung cấp các nút công cụ cơ bản (Phóng to/Thu nhỏ, Tiến tới/Lùi trang) để thao tác khi đọc tài liệu trực tuyến.</div>
               </td>
               <td><span class="status-pill done">Đã hoàn thành</span></td>
-              <td class="num">05/07/2026</td>
             </tr>
-            <tr data-status="done" data-module="Quản lý tài liệu" data-deadline="05/07/2026">
+            <tr data-status="done" data-module="Quản lý tài liệu">
               <td class="num mono-stt">2.9</td>
               <td>
                 <div class="feat-sub">3. Xem dữ liệu được trích xuất từ tài liệu</div>
                 <div class="feat-detail">Cho phép người dùng xem được các thông tin mà AI đã trích xuất ra được từ tài liệu nhằm mục đích kiểm tra nội dung</div>
               </td>
               <td><span class="status-pill done">Đã hoàn thành</span></td>
-              <td class="num">05/07/2026</td>
             </tr>
-            <tr data-status="done" data-module="Quản lý tài liệu" data-deadline="05/07/2026">
+            <tr data-status="done" data-module="Quản lý tài liệu">
               <td class="num mono-stt">2.10</td>
               <td>
                 <div class="feat-sub">4. Xem lịch sử tương tác tài liệu</div>
                 <div class="feat-detail">Cho phép người dùng xem được lịch sử tương tác của tài liệu, như được tải lên vào ngày mấy, ai thay đổi tên,...</div>
               </td>
               <td><span class="status-pill done">Đã hoàn thành</span></td>
-              <td class="num">05/07/2026</td>
             </tr>
-            <tr data-status="done" data-module="Quản lý tài liệu" data-deadline="05/07/2026">
+            <tr data-status="done" data-module="Quản lý tài liệu">
               <td class="num mono-stt">2.11</td>
               <td>
                 <div class="feat-sub">5. Xem được ghi chú tài liệu</div>
                 <div class="feat-detail">Cho phép người dùng để lại bình luận, ghi chú trên tài liệu để có thể xem lại</div>
               </td>
               <td><span class="status-pill done">Đã hoàn thành</span></td>
-              <td class="num">05/07/2026</td>
             </tr>
-            <tr data-status="done" data-module="Quản lý tài liệu" data-deadline="05/07/2026">
+            <tr data-status="done" data-module="Quản lý tài liệu">
               <td class="num mono-stt">2.12</td>
               <td>
                 <div class="feat-sub">6. Xem thông tin tổng quan tài liệu/thư mục</div>
                 <div class="feat-detail">Cho phép người dùng xem thông tin tổng quan của tài liệu/thư mục, bao gồm: tên, loại, dung lượng, ngày tạo, ngày cập nhật,...</div>
               </td>
               <td><span class="status-pill done">Đã hoàn thành</span></td>
-              <td class="num">05/07/2026</td>
             </tr>
-            <tr data-status="done" data-module="Quản lý tài liệu" data-deadline="05/07/2026">
+            <tr data-status="done" data-module="Quản lý tài liệu">
               <td class="num mono-stt">2.13</td>
               <td>
                 <div class="feat-sub">3. Hỗ trợ các file excel, docx, microsoft</div>
                 <div class="feat-detail">Hỗ trợ xem được định dạng các file microsoft như: pptx, excel, docx.</div>
               </td>
               <td><span class="status-pill done">Đã hoàn thành</span></td>
-              <td class="num">05/07/2026</td>
             </tr></tbody>
             </table>
           </div>
@@ -1286,16 +1247,15 @@
           <h4>Phân loại tài liệu</h4>
           <div class="table-wrap">
             <table class="feat-table">
-              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th></tr></thead>
               <tbody>
-            <tr data-status="todo" data-module="Quản lý tài liệu" data-deadline="24/07/2026">
+            <tr data-status="todo" data-module="Quản lý tài liệu">
               <td class="num mono-stt">2.14</td>
               <td>
                 <div class="feat-sub">1. Hiển thị cửa sổ yêu cầu phân loại (Popup)</div>
                 <div class="feat-detail">Hỗ trợ sắp xếp, gán nhãn và phân loại tài liệu theo từng thư mục/chuyên mục cụ thể. Khi tải tài liệu lên, cửa sổ phân loại sẽ hiện lên để chọn các tiêu chuẩn phân loại theo: - Nghị Định, Nghị Quyết, Luật - Phân loại: VB Quy phạm pháp luật; Hành chính cá biệt, thông thường - Đơn vị: Phòng Văn hóa xã hội,...</div>
               </td>
               <td><span class="status-pill todo">Chưa triển khai</span></td>
-              <td class="num">24/07/2026</td>
             </tr></tbody>
             </table>
           </div>
@@ -1304,16 +1264,15 @@
           <h4>Tra cứu và tìm kiếm tài liệu</h4>
           <div class="table-wrap">
             <table class="feat-table">
-              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th></tr></thead>
               <tbody>
-            <tr data-status="done" data-module="Quản lý tài liệu" data-deadline="05/07/2026">
+            <tr data-status="done" data-module="Quản lý tài liệu">
               <td class="num mono-stt">2.18</td>
               <td>
                 <div class="feat-sub">1. Thanh tìm kiếm nhanh</div>
                 <div class="feat-detail">Tìm kiếm nhanh tài liệu dựa trên từ khóa, tiêu đề văn bản hoặc tìm kiếm sâu (full-text search) trong nội dung tài liệu.</div>
               </td>
               <td><span class="status-pill done">Đã hoàn thành</span></td>
-              <td class="num">05/07/2026</td>
             </tr></tbody>
             </table>
           </div>
@@ -1322,16 +1281,15 @@
           <h4>Lọc tài liệu</h4>
           <div class="table-wrap">
             <table class="feat-table">
-              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th></tr></thead>
               <tbody>
-            <tr data-status="todo" data-module="Quản lý tài liệu" data-deadline="24/07/2026">
+            <tr data-status="todo" data-module="Quản lý tài liệu">
               <td class="num mono-stt">2.19</td>
               <td>
                 <div class="feat-sub">Lọc tài liệu</div>
                 <div class="feat-detail">Cung cấp bộ lọc nâng cao đa chiều để tìm kiếm nhanh văn bản theo các tiêu chí: - Năm. - Cơ quan ban hành. - Trích yếu nội dung - Số ký hiệu</div>
               </td>
               <td><span class="status-pill todo">Chưa triển khai</span></td>
-              <td class="num">24/07/2026</td>
             </tr></tbody>
             </table>
           </div>
@@ -1340,16 +1298,15 @@
           <h4>Di chuyển tài liệu</h4>
           <div class="table-wrap">
             <table class="feat-table">
-              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th></tr></thead>
               <tbody>
-            <tr data-status="done" data-module="Quản lý tài liệu" data-deadline="05/07/2026">
+            <tr data-status="done" data-module="Quản lý tài liệu">
               <td class="num mono-stt">2.20</td>
               <td>
                 <div class="feat-sub">Di chuyển tài liệu</div>
                 <div class="feat-detail">Cho phép di chuyển tài liệu, folder xung quanh không gian lưu trữ</div>
               </td>
               <td><span class="status-pill done">Đã hoàn thành</span></td>
-              <td class="num">05/07/2026</td>
             </tr></tbody>
             </table>
           </div>
@@ -1369,52 +1326,47 @@
           <h4>Truy vấn thông tin chung</h4>
           <div class="table-wrap">
             <table class="feat-table">
-              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th></tr></thead>
               <tbody>
-            <tr data-status="done" data-module="Trợ lý AI" data-deadline="05/07/2026">
+            <tr data-status="done" data-module="Trợ lý AI">
               <td class="num mono-stt">3</td>
               <td>
                 <div class="feat-sub">1. Giao diện khung Chat</div>
                 <div class="feat-detail">Khu vực cho phép người dùng gõ câu hỏi bằng ngôn ngữ tự nhiên và gửi yêu cầu.</div>
               </td>
               <td><span class="status-pill done">Đã hoàn thành</span></td>
-              <td class="num">05/07/2026</td>
             </tr>
-            <tr data-status="done" data-module="Trợ lý AI" data-deadline="05/07/2026">
+            <tr data-status="done" data-module="Trợ lý AI">
               <td class="num mono-stt">3.1</td>
               <td>
                 <div class="feat-sub">2. Hiển thị lịch sử hội thoại</div>
                 <div class="feat-detail">Lưu và hiển thị danh sách các câu hỏi - câu trả lời cũ trong cùng một phiên làm việc để người dùng theo dõi.</div>
               </td>
               <td><span class="status-pill done">Đã hoàn thành</span></td>
-              <td class="num">05/07/2026</td>
             </tr>
-            <tr data-status="done" data-module="Trợ lý AI" data-deadline="05/07/2026">
+            <tr data-status="done" data-module="Trợ lý AI">
               <td class="num mono-stt">3.2</td>
               <td>
                 <div class="feat-sub">3. Liên kết các văn bản tri thức cùng chủ đề</div>
                 <div class="feat-detail">Trí tuệ nhân tạo có khả năng liên kết các tài liệu liên quan để trả lời cho cùng 1 chủ đề. Khả năng phân tích thay đổi trong văn bản để tìm các thông tin mới nhất</div>
               </td>
               <td><span class="status-pill done">Đã hoàn thành</span></td>
-              <td class="num">05/07/2026</td>
             </tr>
-            <tr data-status="todo" data-module="Trợ lý AI" data-deadline="20/07/2026">
+            <tr data-status="progress" data-module="Trợ lý AI">
               <td class="num mono-stt">3.3</td>
               <td>
                 <div class="feat-sub">4. Xây dựng văn bản chính quy</div>
                 <div class="feat-detail">Trợ lý AI sẽ xây dựng được một số các văn bản theo công văn phường đăng tải lên kho tài liệu</div>
               </td>
-              <td><span class="status-pill todo">Chưa triển khai</span></td>
-              <td class="num">20/07/2026</td>
+              <td><span class="status-pill progress">Đang triển khai</span></td>
             </tr>
-            <tr data-status="done" data-module="Trợ lý AI" data-deadline="05/07/2026">
+            <tr data-status="done" data-module="Trợ lý AI">
               <td class="num mono-stt">3.4</td>
               <td>
                 <div class="feat-sub">5. Tối ưu khả năng tư duy và suy luận của AI</div>
                 <div class="feat-detail">Giới hạn lại khả năng suy luận của AI, nếu vượt quá thời gian sẽ trả lời lại người dùng mà không tiếp tục suy luận nữa</div>
               </td>
               <td><span class="status-pill done">Đã hoàn thành</span></td>
-              <td class="num">05/07/2026</td>
             </tr></tbody>
             </table>
           </div>
@@ -1423,16 +1375,15 @@
           <h4>Truy vấn thông tin chi tiết trong phòng ban</h4>
           <div class="table-wrap">
             <table class="feat-table">
-              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th></tr></thead>
               <tbody>
-            <tr data-status="done" data-module="Trợ lý AI" data-deadline="05/07/2026">
+            <tr data-status="done" data-module="Trợ lý AI">
               <td class="num mono-stt">3.5</td>
               <td>
                 <div class="feat-sub">1. Logic phân tích giới hạn vùng tài liệu</div>
                 <div class="feat-detail">AI ưu tiên truy xuất và tổng hợp câu trả lời từ tập dữ liệu được gán nhãn thuộc quyền sở hữu của phòng ban mà người dùng trực thuộc.</div>
               </td>
               <td><span class="status-pill done">Đã hoàn thành</span></td>
-              <td class="num">05/07/2026</td>
             </tr></tbody>
             </table>
           </div>
@@ -1441,25 +1392,23 @@
           <h4>Truy vấn thông tin chéo/không liên quan phòng ban</h4>
           <div class="table-wrap">
             <table class="feat-table">
-              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th></tr></thead>
               <tbody>
-            <tr data-status="done" data-module="Trợ lý AI" data-deadline="05/07/2026">
+            <tr data-status="done" data-module="Trợ lý AI">
               <td class="num mono-stt">3.6</td>
               <td>
                 <div class="feat-sub">1. Cơ chế cảnh báo vượt phòng ban</div>
                 <div class="feat-detail">AI cung cấp được đầy đủ các thông tin mà người dùng cần liên quan đến phòng khác, và có thông báo rằng cần làm rõ lại với phòng ban chịu trách nhiệm</div>
               </td>
               <td><span class="status-pill done">Đã hoàn thành</span></td>
-              <td class="num">05/07/2026</td>
             </tr>
-            <tr data-status="done" data-module="Trợ lý AI" data-deadline="05/07/2026">
+            <tr data-status="done" data-module="Trợ lý AI">
               <td class="num mono-stt">3.7</td>
               <td>
                 <div class="feat-sub">2. Kịch bản AI từ chối/điều hướng an toàn</div>
                 <div class="feat-detail">AI có thông tin rằng không tìm thấy thông tin, không có văn bản liên quan</div>
               </td>
               <td><span class="status-pill done">Đã hoàn thành</span></td>
-              <td class="num">05/07/2026</td>
             </tr></tbody>
             </table>
           </div>
@@ -1468,25 +1417,23 @@
           <h4>Yêu cầu bot phản hồi theo Template</h4>
           <div class="table-wrap">
             <table class="feat-table">
-              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th></tr></thead>
               <tbody>
-            <tr data-status="done" data-module="Trợ lý AI" data-deadline="05/07/2026">
+            <tr data-status="done" data-module="Trợ lý AI">
               <td class="num mono-stt">3.8</td>
               <td>
                 <div class="feat-sub">1. Chức năng đính kèm mẫu</div>
                 <div class="feat-detail">Người dùng cung cấp mẫu (template) và yêu cầu Chatbot tổng hợp thông tin, soạn thảo câu trả lời bám sát theo đúng cấu trúc form mẫu quy định.</div>
               </td>
               <td><span class="status-pill done">Đã hoàn thành</span></td>
-              <td class="num">05/07/2026</td>
             </tr>
-            <tr data-status="todo" data-module="Trợ lý AI" data-deadline="20/07/2026">
+            <tr data-status="progress" data-module="Trợ lý AI">
               <td class="num mono-stt">3.9</td>
               <td>
                 <div class="feat-sub">2. Thuật toán tự động điền form</div>
                 <div class="feat-detail">AI trích xuất thông tin tìm được và tự động điền vào các trường (fields) tương ứng của biểu mẫu đã chọn.</div>
               </td>
-              <td><span class="status-pill todo">Chưa triển khai</span></td>
-              <td class="num">20/07/2026</td>
+              <td><span class="status-pill progress">Đang triển khai</span></td>
             </tr></tbody>
             </table>
           </div>
@@ -1495,16 +1442,15 @@
           <h4>Ghi nhận đánh giá câu trả lời</h4>
           <div class="table-wrap">
             <table class="feat-table">
-              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th></tr></thead>
               <tbody>
-            <tr data-status="done" data-module="Trợ lý AI" data-deadline="05/07/2026">
+            <tr data-status="done" data-module="Trợ lý AI">
               <td class="num mono-stt">3.10</td>
               <td>
                 <div class="feat-sub">1. Nút Thích/Không thích</div>
                 <div class="feat-detail">Tích hợp form đánh giá chất lượng câu trả lời của bot trực tiếp trên giao diện. Nếu chưa đạt yêu cầu, cán bộ có thể nhập mô tả, hướng dẫn để bot cập nhật điều chỉnh tri thức vốn có</div>
               </td>
               <td><span class="status-pill done">Đã hoàn thành</span></td>
-              <td class="num">05/07/2026</td>
             </tr></tbody>
             </table>
           </div>
@@ -1513,34 +1459,31 @@
           <h4>Ghi nhận điều chỉnh câu trả lời</h4>
           <div class="table-wrap">
             <table class="feat-table">
-              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th></tr></thead>
               <tbody>
-            <tr data-status="done" data-module="Trợ lý AI" data-deadline="05/07/2026">
+            <tr data-status="done" data-module="Trợ lý AI">
               <td class="num mono-stt">3.11</td>
               <td>
                 <div class="feat-sub">1. Mô tả lỗi sai và điều chỉnh</div>
                 <div class="feat-detail">Sau khi người dùng đánh giá, nếu đánh giá chưa đúng, hệ thống sẽ cho phép người dùng nhập vào nội dung cần chỉnh sửa của câu trả lời và gửi về hệ thống</div>
               </td>
               <td><span class="status-pill done">Đã hoàn thành</span></td>
-              <td class="num">05/07/2026</td>
             </tr>
-            <tr data-status="todo" data-module="Trợ lý AI" data-deadline="24/07/2026">
+            <tr data-status="todo" data-module="Trợ lý AI">
               <td class="num mono-stt">3.12</td>
               <td>
                 <div class="feat-sub">2. Tiền phân loại và đánh giá feedback</div>
                 <div class="feat-detail">Tự động kiểm tra loại truy vấn. Nếu là truy vấn chéo phòng ban, feedback đóng góp sẽ bị từ chối lưu vào hàng đợi duyệt của AI Owner.</div>
               </td>
               <td><span class="status-pill todo">Chưa triển khai</span></td>
-              <td class="num">24/07/2026</td>
             </tr>
-            <tr data-status="done" data-module="Trợ lý AI" data-deadline="05/07/2026">
+            <tr data-status="done" data-module="Trợ lý AI">
               <td class="num mono-stt">3.13</td>
               <td>
                 <div class="feat-sub">3. Tái tư duy và phản hồi lại</div>
                 <div class="feat-detail">Khi nhận được phản hồi &quot;Không thích&quot;, khi được hỏi lại câu hỏi cùng nội dung, AI sẽ tiến hành tìm kiếm và phân tích lại nhằm đưa ra câu trả lời chính xác theo tài liệu hơn. Có dẫn chứng đã tìm kiếm lại</div>
               </td>
               <td><span class="status-pill done">Đã hoàn thành</span></td>
-              <td class="num">05/07/2026</td>
             </tr></tbody>
             </table>
           </div>
@@ -1549,25 +1492,23 @@
           <h4>Trích dẫn nguồn tài liệu</h4>
           <div class="table-wrap">
             <table class="feat-table">
-              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th></tr></thead>
               <tbody>
-            <tr data-status="done" data-module="Trợ lý AI" data-deadline="05/07/2026">
+            <tr data-status="done" data-module="Trợ lý AI">
               <td class="num mono-stt">3.14</td>
               <td>
                 <div class="feat-sub">1. Hiển thị thẻ liên kết nguồn</div>
                 <div class="feat-detail">Mọi câu trả lời của Chatbot đều phải kèm theo trích dẫn nguồn gốc thông tin. Hệ thống tự động liên kết (ref) chỉ đích danh văn bản gốc</div>
               </td>
               <td><span class="status-pill done">Đã hoàn thành</span></td>
-              <td class="num">05/07/2026</td>
             </tr>
-            <tr data-status="done" data-module="Trợ lý AI" data-deadline="05/07/2026">
+            <tr data-status="done" data-module="Trợ lý AI">
               <td class="num mono-stt">3.15</td>
               <td>
                 <div class="feat-sub">2. Gắn link đích danh tài liệu gốc</div>
                 <div class="feat-detail">Các thẻ liên kết được nhúng API để gọi ra chính xác file văn bản gốc tương ứng.</div>
               </td>
               <td><span class="status-pill done">Đã hoàn thành</span></td>
-              <td class="num">05/07/2026</td>
             </tr></tbody>
             </table>
           </div>
@@ -1576,25 +1517,23 @@
           <h4>Nêu bật đoạn văn được trích dẫn</h4>
           <div class="table-wrap">
             <table class="feat-table">
-              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th></tr></thead>
               <tbody>
-            <tr data-status="done" data-module="Trợ lý AI" data-deadline="05/07/2026">
+            <tr data-status="done" data-module="Trợ lý AI">
               <td class="num mono-stt">3.16</td>
               <td>
                 <div class="feat-sub">1. Chuyển hướng mở file nguồn</div>
                 <div class="feat-detail">Sau khi dẫn nguồn thông tin, nếu người dùng truy cập vào văn bản nguồn do AI đưa ra, người dùng được di chuyển và trỏ chính xác đến phần/mục (section/paragraph) mà AI đã thu thập để trả lời.</div>
               </td>
               <td><span class="status-pill done">Đã hoàn thành</span></td>
-              <td class="num">05/07/2026</td>
             </tr>
-            <tr data-status="done" data-module="Trợ lý AI" data-deadline="05/07/2026">
+            <tr data-status="done" data-module="Trợ lý AI">
               <td class="num mono-stt">3.17</td>
               <td>
                 <div class="feat-sub">2. Tự động cuộn và bôi màu</div>
                 <div class="feat-detail">Tự động hiển thị nơi câu trả lời được trích xuất từ văn bản và bôi màu trang đó</div>
               </td>
               <td><span class="status-pill done">Đã hoàn thành</span></td>
-              <td class="num">05/07/2026</td>
             </tr></tbody>
             </table>
           </div>
@@ -1606,7 +1545,7 @@
         <div>
           <p class="eyebrow">Module</p>
           <h2>Dashboard</h2>
-          <p class="room-summary">8 hạng mục · 0 đã hoàn thành</p>
+          <p class="room-summary">8 hạng mục · 8 đã hoàn thành</p>
         </div>
       </header>
       
@@ -1614,25 +1553,23 @@
           <h4>Thống kê hiệu suất AI</h4>
           <div class="table-wrap">
             <table class="feat-table">
-              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th></tr></thead>
               <tbody>
-            <tr data-status="progress" data-module="Dashboard" data-deadline="15/07/2026">
+            <tr data-status="done" data-module="Dashboard">
               <td class="num mono-stt">4.1</td>
               <td>
                 <div class="feat-sub">1. Các thẻ chỉ số tổng quan (KPI)</div>
                 <div class="feat-detail">Thống kê số lượng đơn vị đã sử dụng, trung bình đơn vị sử dụng cho một lượt truy vấn</div>
               </td>
-              <td><span class="status-pill progress">Đang triển khai</span></td>
-              <td class="num">15/07/2026</td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
             </tr>
-            <tr data-status="progress" data-module="Dashboard" data-deadline="15/07/2026">
+            <tr data-status="done" data-module="Dashboard">
               <td class="num mono-stt">4.2</td>
               <td>
                 <div class="feat-sub">2. Biểu đồ Lượt truy vấn & Lượng đơn vị sử dụng</div>
                 <div class="feat-detail">Hiển thị xu hướng sử dụng theo thời gian dưới dạng biểu đồ cột (tự động chuyển thành dạng cột chồng để so sánh tỷ trọng khi chọn xem nhiều phòng ban cùng lúc).</div>
               </td>
-              <td><span class="status-pill progress">Đang triển khai</span></td>
-              <td class="num">15/07/2026</td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
             </tr></tbody>
             </table>
           </div>
@@ -1641,25 +1578,23 @@
           <h4>Thống kê sử dụng Tài liệu</h4>
           <div class="table-wrap">
             <table class="feat-table">
-              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th></tr></thead>
               <tbody>
-            <tr data-status="progress" data-module="Dashboard" data-deadline="15/07/2026">
+            <tr data-status="done" data-module="Dashboard">
               <td class="num mono-stt">5.2</td>
               <td>
                 <div class="feat-sub">1. Thống kê số lượng tài liệu theo phòng ban</div>
                 <div class="feat-detail">Biểu đồ thanh ngang thống kê tổng số lượng văn bản đang lưu trữ, phân tách rạch ròi theo từng đơn vị (VD: Phòng Lao động, Phòng VHXH, và Các phòng ban còn lại).</div>
               </td>
-              <td><span class="status-pill progress">Đang triển khai</span></td>
-              <td class="num">15/07/2026</td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
             </tr>
-            <tr data-status="progress" data-module="Dashboard" data-deadline="15/07/2026">
+            <tr data-status="done" data-module="Dashboard">
               <td class="num mono-stt">5.3</td>
               <td>
                 <div class="feat-sub">2. Biểu đồ xu hướng tải lên tài liệu theo tháng</div>
                 <div class="feat-detail">Biểu đồ kết hợp thể hiện số lượng văn bản mới được tải lên hệ thống qua từng tháng (T3, T4, T5, T6...).</div>
               </td>
-              <td><span class="status-pill progress">Đang triển khai</span></td>
-              <td class="num">15/07/2026</td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
             </tr></tbody>
             </table>
           </div>
@@ -1668,43 +1603,39 @@
           <h4>Thống kê Tương tác Hỏi/Đáp</h4>
           <div class="table-wrap">
             <table class="feat-table">
-              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th><th>Bàn giao</th></tr></thead>
+              <thead><tr><th>STT</th><th>Tính năng con</th><th>Trạng thái</th></tr></thead>
               <tbody>
-            <tr data-status="progress" data-module="Dashboard" data-deadline="15/07/2026">
+            <tr data-status="done" data-module="Dashboard">
               <td class="num mono-stt">5.4</td>
               <td>
                 <div class="feat-sub">1. Thống kê lượt truy vấn theo phòng ban</div>
                 <div class="feat-detail">Biểu đồ thanh ngang so sánh tổng số lượng câu hỏi/lượt sử dụng AI giữa các đơn vị (Ban Lãnh đạo, Phòng Kinh tế, Phòng VHXH...).</div>
               </td>
-              <td><span class="status-pill progress">Đang triển khai</span></td>
-              <td class="num">15/07/2026</td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
             </tr>
-            <tr data-status="progress" data-module="Dashboard" data-deadline="15/07/2026">
+            <tr data-status="done" data-module="Dashboard">
               <td class="num mono-stt">5.5</td>
               <td>
                 <div class="feat-sub">2. Biểu đồ số lượng người dùng/truy cập theo tháng</div>
                 <div class="feat-detail">Biểu đồ cột thống kê tổng số lượng người dùng (Active users) có phát sinh tương tác hỏi đáp với hệ thống trong từng tháng.</div>
               </td>
-              <td><span class="status-pill progress">Đang triển khai</span></td>
-              <td class="num">15/07/2026</td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
             </tr>
-            <tr data-status="progress" data-module="Dashboard" data-deadline="15/07/2026">
+            <tr data-status="done" data-module="Dashboard">
               <td class="num mono-stt">5.6</td>
               <td>
                 <div class="feat-sub">3. Bảng xếp hạng Top User hỏi nhiều nhất</div>
                 <div class="feat-detail">Biểu đồ thanh ngang xếp hạng (Leaderboard) top các tài khoản có số lượng câu hỏi truy vấn AI nhiều nhất hệ thống.</div>
               </td>
-              <td><span class="status-pill progress">Đang triển khai</span></td>
-              <td class="num">15/07/2026</td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
             </tr>
-            <tr data-status="progress" data-module="Dashboard" data-deadline="15/07/2026">
+            <tr data-status="done" data-module="Dashboard">
               <td class="num mono-stt">5.7</td>
               <td>
                 <div class="feat-sub">4. Biểu đồ tỷ trọng câu hỏi theo chủ đề</div>
                 <div class="feat-detail">Biểu đồ tròn (Pie chart) phân bổ tỷ lệ phần trăm (%) các câu hỏi truy vấn của người dùng theo từng nhóm chủ đề/loại văn bản cụ thể.</div>
               </td>
-              <td><span class="status-pill progress">Đang triển khai</span></td>
-              <td class="num">15/07/2026</td>
+              <td><span class="status-pill done">Đã hoàn thành</span></td>
             </tr></tbody>
             </table>
           </div>
@@ -1807,6 +1738,11 @@
             <option value="Đang triển khai">Đang triển khai (11)</option>
             <option value="Đã xong">Đã xong (2)</option>
           </select>
+          <select id="fb-source">
+            <option value="">Tất cả nguồn</option>
+            <option value="Tổ IT">Tổ IT</option>
+            <option value="Phòng Kinh tế, Hạ tầng &amp; Đô thị">Phòng Kinh tế, Hạ tầng &amp; Đô thị</option>
+          </select>
           <span class="result-count" id="fb-count">36 hạng mục</span>
         </div>
       </div>
@@ -1821,67 +1757,79 @@
         </div>
         <div class="table-wrap">
           <table class="fb-table feat-table">
-            <thead><tr><th style="width:52px">STT</th><th>Chức năng / mô tả</th><th style="width:130px">Loại</th><th style="width:130px">Tình trạng</th></tr></thead>
+            <thead><tr><th style="width:52px">STT</th><th>Chức năng / mô tả</th><th style="width:130px">Loại</th><th style="width:130px">Tình trạng</th><th style="width:110px">Ngày bàn giao</th><th style="width:170px">Nguồn góp ý</th></tr></thead>
             <tbody>
-            <tr data-module="Quản lý tài liệu" data-type="Cải tiến UX" data-status="Chưa triển khai">
+            <tr data-source="Phòng Kinh tế, Hạ tầng &amp; Đô thị" data-module="Quản lý tài liệu" data-type="Cải tiến UX" data-status="Chưa triển khai">
               <td class="num mono-stt">01</td>
               <td>
                 <div class="fb-title">Thời gian văn bản sẵn sàng truy vấn</div>
                 <div class="fb-group-label">Theo dõi tiến độ học tri thức</div>
-                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Người dùng chưa biết chính xác bao lâu sau khi tải lên thì văn bản mới sẵn sàng để AI truy vấn.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Hiển thị rõ trạng thái và ước lượng thời gian (hoặc % tiến độ) từ lúc upload → AI học xong → có thể hỏi. Có thông báo khi văn bản đã sẵn sàng.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Gắn với màn &#x27;Theo dõi tiến độ bổ sung tri thức&#x27; đã có trên scope. Bổ sung ETA / thông báo hoàn tất.</div><div class="fb-desc-block"><strong>Nguồn:</strong> PDF Feedback 26/05</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Người dùng chưa biết chính xác bao lâu sau khi tải lên thì văn bản mới sẵn sàng để AI truy vấn.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Hiển thị rõ trạng thái và ước lượng thời gian (hoặc % tiến độ) từ lúc upload → AI học xong → có thể hỏi. Có thông báo khi văn bản đã sẵn sàng.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Gắn với màn &#x27;Theo dõi tiến độ bổ sung tri thức&#x27; đã có trên scope. Bổ sung ETA / thông báo hoàn tất.</div>
               </td>
               <td><span class="type-pill ux">Cải tiến UX</span></td>
               <td><span class="status-pill todo">Chưa triển khai</span></td>
+              <td class="num">—</td>
+              <td class="fb-source">Phòng Kinh tế, Hạ tầng &amp; Đô thị</td>
             </tr>
-            <tr data-module="Quản lý tài liệu" data-type="Cải tiến UX" data-status="Đã xong">
+            <tr data-source="Phòng Kinh tế, Hạ tầng &amp; Đô thị" data-module="Quản lý tài liệu" data-type="Cải tiến UX" data-status="Đã xong">
               <td class="num mono-stt">02</td>
               <td>
                 <div class="fb-title">Drag &amp; Drop upload văn bản</div>
                 <div class="fb-group-label">Tải lên tài liệu</div>
-                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Chỉ hỗ trợ chọn tệp qua hộp thoại Browse, chưa kéo-thả từ máy vào vùng tải lên.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Hỗ trợ Drag &amp; Drop một/nhiều tệp; vùng nhận tệp rõ khi kéo vào; kiểm tra định dạng &amp; dung lượng ngay khi thả; giữ thêm nút Chọn tệp; hiển thị tiến trình và kết quả.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Scope ghi đã hoàn thành Drag &amp; Drop — cần xác nhận lại trên môi trường thực tế của phường; nếu chưa có thì đưa lại backlog.</div><div class="fb-desc-block"><strong>Ghi chú:</strong> Đối chiếu lại với bản đang deploy</div><div class="fb-desc-block"><strong>Nguồn:</strong> PDF Feedback 26/05</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Chỉ hỗ trợ chọn tệp qua hộp thoại Browse, chưa kéo-thả từ máy vào vùng tải lên.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Hỗ trợ Drag &amp; Drop một/nhiều tệp; vùng nhận tệp rõ khi kéo vào; kiểm tra định dạng &amp; dung lượng ngay khi thả; giữ thêm nút Chọn tệp; hiển thị tiến trình và kết quả.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Scope ghi đã hoàn thành Drag &amp; Drop — cần xác nhận lại trên môi trường thực tế của phường; nếu chưa có thì đưa lại backlog.</div><div class="fb-desc-block"><strong>Ghi chú:</strong> Đối chiếu lại với bản đang deploy</div>
               </td>
               <td><span class="type-pill ux">Cải tiến UX</span></td>
               <td><span class="status-pill done">Đã xong</span></td>
+              <td class="num">—</td>
+              <td class="fb-source">Phòng Kinh tế, Hạ tầng &amp; Đô thị</td>
             </tr>
-            <tr data-module="Quản lý tài liệu" data-type="Tính năng mới" data-status="Đã xong">
+            <tr data-source="Phòng Kinh tế, Hạ tầng &amp; Đô thị" data-module="Quản lý tài liệu" data-type="Tính năng mới" data-status="Đã xong">
               <td class="num mono-stt">03</td>
               <td>
                 <div class="fb-title">Cho phép tải tài liệu &gt; 10MB</div>
                 <div class="fb-group-label">Tải lên tài liệu</div>
-                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Giới hạn dung lượng hiện tại (khoảng 10MB) khiến một số văn bản dài/scan không tải được.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Nâng hạn mức dung lượng (hoặc upload dạng chunk) cho các định dạng văn bản hành chính thường dùng; vẫn kiểm soát virus/định dạng.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Cần chốt mức MB tối đa với hạ tầng storage &amp; thời gian OCR/index.</div><div class="fb-desc-block"><strong>Nguồn:</strong> PDF Feedback 26/05</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Giới hạn dung lượng hiện tại (khoảng 10MB) khiến một số văn bản dài/scan không tải được.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Nâng hạn mức dung lượng (hoặc upload dạng chunk) cho các định dạng văn bản hành chính thường dùng; vẫn kiểm soát virus/định dạng.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Cần chốt mức MB tối đa với hạ tầng storage &amp; thời gian OCR/index.</div>
               </td>
               <td><span class="type-pill new">Tính năng mới</span></td>
               <td><span class="status-pill done">Đã xong</span></td>
+              <td class="num">—</td>
+              <td class="fb-source">Phòng Kinh tế, Hạ tầng &amp; Đô thị</td>
             </tr>
-            <tr data-module="Quản lý tài liệu" data-type="Tính năng mới" data-status="Chưa triển khai">
+            <tr data-source="Phòng Kinh tế, Hạ tầng &amp; Đô thị" data-module="Quản lý tài liệu" data-type="Tính năng mới" data-status="Chưa triển khai">
               <td class="num mono-stt">04</td>
               <td>
                 <div class="fb-title">Nhận diện văn bản bổ sung / trùng khi tải lên</div>
                 <div class="fb-group-label">Phân loại tài liệu</div>
-                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Khi tải lên, hệ thống chưa phân biệt đây là văn bản mới bổ sung hay bản trùng/đã có trong kho.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Khi upload: so khớp (số ký hiệu, tên, hash/nội dung) → gợi ý phân loại: Văn bản mới / Bổ sung / Trùng; người dùng xác nhận trước khi đưa vào kho.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Có thể gộp với popup phân loại tài liệu (scope 2.14) và đối chiếu TVPL nếu có.</div><div class="fb-desc-block"><strong>Nguồn:</strong> PDF Feedback 26/05</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Khi tải lên, hệ thống chưa phân biệt đây là văn bản mới bổ sung hay bản trùng/đã có trong kho.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Khi upload: so khớp (số ký hiệu, tên, hash/nội dung) → gợi ý phân loại: Văn bản mới / Bổ sung / Trùng; người dùng xác nhận trước khi đưa vào kho.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Có thể gộp với popup phân loại tài liệu (scope 2.14) và đối chiếu TVPL nếu có.</div>
               </td>
               <td><span class="type-pill new">Tính năng mới</span></td>
               <td><span class="status-pill todo">Chưa triển khai</span></td>
+              <td class="num">—</td>
+              <td class="fb-source">Phòng Kinh tế, Hạ tầng &amp; Đô thị</td>
             </tr>
-            <tr data-module="Quản lý tài liệu" data-type="Bảo mật/Ràng buộc" data-status="Đang triển khai">
+            <tr data-source="Tổ IT" data-module="Quản lý tài liệu" data-type="Bảo mật/Ràng buộc" data-status="Đang triển khai">
               <td class="num mono-stt">05</td>
               <td>
                 <div class="fb-title">Chặn định dạng không phù hợp (ảnh, video, .ai, .xls, .doc…)</div>
                 <div class="fb-group-label">Kiểm tra định dạng upload</div>
-                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Người dùng có thể tải/đính kèm các định dạng không phục vụ tra cứu văn bản (ảnh, video, AI design, xls, doc cũ…), gây hiểu nhầm và rủi ro xử lý.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Whitelist định dạng cho phép (ví dụ: pdf, docx…). Chặn rõ ràng ảnh, video, .ai, .xls, .doc (và các định dạng ngoài whitelist) kèm thông báo lý do.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Chốt danh sách whitelist với phường. Lưu ý: vẫn cần hỗ trợ .docx biểu mẫu (hạng mục riêng).</div><div class="fb-desc-block"><strong>Ghi chú:</strong> Phân biệt: chặn ở Chat đính kèm vs. kho tài liệu</div><div class="fb-desc-block"><strong>Nguồn:</strong> Góp ý thêm</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Người dùng có thể tải/đính kèm các định dạng không phục vụ tra cứu văn bản (ảnh, video, AI design, xls, doc cũ…), gây hiểu nhầm và rủi ro xử lý.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Whitelist định dạng cho phép (ví dụ: pdf, docx…). Chặn rõ ràng ảnh, video, .ai, .xls, .doc (và các định dạng ngoài whitelist) kèm thông báo lý do.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Chốt danh sách whitelist với phường. Lưu ý: vẫn cần hỗ trợ .docx biểu mẫu (hạng mục riêng).</div><div class="fb-desc-block"><strong>Ghi chú:</strong> Phân biệt: chặn ở Chat đính kèm vs. kho tài liệu</div>
               </td>
               <td><span class="type-pill sec">Bảo mật/Ràng buộc</span></td>
               <td><span class="status-pill progress">Đang triển khai</span></td>
+              <td class="num">—</td>
+              <td class="fb-source">Tổ IT</td>
             </tr>
-            <tr data-module="Quản lý tài liệu" data-type="Tính năng mới" data-status="Đang triển khai">
+            <tr data-source="Tổ IT" data-module="Quản lý tài liệu" data-type="Tính năng mới" data-status="Đang triển khai">
               <td class="num mono-stt">06</td>
               <td>
                 <div class="fb-title">Bổ sung kho file biểu mẫu .docx</div>
                 <div class="fb-group-label">Biểu mẫu / Template</div>
-                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Thiếu bộ biểu mẫu chuẩn (.docx) để AI/cán bộ dùng khi lập báo cáo, công văn.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Cung cấp thư viện biểu mẫu .docx của phường; gắn với chức năng điền số/điền form tự động.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Song song với hạng mục &#x27;Tạo văn mẫu điền số&#x27; ở Trợ lý AI.</div><div class="fb-desc-block"><strong>Ghi chú:</strong> Đang triển khai trước cho Văn phòng UBND</div><div class="fb-desc-block"><strong>Nguồn:</strong> Góp ý thêm</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Thiếu bộ biểu mẫu chuẩn (.docx) để AI/cán bộ dùng khi lập báo cáo, công văn.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Cung cấp thư viện biểu mẫu .docx của phường; gắn với chức năng điền số/điền form tự động.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Song song với hạng mục &#x27;Tạo văn mẫu điền số&#x27; ở Trợ lý AI.</div><div class="fb-desc-block"><strong>Ghi chú:</strong> Đang triển khai trước cho Văn phòng UBND</div>
               </td>
               <td><span class="type-pill new">Tính năng mới</span></td>
               <td><span class="status-pill progress">Đang triển khai</span></td>
+              <td class="num">—</td>
+              <td class="fb-source">Tổ IT</td>
             </tr>
             </tbody>
           </table>
@@ -1897,227 +1845,271 @@
         </div>
         <div class="table-wrap">
           <table class="fb-table feat-table">
-            <thead><tr><th style="width:52px">STT</th><th>Chức năng / mô tả</th><th style="width:130px">Loại</th><th style="width:130px">Tình trạng</th></tr></thead>
+            <thead><tr><th style="width:52px">STT</th><th>Chức năng / mô tả</th><th style="width:130px">Loại</th><th style="width:130px">Tình trạng</th><th style="width:110px">Ngày bàn giao</th><th style="width:170px">Nguồn góp ý</th></tr></thead>
             <tbody>
-            <tr data-module="Trợ lý AI" data-type="Tính năng mới" data-status="Chưa triển khai">
+            <tr data-source="Phòng Kinh tế, Hạ tầng &amp; Đô thị" data-module="Trợ lý AI" data-type="Tính năng mới" data-status="Chưa triển khai">
               <td class="num mono-stt">07</td>
               <td>
                 <div class="fb-title">Liên kết Thư viện pháp luật / Cổng TTCP để cập nhật văn bản mới</div>
                 <div class="fb-group-label">Nguồn tri thức bên ngoài</div>
-                <div class="fb-desc-block"><strong>Hiện trạng:</strong> AI chỉ phụ thuộc nguồn người dùng tải lên, chưa lấy được văn bản mới nhất từ nguồn công khai bên ngoài.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Có cơ chế đồng bộ/đối chiếu với TVPL, Cổng thông tin Chính phủ (hoặc nguồn pháp lý được phép) để bổ sung văn bản mới vào kho.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Phạm vi lớn (pháp lý + kỹ thuật crawl/API). Nên tách giai đoạn: (1) đối chiếu trùng thủ công/bán tự động, (2) đồng bộ tự động.</div><div class="fb-desc-block"><strong>Ghi chú:</strong> Phụ thuộc chính sách &amp; API nguồn</div><div class="fb-desc-block"><strong>Nguồn:</strong> PDF Feedback 26/05</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> AI chỉ phụ thuộc nguồn người dùng tải lên, chưa lấy được văn bản mới nhất từ nguồn công khai bên ngoài.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Có cơ chế đồng bộ/đối chiếu với TVPL, Cổng thông tin Chính phủ (hoặc nguồn pháp lý được phép) để bổ sung văn bản mới vào kho.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Phạm vi lớn (pháp lý + kỹ thuật crawl/API). Nên tách giai đoạn: (1) đối chiếu trùng thủ công/bán tự động, (2) đồng bộ tự động.</div><div class="fb-desc-block"><strong>Ghi chú:</strong> Phụ thuộc chính sách &amp; API nguồn</div>
               </td>
               <td><span class="type-pill new">Tính năng mới</span></td>
               <td><span class="status-pill todo">Chưa triển khai</span></td>
+              <td class="num">—</td>
+              <td class="fb-source">Phòng Kinh tế, Hạ tầng &amp; Đô thị</td>
             </tr>
-            <tr data-module="Trợ lý AI" data-type="Tính năng mới" data-status="Chưa triển khai">
+            <tr data-source="Phòng Kinh tế, Hạ tầng &amp; Đô thị" data-module="Trợ lý AI" data-type="Tính năng mới" data-status="Chưa triển khai">
               <td class="num mono-stt">08</td>
               <td>
                 <div class="fb-title">Đối chiếu văn bản trùng với Thư viện pháp luật</div>
                 <div class="fb-group-label">Nguồn tri thức bên ngoài</div>
-                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Chưa có bước đối chiếu văn bản trong kho với bản trên TVPL để phát hiện trùng/khác phiên bản.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Khi upload hoặc định kỳ: báo văn bản đã có trên TVPL, phiên bản nào mới hơn, gợi ý cập nhật.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Là nhánh nhỏ hơn của hạng mục liên kết nguồn ngoài — có thể làm trước.</div><div class="fb-desc-block"><strong>Ghi chú:</strong> Thuộc nhóm &#x27;Nguồn tri thức bên ngoài&#x27;</div><div class="fb-desc-block"><strong>Nguồn:</strong> PDF Feedback 26/05</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Chưa có bước đối chiếu văn bản trong kho với bản trên TVPL để phát hiện trùng/khác phiên bản.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Khi upload hoặc định kỳ: báo văn bản đã có trên TVPL, phiên bản nào mới hơn, gợi ý cập nhật.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Là nhánh nhỏ hơn của hạng mục liên kết nguồn ngoài — có thể làm trước.</div><div class="fb-desc-block"><strong>Ghi chú:</strong> Thuộc nhóm &#x27;Nguồn tri thức bên ngoài&#x27;</div>
               </td>
               <td><span class="type-pill new">Tính năng mới</span></td>
               <td><span class="status-pill todo">Chưa triển khai</span></td>
+              <td class="num">—</td>
+              <td class="fb-source">Phòng Kinh tế, Hạ tầng &amp; Đô thị</td>
             </tr>
-            <tr data-module="Trợ lý AI" data-type="Chất lượng AI" data-status="Chưa triển khai">
+            <tr data-source="Phòng Kinh tế, Hạ tầng &amp; Đô thị" data-module="Trợ lý AI" data-type="Chất lượng AI" data-status="Chưa triển khai">
               <td class="num mono-stt">09</td>
               <td>
                 <div class="fb-title">Hiểu và áp dụng đúng Nghị định 16 (và VB liên quan tổ chức AI)</div>
                 <div class="fb-group-label">Hiểu ngữ cảnh pháp lý</div>
-                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Với câu hỏi liên quan Nghị định 16 / áp dụng cho tổ chức AI, hệ thống chưa hiểu và trả lời đúng.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Bổ sung/đảm bảo văn bản liên quan có trong kho; cải thiện retrieval + prompt để trả lời đúng phạm vi áp dụng.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Vừa là lỗi tri thức vừa là cải thiện retrieval. Kiểm tra văn bản đã index chưa.</div><div class="fb-desc-block"><strong>Nguồn:</strong> PDF Feedback 26/05</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Với câu hỏi liên quan Nghị định 16 / áp dụng cho tổ chức AI, hệ thống chưa hiểu và trả lời đúng.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Bổ sung/đảm bảo văn bản liên quan có trong kho; cải thiện retrieval + prompt để trả lời đúng phạm vi áp dụng.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Vừa là lỗi tri thức vừa là cải thiện retrieval. Kiểm tra văn bản đã index chưa.</div>
               </td>
               <td><span class="type-pill ai">Chất lượng AI</span></td>
               <td><span class="status-pill todo">Chưa triển khai</span></td>
+              <td class="num">—</td>
+              <td class="fb-source">Phòng Kinh tế, Hạ tầng &amp; Đô thị</td>
             </tr>
-            <tr data-module="Trợ lý AI" data-type="Chất lượng AI" data-status="Chưa triển khai">
+            <tr data-source="Phòng Kinh tế, Hạ tầng &amp; Đô thị" data-module="Trợ lý AI" data-type="Chất lượng AI" data-status="Chưa triển khai">
               <td class="num mono-stt">10</td>
               <td>
                 <div class="fb-title">Ưu tiên văn bản có giá trị pháp lý cao</div>
                 <div class="fb-group-label">Ưu tiên &amp; xếp hạng nguồn</div>
-                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Một số câu trả lời liệt kê văn bản nhưng chưa theo thứ tự ưu tiên pháp lý.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Sắp xếp nguồn theo: Luật → Nghị định → Quyết định → Thông tư → Công văn; giải thích ngắn lý do ưu tiên khi cần.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Rule ranking cố định + giải thích; gắn với &#x27;Chỉ chọn N văn bản quan trọng nhất&#x27;.</div><div class="fb-desc-block"><strong>Nguồn:</strong> PDF Feedback 26/05</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Một số câu trả lời liệt kê văn bản nhưng chưa theo thứ tự ưu tiên pháp lý.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Sắp xếp nguồn theo: Luật → Nghị định → Quyết định → Thông tư → Công văn; giải thích ngắn lý do ưu tiên khi cần.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Rule ranking cố định + giải thích; gắn với &#x27;Chỉ chọn N văn bản quan trọng nhất&#x27;.</div>
               </td>
               <td><span class="type-pill ai">Chất lượng AI</span></td>
               <td><span class="status-pill todo">Chưa triển khai</span></td>
+              <td class="num">—</td>
+              <td class="fb-source">Phòng Kinh tế, Hạ tầng &amp; Đô thị</td>
             </tr>
-            <tr data-module="Trợ lý AI" data-type="Chất lượng AI" data-status="Chưa triển khai">
+            <tr data-source="Phòng Kinh tế, Hạ tầng &amp; Đô thị" data-module="Trợ lý AI" data-type="Chất lượng AI" data-status="Chưa triển khai">
               <td class="num mono-stt">11</td>
               <td>
                 <div class="fb-title">Nhận diện đúng mục đích câu hỏi (checklist, tổng hợp, kết luận…)</div>
                 <div class="fb-group-label">Hiểu đúng ý định câu hỏi</div>
-                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Ví dụ: hỏi lập checklist yêu cầu pháp lý theo ưu tiên → AI chỉ tóm tắt 1 nghị định, không tạo checklist, không tổng hợp nhiều VB.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Phân loại intent (checklist / tổng hợp VB / chuyển thành nghiệp vụ / kết luận…). Sinh đúng dạng đầu ra theo intent; tổng hợp nhiều văn bản khi cần.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Đây là epic chất lượng AI — các dòng 13–18 là các case con của epic này.</div><div class="fb-desc-block"><strong>Ghi chú:</strong> Epic cha cho các ý 13–18</div><div class="fb-desc-block"><strong>Nguồn:</strong> PDF Feedback 26/05</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Ví dụ: hỏi lập checklist yêu cầu pháp lý theo ưu tiên → AI chỉ tóm tắt 1 nghị định, không tạo checklist, không tổng hợp nhiều VB.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Phân loại intent (checklist / tổng hợp VB / chuyển thành nghiệp vụ / kết luận…). Sinh đúng dạng đầu ra theo intent; tổng hợp nhiều văn bản khi cần.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Đây là epic chất lượng AI — các dòng 13–18 là các case con của epic này.</div><div class="fb-desc-block"><strong>Ghi chú:</strong> Epic cha cho các ý 13–18</div>
               </td>
               <td><span class="type-pill ai">Chất lượng AI</span></td>
               <td><span class="status-pill todo">Chưa triển khai</span></td>
+              <td class="num">—</td>
+              <td class="fb-source">Phòng Kinh tế, Hạ tầng &amp; Đô thị</td>
             </tr>
-            <tr data-module="Trợ lý AI" data-type="Bug" data-status="Chưa triển khai">
+            <tr data-source="Tổ IT; Phòng Kinh tế, Hạ tầng &amp; Đô thị" data-module="Trợ lý AI" data-type="Bug" data-status="Chưa triển khai">
               <td class="num mono-stt">12</td>
               <td>
                 <div class="fb-title">Tổng hợp nhiều văn bản liên quan thay vì chỉ 1 nguồn</div>
                 <div class="fb-group-label">Hiểu đúng ý định câu hỏi</div>
-                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Câu hỏi liên quan nhiều văn bản nhưng AI thường chỉ trả lời theo 1 nghị định; trích dẫn cũng chỉ 1 tài liệu.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Retrieval đa nguồn: liệt kê và dùng đủ VB liên quan (Luật, NĐ, TT…); mỗi luận điểm có trích dẫn tương ứng.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Ưu tiên cao cho họp deliver — ảnh hưởng trực tiếp độ tin cậy.</div><div class="fb-desc-block"><strong>Ghi chú:</strong> Trùng với vấn đề &#x27;chỉ trích 1 tài liệu&#x27;</div><div class="fb-desc-block"><strong>Nguồn:</strong> PDF Feedback 26/05 + Góp ý thêm</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Câu hỏi liên quan nhiều văn bản nhưng AI thường chỉ trả lời theo 1 nghị định; trích dẫn cũng chỉ 1 tài liệu.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Retrieval đa nguồn: liệt kê và dùng đủ VB liên quan (Luật, NĐ, TT…); mỗi luận điểm có trích dẫn tương ứng.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Ưu tiên cao cho họp deliver — ảnh hưởng trực tiếp độ tin cậy.</div><div class="fb-desc-block"><strong>Ghi chú:</strong> Trùng với vấn đề &#x27;chỉ trích 1 tài liệu&#x27;</div>
               </td>
               <td><span class="type-pill bug">Lỗi</span></td>
               <td><span class="status-pill todo">Chưa triển khai</span></td>
+              <td class="num">—</td>
+              <td class="fb-source">Tổ IT; Phòng Kinh tế, Hạ tầng &amp; Đô thị</td>
             </tr>
-            <tr data-module="Trợ lý AI" data-type="Chất lượng AI" data-status="Chưa triển khai">
+            <tr data-source="Phòng Kinh tế, Hạ tầng &amp; Đô thị" data-module="Trợ lý AI" data-type="Chất lượng AI" data-status="Chưa triển khai">
               <td class="num mono-stt">13</td>
               <td>
                 <div class="fb-title">Chuyển hóa quy định thành đầu việc nghiệp vụ</div>
                 <div class="fb-group-label">Hiểu đúng ý định câu hỏi</div>
-                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Hỏi yêu cầu về dữ liệu, GTĐT, chữ ký số, lưu trữ → AI trả theo số điều luật thay vì checklist nghiệp vụ (ký số, lưu trữ, phân quyền…).</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Map điều luật → đầu việc nghiệp vụ kèm căn cứ; trình bày theo nhóm yêu cầu nghiệp vụ.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Sub-feature của epic &#x27;Hiểu đúng ý định&#x27;.</div><div class="fb-desc-block"><strong>Nguồn:</strong> PDF Feedback 26/05</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Hỏi yêu cầu về dữ liệu, GTĐT, chữ ký số, lưu trữ → AI trả theo số điều luật thay vì checklist nghiệp vụ (ký số, lưu trữ, phân quyền…).</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Map điều luật → đầu việc nghiệp vụ kèm căn cứ; trình bày theo nhóm yêu cầu nghiệp vụ.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Sub-feature của epic &#x27;Hiểu đúng ý định&#x27;.</div>
               </td>
               <td><span class="type-pill ai">Chất lượng AI</span></td>
               <td><span class="status-pill todo">Chưa triển khai</span></td>
+              <td class="num">—</td>
+              <td class="fb-source">Phòng Kinh tế, Hạ tầng &amp; Đô thị</td>
             </tr>
-            <tr data-module="Trợ lý AI" data-type="Chất lượng AI" data-status="Chưa triển khai">
+            <tr data-source="Phòng Kinh tế, Hạ tầng &amp; Đô thị" data-module="Trợ lý AI" data-type="Chất lượng AI" data-status="Chưa triển khai">
               <td class="num mono-stt">14</td>
               <td>
                 <div class="fb-title">Tổ chức nội dung đúng theo yêu cầu người dùng</div>
                 <div class="fb-group-label">Hiểu đúng ý định câu hỏi</div>
-                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Yêu cầu &#x27;tổng hợp theo từng nhóm&#x27; nhưng hệ thống vẫn trình bày theo điều luật.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Tuân thủ cấu trúc đầu ra mà người dùng yêu cầu (theo nhóm, theo checklist, theo bước…).</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Sub-feature của epic &#x27;Hiểu đúng ý định&#x27;.</div><div class="fb-desc-block"><strong>Nguồn:</strong> PDF Feedback 26/05</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Yêu cầu &#x27;tổng hợp theo từng nhóm&#x27; nhưng hệ thống vẫn trình bày theo điều luật.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Tuân thủ cấu trúc đầu ra mà người dùng yêu cầu (theo nhóm, theo checklist, theo bước…).</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Sub-feature của epic &#x27;Hiểu đúng ý định&#x27;.</div>
               </td>
               <td><span class="type-pill ai">Chất lượng AI</span></td>
               <td><span class="status-pill todo">Chưa triển khai</span></td>
+              <td class="num">—</td>
+              <td class="fb-source">Phòng Kinh tế, Hạ tầng &amp; Đô thị</td>
             </tr>
-            <tr data-module="Trợ lý AI" data-type="Chất lượng AI" data-status="Chưa triển khai">
+            <tr data-source="Phòng Kinh tế, Hạ tầng &amp; Đô thị" data-module="Trợ lý AI" data-type="Chất lượng AI" data-status="Chưa triển khai">
               <td class="num mono-stt">15</td>
               <td>
                 <div class="fb-title">Xếp hạng / chỉ chọn N văn bản quan trọng nhất</div>
                 <div class="fb-group-label">Hiểu đúng ý định câu hỏi</div>
-                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Yêu cầu &#x27;chỉ chọn 03 văn bản quan trọng nhất&#x27; nhưng hệ thống vẫn liệt kê nhiều, không có thứ tự ưu tiên.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Cơ chế top-N + giải thích lý do chọn từng văn bản.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Sub-feature; dùng chung ranking với hạng mục ưu tiên pháp lý.</div><div class="fb-desc-block"><strong>Nguồn:</strong> PDF Feedback 26/05</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Yêu cầu &#x27;chỉ chọn 03 văn bản quan trọng nhất&#x27; nhưng hệ thống vẫn liệt kê nhiều, không có thứ tự ưu tiên.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Cơ chế top-N + giải thích lý do chọn từng văn bản.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Sub-feature; dùng chung ranking với hạng mục ưu tiên pháp lý.</div>
               </td>
               <td><span class="type-pill ai">Chất lượng AI</span></td>
               <td><span class="status-pill todo">Chưa triển khai</span></td>
+              <td class="num">—</td>
+              <td class="fb-source">Phòng Kinh tế, Hạ tầng &amp; Đô thị</td>
             </tr>
-            <tr data-module="Trợ lý AI" data-type="Chất lượng AI" data-status="Chưa triển khai">
+            <tr data-source="Phòng Kinh tế, Hạ tầng &amp; Đô thị" data-module="Trợ lý AI" data-type="Chất lượng AI" data-status="Chưa triển khai">
               <td class="num mono-stt">16</td>
               <td>
                 <div class="fb-title">Hỗ trợ ra quyết định — luôn có mục Kết luận</div>
                 <div class="fb-group-label">Hiểu đúng ý định câu hỏi</div>
-                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Với câu hỏi tình huống triển khai, sau phân tích dài AI không kết luận nên áp dụng VB nào / làm bước nào trước.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Mọi câu trả lời dạng tư vấn/tình huống đều có mục &#x27;Kết luận&#x27; ngắn, hành động được ưu tiên.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Có thể chuẩn hóa template câu trả lời: Phân tích → Căn cứ → Kết luận.</div><div class="fb-desc-block"><strong>Nguồn:</strong> PDF Feedback 26/05</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Với câu hỏi tình huống triển khai, sau phân tích dài AI không kết luận nên áp dụng VB nào / làm bước nào trước.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Mọi câu trả lời dạng tư vấn/tình huống đều có mục &#x27;Kết luận&#x27; ngắn, hành động được ưu tiên.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Có thể chuẩn hóa template câu trả lời: Phân tích → Căn cứ → Kết luận.</div>
               </td>
               <td><span class="type-pill ai">Chất lượng AI</span></td>
               <td><span class="status-pill todo">Chưa triển khai</span></td>
+              <td class="num">—</td>
+              <td class="fb-source">Phòng Kinh tế, Hạ tầng &amp; Đô thị</td>
             </tr>
-            <tr data-module="Trợ lý AI" data-type="Bug" data-status="Chưa triển khai">
+            <tr data-source="Phòng Kinh tế, Hạ tầng &amp; Đô thị" data-module="Trợ lý AI" data-type="Bug" data-status="Chưa triển khai">
               <td class="num mono-stt">17</td>
               <td>
                 <div class="fb-title">Sửa thứ tự đánh số / đánh đầu mục bị sai</div>
                 <div class="fb-group-label">Định dạng câu trả lời</div>
-                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Nhiều câu trả lời đánh đầu mục (1, 2, 3…) bị sai thứ tự.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Đảm bảo numbering đúng; kiểm tra pipeline markdown/render.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Bug UI/render hoặc bug sinh nội dung — cần reproduce kèm screenshot.</div><div class="fb-desc-block"><strong>Nguồn:</strong> PDF Feedback 26/05</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Nhiều câu trả lời đánh đầu mục (1, 2, 3…) bị sai thứ tự.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Đảm bảo numbering đúng; kiểm tra pipeline markdown/render.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Bug UI/render hoặc bug sinh nội dung — cần reproduce kèm screenshot.</div>
               </td>
               <td><span class="type-pill bug">Lỗi</span></td>
               <td><span class="status-pill todo">Chưa triển khai</span></td>
+              <td class="num">—</td>
+              <td class="fb-source">Phòng Kinh tế, Hạ tầng &amp; Đô thị</td>
             </tr>
-            <tr data-module="Trợ lý AI" data-type="Bug" data-status="Chưa triển khai">
+            <tr data-source="Tổ IT" data-module="Trợ lý AI" data-type="Bug" data-status="Chưa triển khai">
               <td class="num mono-stt">18</td>
               <td>
                 <div class="fb-title">AI từ chối nhiều câu hỏi nằm trong phạm vi hệ thống</div>
                 <div class="fb-group-label">Từ chối / phạm vi trả lời</div>
-                <div class="fb-desc-block"><strong>Hiện trạng:</strong> AI vẫn từ chối hoặc trả &#x27;không có thông tin&#x27; với nhiều câu hỏi thực tế thuộc phạm vi kho / nghiệp vụ phường — chưa hiểu đúng yêu cầu.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Giảm false-refuse: cải thiện hiểu câu hỏi + retrieval; nếu thiếu dữ liệu thì gợi ý cách hỏi lại / liệt kê VB gần liên quan thay vì từ chối khô.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Ưu tiên cao. Thu thập log câu bị từ chối để họp triage với dev.</div><div class="fb-desc-block"><strong>Ghi chú:</strong> Cần log để chứng minh</div><div class="fb-desc-block"><strong>Nguồn:</strong> Góp ý thêm</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> AI vẫn từ chối hoặc trả &#x27;không có thông tin&#x27; với nhiều câu hỏi thực tế thuộc phạm vi kho / nghiệp vụ phường — chưa hiểu đúng yêu cầu.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Giảm false-refuse: cải thiện hiểu câu hỏi + retrieval; nếu thiếu dữ liệu thì gợi ý cách hỏi lại / liệt kê VB gần liên quan thay vì từ chối khô.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Ưu tiên cao. Thu thập log câu bị từ chối để họp triage với dev.</div><div class="fb-desc-block"><strong>Ghi chú:</strong> Cần log để chứng minh</div>
               </td>
               <td><span class="type-pill bug">Lỗi</span></td>
               <td><span class="status-pill todo">Chưa triển khai</span></td>
+              <td class="num">—</td>
+              <td class="fb-source">Tổ IT</td>
             </tr>
-            <tr data-module="Trợ lý AI" data-type="Tính năng mới" data-status="Chưa triển khai">
+            <tr data-source="Tổ IT" data-module="Trợ lý AI" data-type="Tính năng mới" data-status="Chưa triển khai">
               <td class="num mono-stt">19</td>
               <td>
                 <div class="fb-title">Quét hết văn bản liên quan → người dùng chọn → hỏi tiếp</div>
                 <div class="fb-group-label">Luồng hỏi đa bước</div>
-                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Khi hỏi thông tin (vd. địa chỉ một nhà), AI không liệt kê đầy đủ các văn bản chứa thông tin đó để người dùng chọn và đào sâu.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Bước 1: trả danh sách VB/đoạn liên quan. Bước 2: người dùng chọn VB. Bước 3: AI trả lời chi tiết trong VB đã chọn. Hỗ trợ hỏi tiếp trên ngữ cảnh đã chọn.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Pattern &#x27;search → select → deepen&#x27;. Liên quan lưu mục tài liệu (hạng mục 9).</div><div class="fb-desc-block"><strong>Nguồn:</strong> Góp ý thêm</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Khi hỏi thông tin (vd. địa chỉ một nhà), AI không liệt kê đầy đủ các văn bản chứa thông tin đó để người dùng chọn và đào sâu.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Bước 1: trả danh sách VB/đoạn liên quan. Bước 2: người dùng chọn VB. Bước 3: AI trả lời chi tiết trong VB đã chọn. Hỗ trợ hỏi tiếp trên ngữ cảnh đã chọn.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Pattern &#x27;search → select → deepen&#x27;. Liên quan lưu mục tài liệu (hạng mục 9).</div>
               </td>
               <td><span class="type-pill new">Tính năng mới</span></td>
               <td><span class="status-pill todo">Chưa triển khai</span></td>
+              <td class="num">—</td>
+              <td class="fb-source">Tổ IT</td>
             </tr>
-            <tr data-module="Trợ lý AI" data-type="Bug" data-status="Chưa triển khai">
+            <tr data-source="Tổ IT" data-module="Trợ lý AI" data-type="Bug" data-status="Chưa triển khai">
               <td class="num mono-stt">20</td>
               <td>
                 <div class="fb-title">Liên kết đầy đủ các trích dẫn trong câu trả lời</div>
                 <div class="fb-group-label">Trích dẫn nguồn</div>
-                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Trích dẫn văn bản còn chưa liên kết được hết — một số nguồn hiện text thuần, không click được.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Mọi nguồn được nhắc trong câu trả lời đều là thẻ/link mở được tới tài liệu tương ứng.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Kiểm tra lại pipeline citation binding sau khi generate.</div><div class="fb-desc-block"><strong>Nguồn:</strong> Góp ý thêm</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Trích dẫn văn bản còn chưa liên kết được hết — một số nguồn hiện text thuần, không click được.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Mọi nguồn được nhắc trong câu trả lời đều là thẻ/link mở được tới tài liệu tương ứng.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Kiểm tra lại pipeline citation binding sau khi generate.</div>
               </td>
               <td><span class="type-pill bug">Lỗi</span></td>
               <td><span class="status-pill todo">Chưa triển khai</span></td>
+              <td class="num">—</td>
+              <td class="fb-source">Tổ IT</td>
             </tr>
-            <tr data-module="Trợ lý AI" data-type="Cải tiến UX" data-status="Chưa triển khai">
+            <tr data-source="Phòng Kinh tế, Hạ tầng &amp; Đô thị" data-module="Trợ lý AI" data-type="Cải tiến UX" data-status="Chưa triển khai">
               <td class="num mono-stt">21</td>
               <td>
                 <div class="fb-title">Mở văn bản đúng vị trí đã trích dẫn (điều/khoản/trang)</div>
                 <div class="fb-group-label">Trích dẫn nguồn</div>
-                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Khi bấm nguồn, hệ thống mở toàn văn từ trang đầu, không nhảy tới đoạn AI đã trích.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Deep-link tới đúng điều/khoản/trang; highlight đoạn liên quan để xác minh nhanh.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Scope ghi đã có (3.16–3.17) — cần verify trên bản thực tế; nếu chưa đạt thì reopen bug.</div><div class="fb-desc-block"><strong>Ghi chú:</strong> Đối chiếu scope đã &#x27;Hoàn thành&#x27;</div><div class="fb-desc-block"><strong>Nguồn:</strong> PDF Feedback 26/05</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Khi bấm nguồn, hệ thống mở toàn văn từ trang đầu, không nhảy tới đoạn AI đã trích.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Deep-link tới đúng điều/khoản/trang; highlight đoạn liên quan để xác minh nhanh.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Scope ghi đã có (3.16–3.17) — cần verify trên bản thực tế; nếu chưa đạt thì reopen bug.</div><div class="fb-desc-block"><strong>Ghi chú:</strong> Đối chiếu scope đã &#x27;Hoàn thành&#x27;</div>
               </td>
               <td><span class="type-pill ux">Cải tiến UX</span></td>
               <td><span class="status-pill todo">Chưa triển khai</span></td>
+              <td class="num">—</td>
+              <td class="fb-source">Phòng Kinh tế, Hạ tầng &amp; Đô thị</td>
             </tr>
-            <tr data-module="Trợ lý AI" data-type="Bug" data-status="Chưa triển khai">
+            <tr data-source="Tổ IT" data-module="Trợ lý AI" data-type="Bug" data-status="Chưa triển khai">
               <td class="num mono-stt">22</td>
               <td>
                 <div class="fb-title">Hiển thị số trang dạng 1, 2, 3… (không phải 0000001)</div>
                 <div class="fb-group-label">Trích dẫn nguồn</div>
-                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Khi mở liên kết trong đoạn truy vấn, số trang hiện dạng 0000001, 0000002.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Chuẩn hóa hiển thị số trang: 1, 2, 3… (bỏ zero-padding).</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Lỗi format UI nhỏ — có thể fix nhanh trong sprint.</div><div class="fb-desc-block"><strong>Ghi chú:</strong> Quick win</div><div class="fb-desc-block"><strong>Nguồn:</strong> Góp ý thêm</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Khi mở liên kết trong đoạn truy vấn, số trang hiện dạng 0000001, 0000002.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Chuẩn hóa hiển thị số trang: 1, 2, 3… (bỏ zero-padding).</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Lỗi format UI nhỏ — có thể fix nhanh trong sprint.</div><div class="fb-desc-block"><strong>Ghi chú:</strong> Quick win</div>
               </td>
               <td><span class="type-pill bug">Lỗi</span></td>
               <td><span class="status-pill todo">Chưa triển khai</span></td>
+              <td class="num">—</td>
+              <td class="fb-source">Tổ IT</td>
             </tr>
-            <tr data-module="Trợ lý AI" data-type="Cải tiến UX" data-status="Chưa triển khai">
+            <tr data-source="Tổ IT; Phòng Kinh tế, Hạ tầng &amp; Đô thị" data-module="Trợ lý AI" data-type="Cải tiến UX" data-status="Chưa triển khai">
               <td class="num mono-stt">23</td>
               <td>
                 <div class="fb-title">Preview / panel bên cạnh thay vì mặc định mở tab mới</div>
                 <div class="fb-group-label">Xem tài liệu từ chat</div>
-                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Bấm văn bản do AI cung cấp thì mở Tab trình duyệt mới, làm gián đoạn luồng làm việc.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Ưu tiên Preview hoặc panel cạnh chat. Thêm tùy chọn: Xem nhanh | Mở toàn văn | Mở tab mới.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> UX ưu tiên cao — ảnh hưởng trải nghiệm hàng ngày.</div><div class="fb-desc-block"><strong>Nguồn:</strong> PDF Feedback 26/05 + Góp ý thêm</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Bấm văn bản do AI cung cấp thì mở Tab trình duyệt mới, làm gián đoạn luồng làm việc.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Ưu tiên Preview hoặc panel cạnh chat. Thêm tùy chọn: Xem nhanh | Mở toàn văn | Mở tab mới.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> UX ưu tiên cao — ảnh hưởng trải nghiệm hàng ngày.</div>
               </td>
               <td><span class="type-pill ux">Cải tiến UX</span></td>
               <td><span class="status-pill todo">Chưa triển khai</span></td>
+              <td class="num">—</td>
+              <td class="fb-source">Tổ IT; Phòng Kinh tế, Hạ tầng &amp; Đô thị</td>
             </tr>
-            <tr data-module="Trợ lý AI" data-type="Cải tiến UX" data-status="Chưa triển khai">
+            <tr data-source="Tổ IT" data-module="Trợ lý AI" data-type="Cải tiến UX" data-status="Chưa triển khai">
               <td class="num mono-stt">24</td>
               <td>
                 <div class="fb-title">Trạng thái tiến trình + phản hồi liên tục (streaming)</div>
                 <div class="fb-group-label">Trải nghiệm trả lời</div>
-                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Sau khi gửi câu hỏi, hệ thống đứng im một lúc rồi hiện toàn bộ câu trả lời cùng lúc — không có trạng thái xử lý / hiển thị dần.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Có indicator tiến trình (Đang tìm tài liệu → Đang tổng hợp → …) và/hoặc stream nội dung dần để người dùng biết hệ thống vẫn hoạt động.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Streaming + progress steps. Nếu stream khó ngay, làm tối thiểu progress status trước.</div><div class="fb-desc-block"><strong>Nguồn:</strong> Góp ý thêm</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Sau khi gửi câu hỏi, hệ thống đứng im một lúc rồi hiện toàn bộ câu trả lời cùng lúc — không có trạng thái xử lý / hiển thị dần.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Có indicator tiến trình (Đang tìm tài liệu → Đang tổng hợp → …) và/hoặc stream nội dung dần để người dùng biết hệ thống vẫn hoạt động.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Streaming + progress steps. Nếu stream khó ngay, làm tối thiểu progress status trước.</div>
               </td>
               <td><span class="type-pill ux">Cải tiến UX</span></td>
               <td><span class="status-pill todo">Chưa triển khai</span></td>
+              <td class="num">—</td>
+              <td class="fb-source">Tổ IT</td>
             </tr>
-            <tr data-module="Trợ lý AI" data-type="Tính năng mới" data-status="Chưa triển khai">
+            <tr data-source="Tổ IT" data-module="Trợ lý AI" data-type="Tính năng mới" data-status="Chưa triển khai">
               <td class="num mono-stt">25</td>
               <td>
                 <div class="fb-title">Tạo văn mẫu báo cáo — điền số liệu thay vì nhập tay</div>
                 <div class="fb-group-label">Sinh văn bản / biểu mẫu</div>
-                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Cán bộ phải nhập tay số liệu vào báo cáo; chưa có luồng chọn mẫu → AI/điền số tự động.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Chọn biểu mẫu .docx → hệ thống điền số/liệu từ tri thức hoặc dữ liệu nhập có kiểm soát → xuất file hoàn chỉnh.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Khớp scope 3.8–3.9 (template + auto-fill). Ưu tiên sau khi có kho biểu mẫu.</div><div class="fb-desc-block"><strong>Ghi chú:</strong> Phụ thuộc hạng mục biểu mẫu docx</div><div class="fb-desc-block"><strong>Nguồn:</strong> Góp ý thêm</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Cán bộ phải nhập tay số liệu vào báo cáo; chưa có luồng chọn mẫu → AI/điền số tự động.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Chọn biểu mẫu .docx → hệ thống điền số/liệu từ tri thức hoặc dữ liệu nhập có kiểm soát → xuất file hoàn chỉnh.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Khớp scope 3.8–3.9 (template + auto-fill). Ưu tiên sau khi có kho biểu mẫu.</div><div class="fb-desc-block"><strong>Ghi chú:</strong> Phụ thuộc hạng mục biểu mẫu docx</div>
               </td>
               <td><span class="type-pill new">Tính năng mới</span></td>
               <td><span class="status-pill todo">Chưa triển khai</span></td>
+              <td class="num">—</td>
+              <td class="fb-source">Tổ IT</td>
             </tr>
-            <tr data-module="Trợ lý AI" data-type="Cải tiến UX" data-status="Đang triển khai">
+            <tr data-source="Tổ IT" data-module="Trợ lý AI" data-type="Cải tiến UX" data-status="Đang triển khai">
               <td class="num mono-stt">26</td>
               <td>
                 <div class="fb-title">Tắt nút &#x27;Đính kèm&#x27; trên khung chat</div>
                 <div class="fb-group-label">Giao diện Chat</div>
-                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Nút &#x27;Đính kèm&#x27; trên chat dễ gây hiểu nhầm (người dùng tưởng đính file để AI đọc ngay như ChatGPT).</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Ẩn/tắt chức năng Đính kèm ở mục chat (hoặc chỉ hiện khi nghiệp vụ thật sự cần).</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Quick win UI.</div><div class="fb-desc-block"><strong>Ghi chú:</strong> Quick win</div><div class="fb-desc-block"><strong>Nguồn:</strong> Góp ý thêm</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Nút &#x27;Đính kèm&#x27; trên chat dễ gây hiểu nhầm (người dùng tưởng đính file để AI đọc ngay như ChatGPT).</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Ẩn/tắt chức năng Đính kèm ở mục chat (hoặc chỉ hiện khi nghiệp vụ thật sự cần).</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Quick win UI.</div><div class="fb-desc-block"><strong>Ghi chú:</strong> Quick win</div>
               </td>
               <td><span class="type-pill ux">Cải tiến UX</span></td>
               <td><span class="status-pill progress">Đang triển khai</span></td>
+              <td class="num">—</td>
+              <td class="fb-source">Tổ IT</td>
             </tr>
-            <tr data-module="Trợ lý AI" data-type="Tính năng mới" data-status="Chưa triển khai">
+            <tr data-source="Tổ IT" data-module="Trợ lý AI" data-type="Tính năng mới" data-status="Chưa triển khai">
               <td class="num mono-stt">26</td>
               <td>
                 <div class="fb-title">Cung cấp API để tích hợp vào hệ thống của phường</div>
                 <div class="fb-group-label">Tích hợp hệ thống</div>
-                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Chưa có API công khai để hệ thống nội bộ phường gọi chat/truy vấn/tri thức.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Cung cấp bộ API (auth, hỏi đáp, lấy lịch sử, metadata…) kèm tài liệu tích hợp cho hệ thống phường.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Cần chốt phạm vi API phase 1 (chỉ chat? hay cả tài liệu?).</div><div class="fb-desc-block"><strong>Nguồn:</strong> Góp ý thêm</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Chưa có API công khai để hệ thống nội bộ phường gọi chat/truy vấn/tri thức.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Cung cấp bộ API (auth, hỏi đáp, lấy lịch sử, metadata…) kèm tài liệu tích hợp cho hệ thống phường.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Cần chốt phạm vi API phase 1 (chỉ chat? hay cả tài liệu?).</div>
               </td>
               <td><span class="type-pill new">Tính năng mới</span></td>
               <td><span class="status-pill todo">Chưa triển khai</span></td>
+              <td class="num">—</td>
+              <td class="fb-source">Tổ IT</td>
             </tr>
-            <tr data-module="Trợ lý AI" data-type="Cải tiến UX" data-status="Đang triển khai">
+            <tr data-source="Tổ IT" data-module="Trợ lý AI" data-type="Cải tiến UX" data-status="Đang triển khai">
               <td class="num mono-stt">27</td>
               <td>
                 <div class="fb-title">Nhắc like/dislike; mặc định coi là đúng nếu không đánh giá</div>
                 <div class="fb-group-label">Đánh giá câu trả lời</div>
-                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Người dùng thường quên đánh giá; thiếu cơ chế nhắc; chưa có quy ước mặc định khi không đánh giá.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Thêm câu nhắc đánh giá like/dislike sau câu trả lời. Nếu người dùng không đánh giá → mặc định tính là đúng/hữu ích phục vụ dashboard chất lượng.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Làm rõ với BLĐ: &#x27;mặc định đúng&#x27; chỉ dùng cho thống kê, không ghi đè feedback thật.</div><div class="fb-desc-block"><strong>Ghi chú:</strong> Ảnh hưởng công thức % chính xác dashboard</div><div class="fb-desc-block"><strong>Nguồn:</strong> Góp ý thêm</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Người dùng thường quên đánh giá; thiếu cơ chế nhắc; chưa có quy ước mặc định khi không đánh giá.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Thêm câu nhắc đánh giá like/dislike sau câu trả lời. Nếu người dùng không đánh giá → mặc định tính là đúng/hữu ích phục vụ dashboard chất lượng.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Làm rõ với BLĐ: &#x27;mặc định đúng&#x27; chỉ dùng cho thống kê, không ghi đè feedback thật.</div><div class="fb-desc-block"><strong>Ghi chú:</strong> Ảnh hưởng công thức % chính xác dashboard</div>
               </td>
               <td><span class="type-pill ux">Cải tiến UX</span></td>
               <td><span class="status-pill progress">Đang triển khai</span></td>
+              <td class="num">—</td>
+              <td class="fb-source">Tổ IT</td>
             </tr>
             </tbody>
           </table>
@@ -2133,77 +2125,91 @@
         </div>
         <div class="table-wrap">
           <table class="fb-table feat-table">
-            <thead><tr><th style="width:52px">STT</th><th>Chức năng / mô tả</th><th style="width:130px">Loại</th><th style="width:130px">Tình trạng</th></tr></thead>
+            <thead><tr><th style="width:52px">STT</th><th>Chức năng / mô tả</th><th style="width:130px">Loại</th><th style="width:130px">Tình trạng</th><th style="width:110px">Ngày bàn giao</th><th style="width:170px">Nguồn góp ý</th></tr></thead>
             <tbody>
-            <tr data-module="Dashboard" data-type="Cải tiến UX" data-status="Đang triển khai">
+            <tr data-source="Tổ IT" data-module="Dashboard" data-type="Cải tiến UX" data-status="Đang triển khai">
               <td class="num mono-stt">30</td>
               <td>
                 <div class="fb-title">Bỏ hết từ &#x27;Thống kê&#x27; trên dashboard</div>
                 <div class="fb-group-label">Đặt tên &amp; copy UI</div>
-                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Nhiều tiêu đề widget mang từ &#x27;Thống kê…&#x27;, làm giao diện nặng và trùng lặp.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Đổi toàn bộ nhãn: bỏ tiền tố &#x27;Thống kê&#x27;; đặt tên ngắn, mô tả đúng nội dung biểu đồ.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Quick win copywriting — làm cùng đợt đổi tên bên dưới.</div><div class="fb-desc-block"><strong>Nguồn:</strong> Góp ý thêm</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Nhiều tiêu đề widget mang từ &#x27;Thống kê…&#x27;, làm giao diện nặng và trùng lặp.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Đổi toàn bộ nhãn: bỏ tiền tố &#x27;Thống kê&#x27;; đặt tên ngắn, mô tả đúng nội dung biểu đồ.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Quick win copywriting — làm cùng đợt đổi tên bên dưới.</div>
               </td>
               <td><span class="type-pill ux">Cải tiến UX</span></td>
               <td><span class="status-pill progress">Đang triển khai</span></td>
+              <td class="num">—</td>
+              <td class="fb-source">Tổ IT</td>
             </tr>
-            <tr data-module="Dashboard" data-type="Cải tiến UX" data-status="Đang triển khai">
+            <tr data-source="Tổ IT" data-module="Dashboard" data-type="Cải tiến UX" data-status="Đang triển khai">
               <td class="num mono-stt">31</td>
               <td>
                 <div class="fb-title">Đổi tên: Lượng tài nguyên sử dụng theo phòng</div>
                 <div class="fb-group-label">Đặt tên &amp; copy UI</div>
-                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Nhãn cũ: &#x27;Thống kê lượng đơn vị sử dụng&#x27; — dễ gây hiểu nhầm.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Đổi thành: &#x27;Lượng tài nguyên sử dụng theo phòng&#x27;.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Gói cùng đợt rename dashboard.</div><div class="fb-desc-block"><strong>Nguồn:</strong> Góp ý thêm</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Nhãn cũ: &#x27;Thống kê lượng đơn vị sử dụng&#x27; — dễ gây hiểu nhầm.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Đổi thành: &#x27;Lượng tài nguyên sử dụng theo phòng&#x27;.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Gói cùng đợt rename dashboard.</div>
               </td>
               <td><span class="type-pill ux">Cải tiến UX</span></td>
               <td><span class="status-pill progress">Đang triển khai</span></td>
+              <td class="num">—</td>
+              <td class="fb-source">Tổ IT</td>
             </tr>
-            <tr data-module="Dashboard" data-type="Cải tiến UX" data-status="Đang triển khai">
+            <tr data-source="Tổ IT" data-module="Dashboard" data-type="Cải tiến UX" data-status="Đang triển khai">
               <td class="num mono-stt">32</td>
               <td>
                 <div class="fb-title">Đổi tên: Số lượng tài khoản theo phòng</div>
                 <div class="fb-group-label">Đặt tên &amp; copy UI</div>
-                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Nhãn cũ: &#x27;Thống kê người dùng trên hệ thống&#x27;.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Đổi thành: &#x27;Số lượng tài khoản theo phòng&#x27;.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Gói cùng đợt rename dashboard.</div><div class="fb-desc-block"><strong>Nguồn:</strong> Góp ý thêm</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Nhãn cũ: &#x27;Thống kê người dùng trên hệ thống&#x27;.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Đổi thành: &#x27;Số lượng tài khoản theo phòng&#x27;.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Gói cùng đợt rename dashboard.</div>
               </td>
               <td><span class="type-pill ux">Cải tiến UX</span></td>
               <td><span class="status-pill progress">Đang triển khai</span></td>
+              <td class="num">—</td>
+              <td class="fb-source">Tổ IT</td>
             </tr>
-            <tr data-module="Dashboard" data-type="Cải tiến UX" data-status="Đang triển khai">
+            <tr data-source="Tổ IT" data-module="Dashboard" data-type="Cải tiến UX" data-status="Đang triển khai">
               <td class="num mono-stt">33</td>
               <td>
                 <div class="fb-title">Sắp xếp thứ tự: Tập thể → Cá nhân → Đơn vị sử dụng → Log câu hỏi</div>
                 <div class="fb-group-label">Bố cục dashboard</div>
-                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Thứ tự các khối trên dashboard chưa theo luồng đọc mong muốn của lãnh đạo.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Sắp xếp lại theo thứ tự: (1) Tập thể, (2) Cá nhân, (3) Đơn vị sử dụng, (4) Log câu hỏi của người dùng.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Chốt mapping widget nào thuộc &#x27;Tập thể/Cá nhân/Đơn vị&#x27; trong buổi họp.</div><div class="fb-desc-block"><strong>Nguồn:</strong> Góp ý thêm</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Thứ tự các khối trên dashboard chưa theo luồng đọc mong muốn của lãnh đạo.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Sắp xếp lại theo thứ tự: (1) Tập thể, (2) Cá nhân, (3) Đơn vị sử dụng, (4) Log câu hỏi của người dùng.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Chốt mapping widget nào thuộc &#x27;Tập thể/Cá nhân/Đơn vị&#x27; trong buổi họp.</div>
               </td>
               <td><span class="type-pill ux">Cải tiến UX</span></td>
               <td><span class="status-pill progress">Đang triển khai</span></td>
+              <td class="num">—</td>
+              <td class="fb-source">Tổ IT</td>
             </tr>
-            <tr data-module="Dashboard" data-type="Cải tiến UX" data-status="Đang triển khai">
+            <tr data-source="Tổ IT" data-module="Dashboard" data-type="Cải tiến UX" data-status="Đang triển khai">
               <td class="num mono-stt">34</td>
               <td>
                 <div class="fb-title">Lượt truy vấn theo phòng — kéo dài nhãn tên + số ở đầu bar</div>
                 <div class="fb-group-label">Biểu đồ lượt truy vấn</div>
-                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Tên phòng bị cắt; số liệu nằm cuối bar khó đọc nhanh.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Kéo dài khung hiện tên phòng; đặt số chính xác ở đầu bar (thay vì cuối bar).</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Chỉnh chart config — effort thấp.</div><div class="fb-desc-block"><strong>Nguồn:</strong> Góp ý thêm</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Tên phòng bị cắt; số liệu nằm cuối bar khó đọc nhanh.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Kéo dài khung hiện tên phòng; đặt số chính xác ở đầu bar (thay vì cuối bar).</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Chỉnh chart config — effort thấp.</div>
               </td>
               <td><span class="type-pill ux">Cải tiến UX</span></td>
               <td><span class="status-pill progress">Đang triển khai</span></td>
+              <td class="num">—</td>
+              <td class="fb-source">Tổ IT</td>
             </tr>
-            <tr data-module="Dashboard" data-type="Cải tiến UX" data-status="Đang triển khai">
+            <tr data-source="Tổ IT" data-module="Dashboard" data-type="Cải tiến UX" data-status="Đang triển khai">
               <td class="num mono-stt">35</td>
               <td>
                 <div class="fb-title">Các widget: Lượng tri thức khai thác theo đơn vị; Lượng người dùng trên hệ thống</div>
                 <div class="fb-group-label">Phân tích sử dụng</div>
-                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Cần làm rõ và chuẩn hóa tên/hiển thị các khối: lượng tri thức khai thác theo đơn vị; lượng người dùng trên hệ thống.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Hiển thị đúng số liệu, đúng nhãn đã thống nhất (không dùng chữ &#x27;Thống kê&#x27;); đảm bảo số khớp log thực tế.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Verify data source của từng widget khi họp.</div><div class="fb-desc-block"><strong>Nguồn:</strong> Góp ý thêm</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Cần làm rõ và chuẩn hóa tên/hiển thị các khối: lượng tri thức khai thác theo đơn vị; lượng người dùng trên hệ thống.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Hiển thị đúng số liệu, đúng nhãn đã thống nhất (không dùng chữ &#x27;Thống kê&#x27;); đảm bảo số khớp log thực tế.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Verify data source của từng widget khi họp.</div>
               </td>
               <td><span class="type-pill ux">Cải tiến UX</span></td>
               <td><span class="status-pill progress">Đang triển khai</span></td>
+              <td class="num">—</td>
+              <td class="fb-source">Tổ IT</td>
             </tr>
-            <tr data-module="Dashboard" data-type="Tính năng mới" data-status="Đang triển khai">
+            <tr data-source="Tổ IT" data-module="Dashboard" data-type="Tính năng mới" data-status="Đang triển khai">
               <td class="num mono-stt">36</td>
               <td>
                 <div class="fb-title">Ghi log chi tiết câu truy vấn để admin kiểm tra</div>
                 <div class="fb-group-label">Log &amp; giám sát</div>
-                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Chưa có log chi tiết đủ để admin rà soát câu hỏi bị từ chối, câu trả lời sai, hoặc hành vi sử dụng.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Log: user, phòng, thời gian, câu hỏi, câu trả lời (hoặc tóm tắt), nguồn trích dẫn, like/dislike, cờ từ chối/lỗi. Có màn admin lọc/xuất.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Nền tảng cho triage chất lượng AI và báo cáo theo user/phòng.</div><div class="fb-desc-block"><strong>Nguồn:</strong> Góp ý thêm</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Chưa có log chi tiết đủ để admin rà soát câu hỏi bị từ chối, câu trả lời sai, hoặc hành vi sử dụng.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Log: user, phòng, thời gian, câu hỏi, câu trả lời (hoặc tóm tắt), nguồn trích dẫn, like/dislike, cờ từ chối/lỗi. Có màn admin lọc/xuất.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Nền tảng cho triage chất lượng AI và báo cáo theo user/phòng.</div>
               </td>
               <td><span class="type-pill new">Tính năng mới</span></td>
               <td><span class="status-pill progress">Đang triển khai</span></td>
+              <td class="num">—</td>
+              <td class="fb-source">Tổ IT</td>
             </tr>
             </tbody>
           </table>
@@ -2219,17 +2225,19 @@
         </div>
         <div class="table-wrap">
           <table class="fb-table feat-table">
-            <thead><tr><th style="width:52px">STT</th><th>Chức năng / mô tả</th><th style="width:130px">Loại</th><th style="width:130px">Tình trạng</th></tr></thead>
+            <thead><tr><th style="width:52px">STT</th><th>Chức năng / mô tả</th><th style="width:130px">Loại</th><th style="width:130px">Tình trạng</th><th style="width:110px">Ngày bàn giao</th><th style="width:170px">Nguồn góp ý</th></tr></thead>
             <tbody>
-            <tr data-module="Giao diện" data-type="Cải tiến UX" data-status="Chưa triển khai">
+            <tr data-source="Phòng Kinh tế, Hạ tầng &amp; Đô thị" data-module="Giao diện" data-type="Cải tiến UX" data-status="Chưa triển khai">
               <td class="num mono-stt">27</td>
               <td>
                 <div class="fb-title">Tối ưu giao diện cho điện thoại</div>
                 <div class="fb-group-label">Responsive</div>
-                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Trải nghiệm trên điện thoại chưa tối ưu (chat, xem tài liệu, dashboard).</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Responsive các màn chính: chat, tải tài liệu, xem trước, dashboard cơ bản trên mobile.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Có thể chia phase: Chat mobile trước, Dashboard sau.</div><div class="fb-desc-block"><strong>Nguồn:</strong> PDF Feedback 26/05</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Trải nghiệm trên điện thoại chưa tối ưu (chat, xem tài liệu, dashboard).</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Responsive các màn chính: chat, tải tài liệu, xem trước, dashboard cơ bản trên mobile.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Có thể chia phase: Chat mobile trước, Dashboard sau.</div>
               </td>
               <td><span class="type-pill ux">Cải tiến UX</span></td>
               <td><span class="status-pill todo">Chưa triển khai</span></td>
+              <td class="num">—</td>
+              <td class="fb-source">Phòng Kinh tế, Hạ tầng &amp; Đô thị</td>
             </tr>
             </tbody>
           </table>
@@ -2242,7 +2250,7 @@
         Nguồn văn bản: <code>pxuanhoa-export_202607131204.csv</code><br />
         Nguồn người dùng: <code>[20260623] Danh sách thông tin cán bộ Phường Xuân Hòa.xlsx</code><br />
         Nguồn phạm vi: <code>[20260526] Phù Đổng Expo - AI Chat Scope - Timeline Delivery Danh sách tính năng.pdf</code><br />
-        Nguồn góp ý: <code>[20260526] AI Chat Feedback.pdf</code> + <code>[20260721] Phu Dong Expo - Danh sach Bug &amp; Gop y AI Chat.xlsx</code><br />
+        Nguồn góp ý: Tổ IT · Phòng Kinh tế, Hạ tầng &amp; Đô thị<br />
         Báo cáo tạo ngày 13/07/2026 · UBND Phường Xuân Hòa
       </div>
       <img src="logo-xuan-hoa.png" alt="Logo Phường Xuân Hòa" />
@@ -2251,75 +2259,8 @@
 
   <script>
     const USERS = [{"name": "Dương Minh Hải", "role": "Trưởng phòng", "role_group": "Trưởng phòng", "team": "Lãnh đạo phòng", "phone": "90813659", "email": "dmhai.xuanhoa@tphcm.gov.vn", "username": "dmhai.xuanhoa@tphcm.gov.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Trần Hải Nguyên", "role": "Phó Trưởng phòng", "role_group": "Phó Trưởng phòng", "team": "Lãnh đạo phòng", "phone": "0903 870 085", "email": "thnguyen.xuanhoa@tphcm.gov.vn", "username": "thnguyen.xuanhoa@tphcm.gov.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Trương Ngọc Yến Diên", "role": "Phó Trưởng phòng", "role_group": "Phó Trưởng phòng", "team": "Lãnh đạo phòng", "phone": "0905 913 455", "email": "tnydien.xuanhoa@tphcm.gov.vn", "username": "tnydien.xuanhoa@tphcm.gov.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Triệu Hạnh Vy", "role": "Chuyên viên tổ tài chính ngân sách kinh tế", "role_group": "Chuyên viên", "team": "Tổ Tài chính - Ngân sách - Kinh tế", "phone": "0367 832 933", "email": "", "username": "thvy@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Trần Hồng Kim Vy", "role": "Chuyên viên tổ tài chính ngân sách kinh tế", "role_group": "Chuyên viên", "team": "Tổ Tài chính - Ngân sách - Kinh tế", "phone": "0764 446 459", "email": "", "username": "thkvy@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Lê Minh Tuấn", "role": "Chuyên viên tổ tài chính ngân sách kinh tế", "role_group": "Chuyên viên", "team": "Tổ Tài chính - Ngân sách - Kinh tế", "phone": "0902 661 210", "email": "", "username": "lmtuan@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Đặng Bảo Duy", "role": "Tổ trưởng Tổ kỹ thuật", "role_group": "Tổ trưởng", "team": "Tổ Kỹ thuật", "phone": "0908 666 080", "email": "", "username": "dbduy@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Dương Minh Tùng", "role": "Chuyên viên Tổ kỹ thuật", "role_group": "Chuyên viên", "team": "Tổ Kỹ thuật", "phone": "0904 323 217", "email": "", "username": "dmtung@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Lê Nguyễn Minh Đăng", "role": "Chuyên viên Tổ kỹ thuật", "role_group": "Chuyên viên", "team": "Tổ Kỹ thuật", "phone": "0766 763 131", "email": "", "username": "lnmdang@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Từ Vĩnh Cơ", "role": "Chuyên viên Tổ kỹ thuật", "role_group": "Chuyên viên", "team": "Tổ Kỹ thuật", "phone": "0904 321 584", "email": "", "username": "tvco@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Trương Minh Trung", "role": "Chuyên viên Tổ kỹ thuật", "role_group": "Chuyên viên", "team": "Tổ Kỹ thuật", "phone": "0977 333 900", "email": "", "username": "tmtrung@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Nguyễn Từ Minh Trung", "role": "Chuyên viên Tổ kỹ thuật", "role_group": "Chuyên viên", "team": "Tổ Kỹ thuật", "phone": "0902 640 404", "email": "", "username": "ntmtrung@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Huỳnh Chí Dũng", "role": "Tổ trưởng Tổ Địa chính", "role_group": "Tổ trưởng", "team": "Tổ Địa chính", "phone": "0961 378 341", "email": "", "username": "hcdung@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Nguyễn Công Khanh", "role": "Chuyên viên tổ địa chính", "role_group": "Chuyên viên", "team": "Tổ Địa chính", "phone": "0902 664 689", "email": "", "username": "nckhanh@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Hoàng Chí Trung", "role": "Chuyên viên tổ địa chính", "role_group": "Chuyên viên", "team": "Tổ Địa chính", "phone": "0902 341 224", "email": "", "username": "hctrung@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Lê Đình Chung", "role": "Chuyên viên tổ địa chính", "role_group": "Chuyên viên", "team": "Tổ Địa chính", "phone": "0902 872 045", "email": "", "username": "ldchung@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Liêu Thành lâm", "role": "Chuyên viên tổ địa chính", "role_group": "Chuyên viên", "team": "Tổ Địa chính", "phone": "0816 555 588", "email": "", "username": "ltlam@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Nguyễn Ngọc Phước", "role": "Tổ trưởng tổ trật tự", "role_group": "Tổ trưởng", "team": "Tổ Trật tự đô thị", "phone": "0909 519 981", "email": "", "username": "nnphuoc@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Đặng Quang Huy", "role": "Chuyên viên tổ trật tự", "role_group": "Chuyên viên", "team": "Tổ Trật tự đô thị", "phone": "0902 000 267", "email": "", "username": "dqhuy@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Võ Thành Luân", "role": "Chuyên viên tổ trật tự", "role_group": "Chuyên viên", "team": "Tổ Trật tự đô thị", "phone": "0936 886 553", "email": "", "username": "vtluan@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Nguyễn Trung Thành", "role": "Chuyên viên tổ trật tự", "role_group": "Chuyên viên", "team": "Tổ Trật tự đô thị", "phone": "0378 921 467", "email": "", "username": "ntthanh@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Tăng Quốc Anh", "role": "Chuyên viên tổ trật tự", "role_group": "Chuyên viên", "team": "Tổ Trật tự đô thị", "phone": "0931 599 867", "email": "", "username": "tqanh@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Lưu Minh Duy", "role": "Chuyên viên tổ trật tự", "role_group": "Chuyên viên", "team": "Tổ Trật tự đô thị", "phone": "0793 445 825", "email": "", "username": "lmduy@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Ong Phạm Ngọc Thanh", "role": "Chuyên viên tổ trật tự", "role_group": "Chuyên viên", "team": "Tổ Trật tự đô thị", "phone": "0913 277 494", "email": "", "username": "opnthanh@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Nguyễn Thanh Tâm", "role": "Chuyên viên Văn phòng UBND", "role_group": "Chuyên viên", "team": "Văn phòng UBND", "phone": "0932 075 533", "email": "", "username": "nttam@pxuanhoa.vn", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Nguyễn Từ Hoàng Quân", "role": "Chuyên viên tổ tài chính ngân sách kinh tế", "role_group": "Chuyên viên", "team": "Tổ Tài chính - Ngân sách - Kinh tế", "phone": "0968 687 739", "email": "quanmap27121991@gmail.com", "username": "quanmap27121991@gmail.com", "dept": "Phòng Kinh tế, hạ tầng & đô thị", "dept_short": "Kinh tế, hạ tầng & đô thị", "dept_key": "kt"}, {"name": "Nguyễn Thị Thu Dung", "role": "Trưởng phòng", "role_group": "Trưởng phòng", "team": "Lãnh đạo phòng", "phone": "0984 236 686", "email": "nttdung.xuanhoa@tphcm.gov.vn", "username": "nttdung.xuanhoa@tphcm.gov.vn", "dept": "Phòng Văn hóa - Xã hội", "dept_short": "Văn hóa - Xã hội", "dept_key": "vhxh"}, {"name": "NGUYỄN TRẦN HOÀNG PHÚC", "role": "Phó Phòng", "role_group": "Phó Trưởng phòng", "team": "Lãnh đạo phòng", "phone": "0908 810 852", "email": "nthphuc.xuanhoa@tphcm.gov.vn", "username": "nthphuc.xuanhoa@tphcm.gov.vn", "dept": "Phòng Văn hóa - Xã hội", "dept_short": "Văn hóa - Xã hội", "dept_key": "vhxh"}, {"name": "Vũ Thị Thùy Linh", "role": "Phó Trường phòng", "role_group": "Phó Trưởng phòng", "team": "Lãnh đạo phòng", "phone": "0903 199 450", "email": "vttlinhxuanhoa@tphcm.gov.vn", "username": "vttlinh.xuanhoa@tphcm.gov.vn", "dept": "Phòng Văn hóa - Xã hội", "dept_short": "Văn hóa - Xã hội", "dept_key": "vhxh"}, {"name": "Hoàng Thị Tú Trinh", "role": "Chuyên viên", "role_group": "Chuyên viên", "team": "Phòng Văn hóa - Xã hội", "phone": "0987 825 405", "email": "htttrinh.xuanhoaf@tphcm.gov.vn", "username": "htttrinh.xuanhoaf@tphcm.gov.vn", "dept": "Phòng Văn hóa - Xã hội", "dept_short": "Văn hóa - Xã hội", "dept_key": "vhxh"}, {"name": "Trần Huy Hoàng", "role": "Chuyên viên", "role_group": "Chuyên viên", "team": "Phòng Văn hóa - Xã hội", "phone": "0976 077 145", "email": "thhoang.xuanhoa@tphcm.gov.vn", "username": "thhoang.xuanhoa@tphcm.gov.vn", "dept": "Phòng Văn hóa - Xã hội", "dept_short": "Văn hóa - Xã hội", "dept_key": "vhxh"}, {"name": "Nguyễn Thị Mai Thy", "role": "Chuyên viên", "role_group": "Chuyên viên", "team": "Phòng Văn hóa - Xã hội", "phone": "0908 624 750", "email": "ntmthy.xuanhoa@tphcm.gov.vn", "username": "ntmthy.xuanhoa@tphcm.gov.vn", "dept": "Phòng Văn hóa - Xã hội", "dept_short": "Văn hóa - Xã hội", "dept_key": "vhxh"}, {"name": "Nguyễn Tấn Đức", "role": "Chuyên viên", "role_group": "Chuyên viên", "team": "Phòng Văn hóa - Xã hội", "phone": "0908 216 475", "email": "ntduc,xuanhoa@tphcm.gov.vn", "username": "ntdu.xuanhoa@tphcm.gov.vn", "dept": "Phòng Văn hóa - Xã hội", "dept_short": "Văn hóa - Xã hội", "dept_key": "vhxh"}, {"name": "Lưu Ngọc Hồng Khương", "role": "Chuyên viên", "role_group": "Chuyên viên", "team": "Phòng Văn hóa - Xã hội", "phone": "0903 174 811", "email": "lnhkhuong.xuanhoa@tphcm.gov.vn", "username": "lnhkhuong.xuanhoa@tphcm.gov.vn", "dept": "Phòng Văn hóa - Xã hội", "dept_short": "Văn hóa - Xã hội", "dept_key": "vhxh"}, {"name": "Đỗ Anh Tuấn", "role": "Chuyên viên - Phụ trách kế toán", "role_group": "Chuyên viên", "team": "Phòng Văn hóa - Xã hội", "phone": "0908 451 976", "email": "datuan.xuanhoa@tphcm.gov.vn", "username": "datuan.xuanhoa@tphcm.gov.vn", "dept": "Phòng Văn hóa - Xã hội", "dept_short": "Văn hóa - Xã hội", "dept_key": "vhxh"}, {"name": "Huỳnh Xuân Nghị", "role": "Chuyên viên", "role_group": "Chuyên viên", "team": "Phòng Văn hóa - Xã hội", "phone": "0909 317 805", "email": "hxnghi.xuanhoa@tphcm.gov.vn", "username": "hxnghi.xuanhoa@tphcm.gov.vn", "dept": "Phòng Văn hóa - Xã hội", "dept_short": "Văn hóa - Xã hội", "dept_key": "vhxh"}, {"name": "Bùi Long Vũ", "role": "Chuyên viên", "role_group": "Chuyên viên", "team": "Phòng Văn hóa - Xã hội", "phone": "0962 940 522", "email": "blvu.xuanhoa@tphcm.gov.vn", "username": "blvu.xuanhoa@tphcm.gov.vn", "dept": "Phòng Văn hóa - Xã hội", "dept_short": "Văn hóa - Xã hội", "dept_key": "vhxh"}, {"name": "Trần Phạm Hiền", "role": "Chuyên viên", "role_group": "Chuyên viên", "team": "Phòng Văn hóa - Xã hội", "phone": "0777 010 178", "email": "tphien.xuanhoa@tphcm.gov.vn", "username": "tphien.xuanhoa@tphcm.gov.vn", "dept": "Phòng Văn hóa - Xã hội", "dept_short": "Văn hóa - Xã hội", "dept_key": "vhxh"}, {"name": "Nguyễn Thị Thanh Mai", "role": "Chuyên viên", "role_group": "Chuyên viên", "team": "Phòng Văn hóa - Xã hội", "phone": "0907 905 206", "email": "nttmai.xuanhoa@tphcm.gov.vn", "username": "nttmai.xuanhoa@tphcm.gov.vn", "dept": "Phòng Văn hóa - Xã hội", "dept_short": "Văn hóa - Xã hội", "dept_key": "vhxh"}, {"name": "Đỗ Quốc Nam", "role": "Chuyên viên", "role_group": "Chuyên viên", "team": "Phòng Văn hóa - Xã hội", "phone": "0938 836 807", "email": "dqnam.xuanhoa@tphcm.gov.vn", "username": "dqnam.xuanhoa@tphcm.gov.vn", "dept": "Phòng Văn hóa - Xã hội", "dept_short": "Văn hóa - Xã hội", "dept_key": "vhxh"}, {"name": "Nguyễn Thị Thu Thảo", "role": "Chuyên viên", "role_group": "Chuyên viên", "team": "Phòng Văn hóa - Xã hội", "phone": "0909 540 091", "email": "nttthao.xuanhoa@tphcm.gov.vn", "username": "nttthao.xuanhoa@tphcm.gov.vn", "dept": "Phòng Văn hóa - Xã hội", "dept_short": "Văn hóa - Xã hội", "dept_key": "vhxh"}, {"name": "Trần Phương Thảo", "role": "Chuyên viên", "role_group": "Chuyên viên", "team": "Phòng Văn hóa - Xã hội", "phone": "0903 679 132", "email": "tpthao.xuanhoa@tphcm.gov.vn", "username": "tpthao.xuanhoa@tphcm.gov.vn", "dept": "Phòng Văn hóa - Xã hội", "dept_short": "Văn hóa - Xã hội", "dept_key": "vhxh"}, {"name": "Nguyễn Thị Kim Thi", "role": "Chuyên viên", "role_group": "Chuyên viên", "team": "Phòng Văn hóa - Xã hội", "phone": "0902 563 705", "email": "ntkthi.xuanhoa@tphcm.gov.vn", "username": "ntkthi.xuanhoa@tphcm.gov.vn", "dept": "Phòng Văn hóa - Xã hội", "dept_short": "Văn hóa - Xã hội", "dept_key": "vhxh"}, {"name": "Lê Thị Luyến", "role": "Chuyên viên", "role_group": "Chuyên viên", "team": "Phòng Văn hóa - Xã hội", "phone": "0392 369 278", "email": "lltluyen.xuanhoa@tphcm.gov.vn", "username": "lltluyen.xuanhoa@tphcm.gov.vn", "dept": "Phòng Văn hóa - Xã hội", "dept_short": "Văn hóa - Xã hội", "dept_key": "vhxh"}, {"name": "Nguyễn Thị Thùy Linh", "role": "Chuyên viên", "role_group": "Chuyên viên", "team": "Phòng Văn hóa - Xã hội", "phone": "0778 724 935", "email": "nttl.xuanhoa@tphcm.gov.com", "username": "nttl.xuanhoa@tphcm.gov.com", "dept": "Phòng Văn hóa - Xã hội", "dept_short": "Văn hóa - Xã hội", "dept_key": "vhxh"}];
-    const FEATURES_RAW = [{"stt": "1", "module": "Phân quyền", "feature": "Phân quyền người dùng theo cấp bậc và chức vụ", "sub": "1. Quản lý danh sách chức danh/vai trò.", "status_raw": "done", "deadline": "05/07/2026", "detail": "Cấu hình phân quyền truy cập, xem và thao tác trên hệ thống cho các vai trò cụ thể: - Admin: Quản lý tài khoản - Bí thư: Xem toàn bộ tài liệu - Phó bí thư: Xem toàn bộ tài liệu - Chủ tịch: Xem toàn bộ tài liệu - Phó chủ tịch: Xem toàn bộ tài liệu - Trưởng phòng / Chánh văn phòng: Xem toàn bộ tài liệu của phòng - Chuyên viên: Xem tài liệu của phòng trong khuông khổ được quy định"}, {"stt": "1.1", "module": "Phân quyền", "feature": "Phân quyền người dùng theo cấp bậc và chức vụ", "sub": "2. Giao diện gán vai trò và phòng ban cho tài khoản.", "status_raw": "done", "deadline": "05/07/2026", "detail": "Cung cấp giao diện để quản trị viên thiết lập vai trò và chỉ định phòng ban trực thuộc cho từng tài khoản."}, {"stt": "1.2", "module": "Phân quyền", "feature": "Phân quyền người dùng theo cấp bậc và chức vụ", "sub": "3. Logic kiểm soát hiển thị tài liệu theo chức danh.", "status_raw": "done", "deadline": "05/07/2026", "detail": "Thuật toán tự động nhận diện chức danh của người dùng để hiển thị/che giấu tài liệu tương ứng."}, {"stt": "1.3", "module": "Phân quyền", "feature": "Phân quyền người dùng theo cấp bậc và chức vụ", "sub": "4. Cấu hình phân quyền cho vai trò \"AI Owner\" chuyên kiểm duyệt dữ liệu AI.", "status_raw": "todo", "deadline": "31/07/2026", "detail": "Thiết lập quyền đặc biệt cho \"AI Owner\" để xem toàn bộ đánh giá trợ lý AI trên hệ thống và có quyền thao tác duyệt/từ chối tri thức AI."}, {"stt": "1.4", "module": "Phân quyền", "feature": "Xem danh sách tài khoản", "sub": "1. Hiển thị danh sách tài khoản dưới dạng bảng.", "status_raw": "done", "deadline": "05/07/2026", "detail": "Trình bày thông tin các tài khoản (tên, chức vụ, phòng ban, trạng thái) dưới dạng bảng lưới (grid) dễ nhìn."}, {"stt": "1.5", "module": "Phân quyền", "feature": "Xem danh sách tài khoản", "sub": "2. Logic lọc danh sách tài khoản theo cấp quản lý.", "status_raw": "todo", "deadline": "31/07/2026", "detail": "Lọc theo các tiêu chí: - Ngày tạo - Tên bao gồm - Trạng thái tài khoản - Vai trò - Phòng ban - Email"}, {"stt": "1.6", "module": "Phân quyền", "feature": "Xem danh sách tài khoản", "sub": "3. Thanh tìm kiếm tài khoản.", "status_raw": "done", "deadline": "05/07/2026", "detail": "Người dùng có thể tìm kiếm tài khoản theo tên đăng nhập, tên người dùng"}, {"stt": "1.7", "module": "Phân quyền", "feature": "Xem danh sách tài khoản", "sub": "4. Cắt bỏ yêu cầu điền chức danh, chỉ giữ chức vụ", "status_raw": "todo", "deadline": "20/07/2026", "detail": "Loại bỏ yêu cầu bắt buộc điền chức danh cho người dùng"}, {"stt": "1.8", "module": "Phân quyền", "feature": "Xem danh sách tài khoản", "sub": "5. Gộp nhân viên và người dùng lại thành 1 module", "status_raw": "todo", "deadline": "20/07/2026", "detail": "Tích hợp quy trình tạo tài khoản đồng thười với tạo người dùng, không cần tạo riêng lẻ"}, {"stt": "2", "module": "Quản lý tài liệu", "feature": "Tải lên tài liệu", "sub": "1. Giao diện chọn/kéo thả tệp tin", "status_raw": "done", "deadline": "05/07/2026", "detail": "Cho phép người dùng tải các định dạng tài liệu, văn bản lên hệ thống lưu trữ tập trung."}, {"stt": "2.1", "module": "Quản lý tài liệu", "feature": "Tải lên tài liệu", "sub": "2. Logic kiểm tra định dạng và dung lượng", "status_raw": "done", "deadline": "05/07/2026", "detail": "Hệ thống tự động chặn các file không đúng định dạng cho phép hoặc vượt quá dung lượng quy định trước khi tải lên."}, {"stt": "2.2", "module": "Quản lý tài liệu", "feature": "Tải lên tài liệu", "sub": "3. Logic kiểm tra đặt tên", "status_raw": "done", "deadline": "05/07/2026", "detail": "Hệ thống tự động chặn các file không đúng định dạng cho phép hoặc vượt quá dung lượng quy định trước khi tải lên."}, {"stt": "2.3", "module": "Quản lý tài liệu", "feature": "Tải lên tài liệu", "sub": "4. Theo dõi tiến độ tải lên", "status_raw": "done", "deadline": "05/07/2026", "detail": "Có cửa sổ nhỏ ở góc màn hình theo dõi tiến độ tải lên của các tài liệu"}, {"stt": "2.4", "module": "Quản lý tài liệu", "feature": "Theo dõi tiến độ bổ sung tri thức", "sub": "1. Xem danh sách các tài liệu đang được AI học", "status_raw": "todo", "deadline": "24/07/2026", "detail": "Giao diện liệt kê chi tiết các văn bản, tài liệu đang nằm trong hàng đợi chờ hệ thống xử lý để đưa vào bộ nhớ AI. Bảng bao gồm các trường thông tin: Tên tài liệu, Loại dữ liệu, Người phê duyệt, Thời gian bắt đầu học, Trạng thái (Chờ xử lý, Đang học, Hoàn tất, Lỗi)."}, {"stt": "2.5", "module": "Quản lý tài liệu", "feature": "Theo dõi tiến độ bổ sung tri thức", "sub": "2. Hiển thị tiến độ học tập tổng quan và của từng tài liệu", "status_raw": "done", "deadline": "05/07/2026", "detail": "Tiến độ tổng quan: Thanh tiến trình thể hiện tổng khối lượng công việc hiện tại (Ví dụ: Đã học xong 45/100 tài liệu). Tiến độ chi tiết: Hiển thị tỷ lệ % hoàn thành tại từng dòng tài liệu cụ thể. Tích hợp cảnh báo đỏ và nút \"Thử lại\" nếu tài liệu đó bị lỗi trong quá trình AI phân tích (do tài liệu hỏng, mã hóa...)."}, {"stt": "2.6", "module": "Quản lý tài liệu", "feature": "Tải xuống tài liệu", "sub": "1. Nút hành động tải tài liệu", "status_raw": "done", "deadline": "05/07/2026", "detail": "Nút cho phép người dùng chọn để lưu tệp tin gốc từ máy chủ lưu trữ về thiết bị cá nhân."}, {"stt": "2.7", "module": "Quản lý tài liệu", "feature": "Xem tài liệu", "sub": "1. Tích hợp công cụ xem trước (Document Viewer)", "status_raw": "done", "deadline": "05/07/2026", "detail": "Hỗ trợ xem trước nội dung tài liệu trực tiếp trên trình duyệt mà không cần tải về."}, {"stt": "2.8", "module": "Quản lý tài liệu", "feature": "Xem tài liệu", "sub": "2. Hỗ trợ phóng to, thu nhỏ, lật trang", "status_raw": "done", "deadline": "05/07/2026", "detail": "Cung cấp các nút công cụ cơ bản (Phóng to/Thu nhỏ, Tiến tới/Lùi trang) để thao tác khi đọc tài liệu trực tuyến."}, {"stt": "2.9", "module": "Quản lý tài liệu", "feature": "Xem tài liệu", "sub": "3. Xem dữ liệu được trích xuất từ tài liệu", "status_raw": "done", "deadline": "05/07/2026", "detail": "Cho phép người dùng xem được các thông tin mà AI đã trích xuất ra được từ tài liệu nhằm mục đích kiểm tra nội dung"}, {"stt": "2.10", "module": "Quản lý tài liệu", "feature": "Xem tài liệu", "sub": "4. Xem lịch sử tương tác tài liệu", "status_raw": "done", "deadline": "05/07/2026", "detail": "Cho phép người dùng xem được lịch sử tương tác của tài liệu, như được tải lên vào ngày mấy, ai thay đổi tên,..."}, {"stt": "2.11", "module": "Quản lý tài liệu", "feature": "Xem tài liệu", "sub": "5. Xem được ghi chú tài liệu", "status_raw": "done", "deadline": "05/07/2026", "detail": "Cho phép người dùng để lại bình luận, ghi chú trên tài liệu để có thể xem lại"}, {"stt": "2.12", "module": "Quản lý tài liệu", "feature": "Xem tài liệu", "sub": "6. Xem thông tin tổng quan tài liệu/thư mục", "status_raw": "done", "deadline": "05/07/2026", "detail": "Cho phép người dùng xem thông tin tổng quan của tài liệu/thư mục, bao gồm: tên, loại, dung lượng, ngày tạo, ngày cập nhật,..."}, {"stt": "2.13", "module": "Quản lý tài liệu", "feature": "Xem tài liệu", "sub": "3. Hỗ trợ các file excel, docx, microsoft", "status_raw": "done", "deadline": "05/07/2026", "detail": "Hỗ trợ xem được định dạng các file microsoft như: pptx, excel, docx."}, {"stt": "2.14", "module": "Quản lý tài liệu", "feature": "Phân loại tài liệu", "sub": "1. Hiển thị cửa sổ yêu cầu phân loại (Popup)", "status_raw": "todo", "deadline": "24/07/2026", "detail": "Hỗ trợ sắp xếp, gán nhãn và phân loại tài liệu theo từng thư mục/chuyên mục cụ thể. Khi tải tài liệu lên, cửa sổ phân loại sẽ hiện lên để chọn các tiêu chuẩn phân loại theo: - Nghị Định, Nghị Quyết, Luật - Phân loại: VB Quy phạm pháp luật; Hành chính cá biệt, thông thường - Đơn vị: Phòng Văn hóa xã hội,..."}, {"stt": "2.18", "module": "Quản lý tài liệu", "feature": "Tra cứu và tìm kiếm tài liệu", "sub": "1. Thanh tìm kiếm nhanh", "status_raw": "done", "deadline": "05/07/2026", "detail": "Tìm kiếm nhanh tài liệu dựa trên từ khóa, tiêu đề văn bản hoặc tìm kiếm sâu (full-text search) trong nội dung tài liệu."}, {"stt": "2.19", "module": "Quản lý tài liệu", "feature": "Lọc tài liệu", "sub": "Lọc tài liệu", "status_raw": "todo", "deadline": "24/07/2026", "detail": "Cung cấp bộ lọc nâng cao đa chiều để tìm kiếm nhanh văn bản theo các tiêu chí: - Năm. - Cơ quan ban hành. - Trích yếu nội dung - Số ký hiệu"}, {"stt": "2.20", "module": "Quản lý tài liệu", "feature": "Di chuyển tài liệu", "sub": "Di chuyển tài liệu", "status_raw": "done", "deadline": "05/07/2026", "detail": "Cho phép di chuyển tài liệu, folder xung quanh không gian lưu trữ"}, {"stt": "3", "module": "Trợ lý AI", "feature": "Truy vấn thông tin chung", "sub": "1. Giao diện khung Chat", "status_raw": "done", "deadline": "05/07/2026", "detail": "Khu vực cho phép người dùng gõ câu hỏi bằng ngôn ngữ tự nhiên và gửi yêu cầu."}, {"stt": "3.1", "module": "Trợ lý AI", "feature": "Truy vấn thông tin chung", "sub": "2. Hiển thị lịch sử hội thoại", "status_raw": "done", "deadline": "05/07/2026", "detail": "Lưu và hiển thị danh sách các câu hỏi - câu trả lời cũ trong cùng một phiên làm việc để người dùng theo dõi."}, {"stt": "3.2", "module": "Trợ lý AI", "feature": "Truy vấn thông tin chung", "sub": "3. Liên kết các văn bản tri thức cùng chủ đề", "status_raw": "done", "deadline": "05/07/2026", "detail": "Trí tuệ nhân tạo có khả năng liên kết các tài liệu liên quan để trả lời cho cùng 1 chủ đề. Khả năng phân tích thay đổi trong văn bản để tìm các thông tin mới nhất"}, {"stt": "3.3", "module": "Trợ lý AI", "feature": "Truy vấn thông tin chung", "sub": "4. Xây dựng văn bản chính quy", "status_raw": "todo", "deadline": "20/07/2026", "detail": "Trợ lý AI sẽ xây dựng được một số các văn bản theo công văn phường đăng tải lên kho tài liệu"}, {"stt": "3.4", "module": "Trợ lý AI", "feature": "Truy vấn thông tin chung", "sub": "5. Tối ưu khả năng tư duy và suy luận của AI", "status_raw": "done", "deadline": "05/07/2026", "detail": "Giới hạn lại khả năng suy luận của AI, nếu vượt quá thời gian sẽ trả lời lại người dùng mà không tiếp tục suy luận nữa"}, {"stt": "3.5", "module": "Trợ lý AI", "feature": "Truy vấn thông tin chi tiết trong phòng ban", "sub": "1. Logic phân tích giới hạn vùng tài liệu", "status_raw": "done", "deadline": "05/07/2026", "detail": "AI ưu tiên truy xuất và tổng hợp câu trả lời từ tập dữ liệu được gán nhãn thuộc quyền sở hữu của phòng ban mà người dùng trực thuộc."}, {"stt": "3.6", "module": "Trợ lý AI", "feature": "Truy vấn thông tin chéo/không liên quan phòng ban", "sub": "1. Cơ chế cảnh báo vượt phòng ban", "status_raw": "done", "deadline": "05/07/2026", "detail": "AI cung cấp được đầy đủ các thông tin mà người dùng cần liên quan đến phòng khác, và có thông báo rằng cần làm rõ lại với phòng ban chịu trách nhiệm"}, {"stt": "3.7", "module": "Trợ lý AI", "feature": "Truy vấn thông tin chéo/không liên quan phòng ban", "sub": "2. Kịch bản AI từ chối/điều hướng an toàn", "status_raw": "done", "deadline": "05/07/2026", "detail": "AI có thông tin rằng không tìm thấy thông tin, không có văn bản liên quan"}, {"stt": "3.8", "module": "Trợ lý AI", "feature": "Yêu cầu bot phản hồi theo Template", "sub": "1. Chức năng đính kèm mẫu", "status_raw": "done", "deadline": "05/07/2026", "detail": "Người dùng cung cấp mẫu (template) và yêu cầu Chatbot tổng hợp thông tin, soạn thảo câu trả lời bám sát theo đúng cấu trúc form mẫu quy định."}, {"stt": "3.9", "module": "Trợ lý AI", "feature": "Yêu cầu bot phản hồi theo Template", "sub": "2. Thuật toán tự động điền form", "status_raw": "todo", "deadline": "20/07/2026", "detail": "AI trích xuất thông tin tìm được và tự động điền vào các trường (fields) tương ứng của biểu mẫu đã chọn."}, {"stt": "3.10", "module": "Trợ lý AI", "feature": "Ghi nhận đánh giá câu trả lời", "sub": "1. Nút Thích/Không thích", "status_raw": "done", "deadline": "05/07/2026", "detail": "Tích hợp form đánh giá chất lượng câu trả lời của bot trực tiếp trên giao diện. Nếu chưa đạt yêu cầu, cán bộ có thể nhập mô tả, hướng dẫn để bot cập nhật điều chỉnh tri thức vốn có"}, {"stt": "3.11", "module": "Trợ lý AI", "feature": "Ghi nhận điều chỉnh câu trả lời", "sub": "1. Mô tả lỗi sai và điều chỉnh", "status_raw": "done", "deadline": "05/07/2026", "detail": "Sau khi người dùng đánh giá, nếu đánh giá chưa đúng, hệ thống sẽ cho phép người dùng nhập vào nội dung cần chỉnh sửa của câu trả lời và gửi về hệ thống"}, {"stt": "3.12", "module": "Trợ lý AI", "feature": "Ghi nhận điều chỉnh câu trả lời", "sub": "2. Tiền phân loại và đánh giá feedback", "status_raw": "todo", "deadline": "24/07/2026", "detail": "Tự động kiểm tra loại truy vấn. Nếu là truy vấn chéo phòng ban, feedback đóng góp sẽ bị từ chối lưu vào hàng đợi duyệt của AI Owner."}, {"stt": "3.13", "module": "Trợ lý AI", "feature": "Ghi nhận điều chỉnh câu trả lời", "sub": "3. Tái tư duy và phản hồi lại", "status_raw": "done", "deadline": "05/07/2026", "detail": "Khi nhận được phản hồi \"Không thích\", khi được hỏi lại câu hỏi cùng nội dung, AI sẽ tiến hành tìm kiếm và phân tích lại nhằm đưa ra câu trả lời chính xác theo tài liệu hơn. Có dẫn chứng đã tìm kiếm lại"}, {"stt": "3.14", "module": "Trợ lý AI", "feature": "Trích dẫn nguồn tài liệu", "sub": "1. Hiển thị thẻ liên kết nguồn", "status_raw": "done", "deadline": "05/07/2026", "detail": "Mọi câu trả lời của Chatbot đều phải kèm theo trích dẫn nguồn gốc thông tin. Hệ thống tự động liên kết (ref) chỉ đích danh văn bản gốc"}, {"stt": "3.15", "module": "Trợ lý AI", "feature": "Trích dẫn nguồn tài liệu", "sub": "2. Gắn link đích danh tài liệu gốc", "status_raw": "done", "deadline": "05/07/2026", "detail": "Các thẻ liên kết được nhúng API để gọi ra chính xác file văn bản gốc tương ứng."}, {"stt": "3.16", "module": "Trợ lý AI", "feature": "Nêu bật đoạn văn được trích dẫn", "sub": "1. Chuyển hướng mở file nguồn", "status_raw": "done", "deadline": "05/07/2026", "detail": "Sau khi dẫn nguồn thông tin, nếu người dùng truy cập vào văn bản nguồn do AI đưa ra, người dùng được di chuyển và trỏ chính xác đến phần/mục (section/paragraph) mà AI đã thu thập để trả lời."}, {"stt": "3.17", "module": "Trợ lý AI", "feature": "Nêu bật đoạn văn được trích dẫn", "sub": "2. Tự động cuộn và bôi màu", "status_raw": "done", "deadline": "05/07/2026", "detail": "Tự động hiển thị nơi câu trả lời được trích xuất từ văn bản và bôi màu trang đó"}, {"stt": "4.1", "module": "Dashboard", "feature": "Thống kê hiệu suất AI", "sub": "1. Biểu đồ Tỷ lệ trả lời chính xác theo tháng", "status_raw": "progress", "deadline": "15/07/2026", "detail": "Trực quan hóa dưới dạng biểu đồ cột/đường (Bar/Line chart). Trục Y thể hiện phần trăm (%), trục X thể hiện các tháng. Dữ liệu lấy từ tỷ lệ đánh giá Hữu ích (Like) / Tổng số đánh giá."}, {"stt": "4.2", "module": "Dashboard", "feature": "Thống kê hiệu suất AI", "sub": "2. Biểu đồ Số lượng tri thức được cập nhật", "status_raw": "progress", "deadline": "15/07/2026", "detail": "Biểu đồ cột thể hiện số lượng tri thức (feedback hoặc tài liệu mới) đã được duyệt và nạp thành công vào hệ thống AI theo thời gian."}, {"stt": "5.2", "module": "Dashboard", "feature": "Thống kê sử dụng Tài liệu", "sub": "1. Thống kê số lượng tài liệu theo phòng ban", "status_raw": "progress", "deadline": "15/07/2026", "detail": "Biểu đồ thanh ngang thống kê tổng số lượng văn bản đang lưu trữ, phân tách rạch ròi theo từng đơn vị (VD: Phòng Lao động, Phòng VHXH, và Các phòng ban còn lại)."}, {"stt": "5.3", "module": "Dashboard", "feature": "Thống kê sử dụng Tài liệu", "sub": "2. Biểu đồ xu hướng tải lên tài liệu theo tháng", "status_raw": "progress", "deadline": "15/07/2026", "detail": "Biểu đồ kết hợp thể hiện số lượng văn bản mới được tải lên hệ thống qua từng tháng (T3, T4, T5, T6...)."}, {"stt": "5.4", "module": "Dashboard", "feature": "Thống kê Tương tác Hỏi/Đáp", "sub": "1. Thống kê lượt truy vấn theo phòng ban", "status_raw": "progress", "deadline": "15/07/2026", "detail": "Biểu đồ thanh ngang so sánh tổng số lượng câu hỏi/lượt sử dụng AI giữa các đơn vị (Ban Lãnh đạo, Phòng Kinh tế, Phòng VHXH...)."}, {"stt": "5.5", "module": "Dashboard", "feature": "Thống kê Tương tác Hỏi/Đáp", "sub": "2. Biểu đồ số lượng người dùng/truy cập theo tháng", "status_raw": "progress", "deadline": "15/07/2026", "detail": "Biểu đồ cột thống kê tổng số lượng người dùng (Active users) có phát sinh tương tác hỏi đáp với hệ thống trong từng tháng."}, {"stt": "5.6", "module": "Dashboard", "feature": "Thống kê Tương tác Hỏi/Đáp", "sub": "3. Bảng xếp hạng Top User hỏi nhiều nhất", "status_raw": "progress", "deadline": "15/07/2026", "detail": "Biểu đồ thanh ngang xếp hạng (Leaderboard) top các tài khoản có số lượng câu hỏi truy vấn AI nhiều nhất hệ thống."}, {"stt": "5.7", "module": "Dashboard", "feature": "Thống kê Tương tác Hỏi/Đáp", "sub": "4. Biểu đồ tỷ trọng câu hỏi theo chủ đề", "status_raw": "progress", "deadline": "15/07/2026", "detail": "Biểu đồ tròn (Pie chart) phân bổ tỷ lệ phần trăm (%) các câu hỏi truy vấn của người dùng theo từng nhóm chủ đề/loại văn bản cụ thể."}];
+    const FEATURES_RAW = [{"stt": "1", "module": "Phân quyền", "feature": "Phân quyền người dùng theo cấp bậc và chức vụ", "sub": "1. Quản lý danh sách chức danh/vai trò.", "status_raw": "done", "deadline": "05/07/2026", "detail": "Cấu hình phân quyền truy cập, xem và thao tác trên hệ thống cho các vai trò cụ thể: - Admin: Quản lý tài khoản - Bí thư: Xem toàn bộ tài liệu - Phó bí thư: Xem toàn bộ tài liệu - Chủ tịch: Xem toàn bộ tài liệu - Phó chủ tịch: Xem toàn bộ tài liệu - Trưởng phòng / Chánh văn phòng: Xem toàn bộ tài liệu của phòng - Chuyên viên: Xem tài liệu của phòng trong khuông khổ được quy định"}, {"stt": "1.1", "module": "Phân quyền", "feature": "Phân quyền người dùng theo cấp bậc và chức vụ", "sub": "2. Giao diện gán vai trò và phòng ban cho tài khoản.", "status_raw": "done", "deadline": "05/07/2026", "detail": "Cung cấp giao diện để quản trị viên thiết lập vai trò và chỉ định phòng ban trực thuộc cho từng tài khoản."}, {"stt": "1.2", "module": "Phân quyền", "feature": "Phân quyền người dùng theo cấp bậc và chức vụ", "sub": "3. Logic kiểm soát hiển thị tài liệu theo chức danh.", "status_raw": "done", "deadline": "05/07/2026", "detail": "Thuật toán tự động nhận diện chức danh của người dùng để hiển thị/che giấu tài liệu tương ứng."}, {"stt": "1.3", "module": "Phân quyền", "feature": "Phân quyền người dùng theo cấp bậc và chức vụ", "sub": "4. Cấu hình phân quyền cho vai trò \"AI Owner\" chuyên kiểm duyệt dữ liệu AI.", "status_raw": "todo", "deadline": "31/07/2026", "detail": "Thiết lập quyền đặc biệt cho \"AI Owner\" để xem toàn bộ đánh giá trợ lý AI trên hệ thống và có quyền thao tác duyệt/từ chối tri thức AI."}, {"stt": "1.4", "module": "Phân quyền", "feature": "Xem danh sách tài khoản", "sub": "1. Hiển thị danh sách tài khoản dưới dạng bảng.", "status_raw": "done", "deadline": "05/07/2026", "detail": "Trình bày thông tin các tài khoản (tên, chức vụ, phòng ban, trạng thái) dưới dạng bảng lưới (grid) dễ nhìn."}, {"stt": "1.5", "module": "Phân quyền", "feature": "Xem danh sách tài khoản", "sub": "2. Logic lọc danh sách tài khoản theo cấp quản lý.", "status_raw": "todo", "deadline": "31/07/2026", "detail": "Lọc theo các tiêu chí: - Ngày tạo - Tên bao gồm - Trạng thái tài khoản - Vai trò - Phòng ban - Email"}, {"stt": "1.6", "module": "Phân quyền", "feature": "Xem danh sách tài khoản", "sub": "3. Thanh tìm kiếm tài khoản.", "status_raw": "done", "deadline": "05/07/2026", "detail": "Người dùng có thể tìm kiếm tài khoản theo tên đăng nhập, tên người dùng"}, {"stt": "1.7", "module": "Phân quyền", "feature": "Xem danh sách tài khoản", "sub": "4. Cắt bỏ yêu cầu điền chức danh, chỉ giữ chức vụ", "status_raw": "progress", "deadline": "30/07/2026", "detail": "Loại bỏ yêu cầu bắt buộc điền chức danh cho người dùng"}, {"stt": "1.8", "module": "Phân quyền", "feature": "Xem danh sách tài khoản", "sub": "5. Gộp nhân viên và người dùng lại thành 1 module", "status_raw": "progress", "deadline": "30/07/2026", "detail": "Tích hợp quy trình tạo tài khoản đồng thười với tạo người dùng, không cần tạo riêng lẻ"}, {"stt": "2", "module": "Quản lý tài liệu", "feature": "Tải lên tài liệu", "sub": "1. Giao diện chọn/kéo thả tệp tin", "status_raw": "done", "deadline": "05/07/2026", "detail": "Cho phép người dùng tải các định dạng tài liệu, văn bản lên hệ thống lưu trữ tập trung."}, {"stt": "2.1", "module": "Quản lý tài liệu", "feature": "Tải lên tài liệu", "sub": "2. Logic kiểm tra định dạng và dung lượng", "status_raw": "done", "deadline": "05/07/2026", "detail": "Hệ thống tự động chặn các file không đúng định dạng cho phép hoặc vượt quá dung lượng quy định trước khi tải lên."}, {"stt": "2.2", "module": "Quản lý tài liệu", "feature": "Tải lên tài liệu", "sub": "3. Logic kiểm tra đặt tên", "status_raw": "done", "deadline": "05/07/2026", "detail": "Hệ thống tự động chặn các file không đúng định dạng cho phép hoặc vượt quá dung lượng quy định trước khi tải lên."}, {"stt": "2.3", "module": "Quản lý tài liệu", "feature": "Tải lên tài liệu", "sub": "4. Theo dõi tiến độ tải lên", "status_raw": "done", "deadline": "05/07/2026", "detail": "Có cửa sổ nhỏ ở góc màn hình theo dõi tiến độ tải lên của các tài liệu"}, {"stt": "2.4", "module": "Quản lý tài liệu", "feature": "Theo dõi tiến độ bổ sung tri thức", "sub": "1. Xem danh sách các tài liệu đang được AI học", "status_raw": "todo", "deadline": "24/07/2026", "detail": "Giao diện liệt kê chi tiết các văn bản, tài liệu đang nằm trong hàng đợi chờ hệ thống xử lý để đưa vào bộ nhớ AI. Bảng bao gồm các trường thông tin: Tên tài liệu, Loại dữ liệu, Người phê duyệt, Thời gian bắt đầu học, Trạng thái (Chờ xử lý, Đang học, Hoàn tất, Lỗi)."}, {"stt": "2.5", "module": "Quản lý tài liệu", "feature": "Theo dõi tiến độ bổ sung tri thức", "sub": "2. Hiển thị tiến độ học tập tổng quan và của từng tài liệu", "status_raw": "done", "deadline": "05/07/2026", "detail": "Tiến độ tổng quan: Thanh tiến trình thể hiện tổng khối lượng công việc hiện tại (Ví dụ: Đã học xong 45/100 tài liệu). Tiến độ chi tiết: Hiển thị tỷ lệ % hoàn thành tại từng dòng tài liệu cụ thể. Tích hợp cảnh báo đỏ và nút \"Thử lại\" nếu tài liệu đó bị lỗi trong quá trình AI phân tích (do tài liệu hỏng, mã hóa...)."}, {"stt": "2.6", "module": "Quản lý tài liệu", "feature": "Tải xuống tài liệu", "sub": "1. Nút hành động tải tài liệu", "status_raw": "done", "deadline": "05/07/2026", "detail": "Nút cho phép người dùng chọn để lưu tệp tin gốc từ máy chủ lưu trữ về thiết bị cá nhân."}, {"stt": "2.7", "module": "Quản lý tài liệu", "feature": "Xem tài liệu", "sub": "1. Tích hợp công cụ xem trước (Document Viewer)", "status_raw": "done", "deadline": "05/07/2026", "detail": "Hỗ trợ xem trước nội dung tài liệu trực tiếp trên trình duyệt mà không cần tải về."}, {"stt": "2.8", "module": "Quản lý tài liệu", "feature": "Xem tài liệu", "sub": "2. Hỗ trợ phóng to, thu nhỏ, lật trang", "status_raw": "done", "deadline": "05/07/2026", "detail": "Cung cấp các nút công cụ cơ bản (Phóng to/Thu nhỏ, Tiến tới/Lùi trang) để thao tác khi đọc tài liệu trực tuyến."}, {"stt": "2.9", "module": "Quản lý tài liệu", "feature": "Xem tài liệu", "sub": "3. Xem dữ liệu được trích xuất từ tài liệu", "status_raw": "done", "deadline": "05/07/2026", "detail": "Cho phép người dùng xem được các thông tin mà AI đã trích xuất ra được từ tài liệu nhằm mục đích kiểm tra nội dung"}, {"stt": "2.10", "module": "Quản lý tài liệu", "feature": "Xem tài liệu", "sub": "4. Xem lịch sử tương tác tài liệu", "status_raw": "done", "deadline": "05/07/2026", "detail": "Cho phép người dùng xem được lịch sử tương tác của tài liệu, như được tải lên vào ngày mấy, ai thay đổi tên,..."}, {"stt": "2.11", "module": "Quản lý tài liệu", "feature": "Xem tài liệu", "sub": "5. Xem được ghi chú tài liệu", "status_raw": "done", "deadline": "05/07/2026", "detail": "Cho phép người dùng để lại bình luận, ghi chú trên tài liệu để có thể xem lại"}, {"stt": "2.12", "module": "Quản lý tài liệu", "feature": "Xem tài liệu", "sub": "6. Xem thông tin tổng quan tài liệu/thư mục", "status_raw": "done", "deadline": "05/07/2026", "detail": "Cho phép người dùng xem thông tin tổng quan của tài liệu/thư mục, bao gồm: tên, loại, dung lượng, ngày tạo, ngày cập nhật,..."}, {"stt": "2.13", "module": "Quản lý tài liệu", "feature": "Xem tài liệu", "sub": "3. Hỗ trợ các file excel, docx, microsoft", "status_raw": "done", "deadline": "05/07/2026", "detail": "Hỗ trợ xem được định dạng các file microsoft như: pptx, excel, docx."}, {"stt": "2.14", "module": "Quản lý tài liệu", "feature": "Phân loại tài liệu", "sub": "1. Hiển thị cửa sổ yêu cầu phân loại (Popup)", "status_raw": "todo", "deadline": "24/07/2026", "detail": "Hỗ trợ sắp xếp, gán nhãn và phân loại tài liệu theo từng thư mục/chuyên mục cụ thể. Khi tải tài liệu lên, cửa sổ phân loại sẽ hiện lên để chọn các tiêu chuẩn phân loại theo: - Nghị Định, Nghị Quyết, Luật - Phân loại: VB Quy phạm pháp luật; Hành chính cá biệt, thông thường - Đơn vị: Phòng Văn hóa xã hội,..."}, {"stt": "2.18", "module": "Quản lý tài liệu", "feature": "Tra cứu và tìm kiếm tài liệu", "sub": "1. Thanh tìm kiếm nhanh", "status_raw": "done", "deadline": "05/07/2026", "detail": "Tìm kiếm nhanh tài liệu dựa trên từ khóa, tiêu đề văn bản hoặc tìm kiếm sâu (full-text search) trong nội dung tài liệu."}, {"stt": "2.19", "module": "Quản lý tài liệu", "feature": "Lọc tài liệu", "sub": "Lọc tài liệu", "status_raw": "todo", "deadline": "24/07/2026", "detail": "Cung cấp bộ lọc nâng cao đa chiều để tìm kiếm nhanh văn bản theo các tiêu chí: - Năm. - Cơ quan ban hành. - Trích yếu nội dung - Số ký hiệu"}, {"stt": "2.20", "module": "Quản lý tài liệu", "feature": "Di chuyển tài liệu", "sub": "Di chuyển tài liệu", "status_raw": "done", "deadline": "05/07/2026", "detail": "Cho phép di chuyển tài liệu, folder xung quanh không gian lưu trữ"}, {"stt": "3", "module": "Trợ lý AI", "feature": "Truy vấn thông tin chung", "sub": "1. Giao diện khung Chat", "status_raw": "done", "deadline": "05/07/2026", "detail": "Khu vực cho phép người dùng gõ câu hỏi bằng ngôn ngữ tự nhiên và gửi yêu cầu."}, {"stt": "3.1", "module": "Trợ lý AI", "feature": "Truy vấn thông tin chung", "sub": "2. Hiển thị lịch sử hội thoại", "status_raw": "done", "deadline": "05/07/2026", "detail": "Lưu và hiển thị danh sách các câu hỏi - câu trả lời cũ trong cùng một phiên làm việc để người dùng theo dõi."}, {"stt": "3.2", "module": "Trợ lý AI", "feature": "Truy vấn thông tin chung", "sub": "3. Liên kết các văn bản tri thức cùng chủ đề", "status_raw": "done", "deadline": "05/07/2026", "detail": "Trí tuệ nhân tạo có khả năng liên kết các tài liệu liên quan để trả lời cho cùng 1 chủ đề. Khả năng phân tích thay đổi trong văn bản để tìm các thông tin mới nhất"}, {"stt": "3.3", "module": "Trợ lý AI", "feature": "Truy vấn thông tin chung", "sub": "4. Xây dựng văn bản chính quy", "status_raw": "progress", "deadline": "30/07/2026", "detail": "Trợ lý AI sẽ xây dựng được một số các văn bản theo công văn phường đăng tải lên kho tài liệu"}, {"stt": "3.4", "module": "Trợ lý AI", "feature": "Truy vấn thông tin chung", "sub": "5. Tối ưu khả năng tư duy và suy luận của AI", "status_raw": "done", "deadline": "05/07/2026", "detail": "Giới hạn lại khả năng suy luận của AI, nếu vượt quá thời gian sẽ trả lời lại người dùng mà không tiếp tục suy luận nữa"}, {"stt": "3.5", "module": "Trợ lý AI", "feature": "Truy vấn thông tin chi tiết trong phòng ban", "sub": "1. Logic phân tích giới hạn vùng tài liệu", "status_raw": "done", "deadline": "05/07/2026", "detail": "AI ưu tiên truy xuất và tổng hợp câu trả lời từ tập dữ liệu được gán nhãn thuộc quyền sở hữu của phòng ban mà người dùng trực thuộc."}, {"stt": "3.6", "module": "Trợ lý AI", "feature": "Truy vấn thông tin chéo/không liên quan phòng ban", "sub": "1. Cơ chế cảnh báo vượt phòng ban", "status_raw": "done", "deadline": "05/07/2026", "detail": "AI cung cấp được đầy đủ các thông tin mà người dùng cần liên quan đến phòng khác, và có thông báo rằng cần làm rõ lại với phòng ban chịu trách nhiệm"}, {"stt": "3.7", "module": "Trợ lý AI", "feature": "Truy vấn thông tin chéo/không liên quan phòng ban", "sub": "2. Kịch bản AI từ chối/điều hướng an toàn", "status_raw": "done", "deadline": "05/07/2026", "detail": "AI có thông tin rằng không tìm thấy thông tin, không có văn bản liên quan"}, {"stt": "3.8", "module": "Trợ lý AI", "feature": "Yêu cầu bot phản hồi theo Template", "sub": "1. Chức năng đính kèm mẫu", "status_raw": "done", "deadline": "05/07/2026", "detail": "Người dùng cung cấp mẫu (template) và yêu cầu Chatbot tổng hợp thông tin, soạn thảo câu trả lời bám sát theo đúng cấu trúc form mẫu quy định."}, {"stt": "3.9", "module": "Trợ lý AI", "feature": "Yêu cầu bot phản hồi theo Template", "sub": "2. Thuật toán tự động điền form", "status_raw": "progress", "deadline": "30/07/2026", "detail": "AI trích xuất thông tin tìm được và tự động điền vào các trường (fields) tương ứng của biểu mẫu đã chọn."}, {"stt": "3.10", "module": "Trợ lý AI", "feature": "Ghi nhận đánh giá câu trả lời", "sub": "1. Nút Thích/Không thích", "status_raw": "done", "deadline": "05/07/2026", "detail": "Tích hợp form đánh giá chất lượng câu trả lời của bot trực tiếp trên giao diện. Nếu chưa đạt yêu cầu, cán bộ có thể nhập mô tả, hướng dẫn để bot cập nhật điều chỉnh tri thức vốn có"}, {"stt": "3.11", "module": "Trợ lý AI", "feature": "Ghi nhận điều chỉnh câu trả lời", "sub": "1. Mô tả lỗi sai và điều chỉnh", "status_raw": "done", "deadline": "05/07/2026", "detail": "Sau khi người dùng đánh giá, nếu đánh giá chưa đúng, hệ thống sẽ cho phép người dùng nhập vào nội dung cần chỉnh sửa của câu trả lời và gửi về hệ thống"}, {"stt": "3.12", "module": "Trợ lý AI", "feature": "Ghi nhận điều chỉnh câu trả lời", "sub": "2. Tiền phân loại và đánh giá feedback", "status_raw": "todo", "deadline": "24/07/2026", "detail": "Tự động kiểm tra loại truy vấn. Nếu là truy vấn chéo phòng ban, feedback đóng góp sẽ bị từ chối lưu vào hàng đợi duyệt của AI Owner."}, {"stt": "3.13", "module": "Trợ lý AI", "feature": "Ghi nhận điều chỉnh câu trả lời", "sub": "3. Tái tư duy và phản hồi lại", "status_raw": "done", "deadline": "05/07/2026", "detail": "Khi nhận được phản hồi \"Không thích\", khi được hỏi lại câu hỏi cùng nội dung, AI sẽ tiến hành tìm kiếm và phân tích lại nhằm đưa ra câu trả lời chính xác theo tài liệu hơn. Có dẫn chứng đã tìm kiếm lại"}, {"stt": "3.14", "module": "Trợ lý AI", "feature": "Trích dẫn nguồn tài liệu", "sub": "1. Hiển thị thẻ liên kết nguồn", "status_raw": "done", "deadline": "05/07/2026", "detail": "Mọi câu trả lời của Chatbot đều phải kèm theo trích dẫn nguồn gốc thông tin. Hệ thống tự động liên kết (ref) chỉ đích danh văn bản gốc"}, {"stt": "3.15", "module": "Trợ lý AI", "feature": "Trích dẫn nguồn tài liệu", "sub": "2. Gắn link đích danh tài liệu gốc", "status_raw": "done", "deadline": "05/07/2026", "detail": "Các thẻ liên kết được nhúng API để gọi ra chính xác file văn bản gốc tương ứng."}, {"stt": "3.16", "module": "Trợ lý AI", "feature": "Nêu bật đoạn văn được trích dẫn", "sub": "1. Chuyển hướng mở file nguồn", "status_raw": "done", "deadline": "05/07/2026", "detail": "Sau khi dẫn nguồn thông tin, nếu người dùng truy cập vào văn bản nguồn do AI đưa ra, người dùng được di chuyển và trỏ chính xác đến phần/mục (section/paragraph) mà AI đã thu thập để trả lời."}, {"stt": "3.17", "module": "Trợ lý AI", "feature": "Nêu bật đoạn văn được trích dẫn", "sub": "2. Tự động cuộn và bôi màu", "status_raw": "done", "deadline": "05/07/2026", "detail": "Tự động hiển thị nơi câu trả lời được trích xuất từ văn bản và bôi màu trang đó"}, {"stt": "4.1", "module": "Dashboard", "feature": "Thống kê hiệu suất AI", "sub": "1. Biểu đồ Tỷ lệ trả lời chính xác theo tháng", "status_raw": "done", "deadline": "15/07/2026", "detail": "Trực quan hóa dưới dạng biểu đồ cột/đường (Bar/Line chart). Trục Y thể hiện phần trăm (%), trục X thể hiện các tháng. Dữ liệu lấy từ tỷ lệ đánh giá Hữu ích (Like) / Tổng số đánh giá."}, {"stt": "4.2", "module": "Dashboard", "feature": "Thống kê hiệu suất AI", "sub": "2. Biểu đồ Số lượng tri thức được cập nhật", "status_raw": "done", "deadline": "15/07/2026", "detail": "Biểu đồ cột thể hiện số lượng tri thức (feedback hoặc tài liệu mới) đã được duyệt và nạp thành công vào hệ thống AI theo thời gian."}, {"stt": "5.2", "module": "Dashboard", "feature": "Thống kê sử dụng Tài liệu", "sub": "1. Thống kê số lượng tài liệu theo phòng ban", "status_raw": "done", "deadline": "15/07/2026", "detail": "Biểu đồ thanh ngang thống kê tổng số lượng văn bản đang lưu trữ, phân tách rạch ròi theo từng đơn vị (VD: Phòng Lao động, Phòng VHXH, và Các phòng ban còn lại)."}, {"stt": "5.3", "module": "Dashboard", "feature": "Thống kê sử dụng Tài liệu", "sub": "2. Biểu đồ xu hướng tải lên tài liệu theo tháng", "status_raw": "done", "deadline": "15/07/2026", "detail": "Biểu đồ kết hợp thể hiện số lượng văn bản mới được tải lên hệ thống qua từng tháng (T3, T4, T5, T6...)."}, {"stt": "5.4", "module": "Dashboard", "feature": "Thống kê Tương tác Hỏi/Đáp", "sub": "1. Thống kê lượt truy vấn theo phòng ban", "status_raw": "done", "deadline": "15/07/2026", "detail": "Biểu đồ thanh ngang so sánh tổng số lượng câu hỏi/lượt sử dụng AI giữa các đơn vị (Ban Lãnh đạo, Phòng Kinh tế, Phòng VHXH...)."}, {"stt": "5.5", "module": "Dashboard", "feature": "Thống kê Tương tác Hỏi/Đáp", "sub": "2. Biểu đồ số lượng người dùng/truy cập theo tháng", "status_raw": "done", "deadline": "15/07/2026", "detail": "Biểu đồ cột thống kê tổng số lượng người dùng (Active users) có phát sinh tương tác hỏi đáp với hệ thống trong từng tháng."}, {"stt": "5.6", "module": "Dashboard", "feature": "Thống kê Tương tác Hỏi/Đáp", "sub": "3. Bảng xếp hạng Top User hỏi nhiều nhất", "status_raw": "done", "deadline": "15/07/2026", "detail": "Biểu đồ thanh ngang xếp hạng (Leaderboard) top các tài khoản có số lượng câu hỏi truy vấn AI nhiều nhất hệ thống."}, {"stt": "5.7", "module": "Dashboard", "feature": "Thống kê Tương tác Hỏi/Đáp", "sub": "4. Biểu đồ tỷ trọng câu hỏi theo chủ đề", "status_raw": "done", "deadline": "15/07/2026", "detail": "Biểu đồ tròn (Pie chart) phân bổ tỷ lệ phần trăm (%) các câu hỏi truy vấn của người dùng theo từng nhóm chủ đề/loại văn bản cụ thể."}];
     const MODULE_ORDER = ["Phân quyền", "Quản lý tài liệu", "Trợ lý AI", "Dashboard"];
-
-    function parseVNDate(s) {
-      const p = String(s || "").split("/");
-      if (p.length !== 3) return null;
-      return new Date(+p[2], +p[1] - 1, +p[0]);
-    }
-    function startOfToday() {
-      const t = new Date();
-      t.setHours(0,0,0,0);
-      return t;
-    }
-    function effectiveStatus(raw, deadline, today) {
-      const d = parseVNDate(deadline);
-      if (d && d <= today) return "done"; // past delivery date => done
-      return (raw === "done" || raw === "progress" || raw === "todo") ? raw : "todo";
-    }
-    function buildMilestones(today) {
-      const totalAll = FEATURES_RAW.length;
-      // Group by deadline with per-milestone raw/effective counts
-      const map = {};
-      FEATURES_RAW.forEach(f => {
-        if (!map[f.deadline]) map[f.deadline] = { full: f.deadline, items: [] };
-        map[f.deadline].items.push(f);
-      });
-      const list = Object.values(map).sort((a, b) => parseVNDate(a.full) - parseVNDate(b.full));
-
-      let cumDelivered = 0;
-      let priorCount = 0; // items from earlier milestones — always "done" in later stacks
-
-      return list.map(m => {
-        const d = parseVNDate(m.full);
-        const count = m.items.length;
-        cumDelivered += count;
-
-        // Current milestone status (today rule: past delivery => done)
-        let curDone = 0, curProgress = 0, curTodo = 0;
-        m.items.forEach(f => {
-          const st = effectiveStatus(f.status_raw, f.deadline, today);
-          if (st === "done") curDone++;
-          else if (st === "progress") curProgress++;
-          else curTodo++;
-        });
-
-        // Cumulative stack: all prior milestones count as done
-        // e.g. 15/07 = 35 done(prior) + 8 progress
-        //      20/07 = 43 done(05/07+15/07) + 4 todo
-        const done = priorCount + curDone;
-        const progress = curProgress;
-        const todo = curTodo;
-
-        const result = {
-          label: m.full.slice(0, 5),
-          full: m.full,
-          done, progress, todo,
-          prior_done: priorCount,
-          current_done: curDone,
-          milestone_count: count,
-          cum_pct: totalAll ? Math.round(cumDelivered / totalAll * 1000) / 10 : 0,
-          cum_count: cumDelivered,
-          total_all: totalAll,
-          past: !!(d && d <= today)
-        };
-
-        priorCount += count; // next columns treat this whole milestone as done
-        return result;
-      });
-    }
 
     document.querySelectorAll(".nav-tab").forEach(btn => {
       btn.addEventListener("click", () => {
@@ -2328,11 +2269,6 @@
         btn.classList.add("active");
         document.getElementById("view-" + btn.dataset.view).classList.add("active");
         history.replaceState(null, "", "#" + btn.dataset.view);
-        if (btn.dataset.view === "scope") {
-          requestAnimationFrame(() => {
-            ensureMilestoneChart(true);
-          });
-        }
       });
     });
     const hash = location.hash.replace("#", "");
@@ -2396,120 +2332,29 @@
       const q = (document.getElementById("feat-search").value || "").toLowerCase().trim();
       const mod = document.getElementById("feat-module").value;
       const st = document.getElementById("feat-status").value;
-      const dl = document.getElementById("feat-deadline").value;
       let shown = 0;
-      document.querySelectorAll(".feat-table tbody tr").forEach(tr => {
+      document.querySelectorAll("#view-scope .feat-table tbody tr").forEach(tr => {
         const hay = tr.textContent.toLowerCase();
         const okQ = !q || hay.includes(q);
         const okM = !mod || tr.dataset.module === mod;
         const okS = !st || tr.dataset.status === st;
-        const okD = !dl || tr.dataset.deadline === dl;
-        const show = okQ && okM && okS && okD;
+        const show = okQ && okM && okS;
         tr.classList.toggle("hidden", !show);
         if (show) shown++;
       });
       document.getElementById("feat-count").textContent = shown + " hạng mục";
-      document.querySelectorAll(".feat-group").forEach(g => {
+      document.querySelectorAll("#view-scope .feat-group").forEach(g => {
         g.style.display = g.querySelectorAll("tbody tr:not(.hidden)").length ? "" : "none";
       });
-      document.querySelectorAll(".room-section[id^='mod-']").forEach(sec => {
+      document.querySelectorAll("#view-scope .room-section[id^='mod-']").forEach(sec => {
         sec.style.display = sec.querySelectorAll("tbody tr:not(.hidden)").length ? "" : "none";
       });
     }
-    ["feat-search", "feat-module", "feat-status", "feat-deadline"].forEach(id => {
+    ["feat-search", "feat-module", "feat-status"].forEach(id => {
       document.getElementById(id).addEventListener("input", filterFeatures);
       document.getElementById(id).addEventListener("change", filterFeatures);
     });
 
-    function ensureMilestoneChart(forceResize) {
-      const today = startOfToday();
-      const MILESTONES = buildMilestones(today);
-      const canvas = document.getElementById("milestone-chart");
-      if (!canvas || typeof Chart === "undefined") return;
-
-      const labels = MILESTONES.map(m => m.label);
-      const data = {
-        labels,
-        datasets: [
-          { type: "bar", label: "Đã hoàn thành", data: MILESTONES.map(m => m.done), backgroundColor: "#1a7a4c", borderRadius: 4, stack: "items", yAxisID: "y", order: 2 },
-          { type: "bar", label: "Đang triển khai", data: MILESTONES.map(m => m.progress), backgroundColor: "#c45c1a", borderRadius: 4, stack: "items", yAxisID: "y", order: 2 },
-          { type: "bar", label: "Chưa triển khai", data: MILESTONES.map(m => m.todo), backgroundColor: "#e81820", borderRadius: 4, stack: "items", yAxisID: "y", order: 2 },
-          {
-            type: "line", label: "% hoàn thành lũy kế", data: MILESTONES.map(m => m.cum_pct),
-            borderColor: "#0848a0", backgroundColor: "rgba(8,72,160,0.12)", borderWidth: 3,
-            pointRadius: 5, pointHoverRadius: 7, pointBackgroundColor: "#0848a0",
-            pointBorderColor: "#fff", pointBorderWidth: 2, tension: 0.35, fill: false, yAxisID: "y1", order: 1
-          }
-        ]
-      };
-
-      if (window.milestoneChart) {
-        window.milestoneChart.data = data;
-        window.milestoneChart.options.plugins.tooltip.callbacks = tooltipCallbacks(MILESTONES);
-        window.milestoneChart.update();
-        if (forceResize) window.milestoneChart.resize();
-        return;
-      }
-
-      window.milestoneChart = new Chart(canvas, {
-        type: "bar",
-        data,
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          interaction: { mode: "index", intersect: false },
-          plugins: {
-            legend: { display: false },
-            tooltip: { callbacks: tooltipCallbacks(MILESTONES) }
-          },
-          scales: {
-            x: {
-              stacked: true, grid: { display: false },
-              ticks: { font: { family: "'Be Vietnam Pro', sans-serif", weight: "600" }, color: "#14233a" }
-            },
-            y: {
-              stacked: true, position: "left", beginAtZero: true,
-              title: { display: true, text: "Số hạng mục", color: "#5a6b82", font: { family: "'Be Vietnam Pro', sans-serif", size: 12 } },
-              grid: { color: "rgba(208, 216, 232, 0.7)" },
-              ticks: { precision: 0, color: "#5a6b82" }
-            },
-            y1: {
-              position: "right", beginAtZero: true, max: 100,
-              title: { display: true, text: "% hoàn thành lũy kế", color: "#0848a0", font: { family: "'Be Vietnam Pro', sans-serif", size: 12, weight: "600" } },
-              grid: { drawOnChartArea: false },
-              ticks: { color: "#0848a0", callback: (v) => v + "%" }
-            }
-          }
-        }
-      });
-    }
-
-    function tooltipCallbacks(MILESTONES) {
-      return {
-        title(items) {
-          const i = items[0].dataIndex;
-          const m = MILESTONES[i];
-          return "Mốc " + m.full + (m.past ? " (đã qua → tính hoàn thành)" : "");
-        },
-        label(ctx) {
-          if (ctx.dataset.yAxisID === "y1") return ctx.dataset.label + ": " + ctx.parsed.y + "%";
-          return ctx.dataset.label + ": " + ctx.parsed.y + " hạng mục";
-        },
-        afterBody(items) {
-          const i = items[0].dataIndex;
-          const m = MILESTONES[i];
-          const total = m.done + m.progress + m.todo;
-          const lines = [
-            "",
-            "Cộng dồn cột: " + total + " hạng mục",
-            "— Mốc trước (tính xong): " + m.prior_done,
-            "— Mốc này: " + m.milestone_count + " (xong " + m.current_done + " · đang " + m.progress + " · chưa " + m.todo + ")",
-            "Lũy kế phạm vi: " + m.cum_count + "/" + m.total_all + " (" + m.cum_pct + "%)"
-          ];
-          return lines;
-        }
-      };
-    }
 
 
     function filterFeedback() {
@@ -2517,6 +2362,7 @@
       const mod = document.getElementById("fb-module").value;
       const typ = document.getElementById("fb-type").value;
       const st = document.getElementById("fb-status").value;
+      const src = document.getElementById("fb-source").value;
       let shown = 0;
       document.querySelectorAll("#view-feedback .fb-table tbody tr").forEach(tr => {
         const hay = tr.textContent.toLowerCase();
@@ -2524,7 +2370,8 @@
         const okM = !mod || tr.dataset.module === mod;
         const okT = !typ || tr.dataset.type === typ;
         const okS = !st || tr.dataset.status === st;
-        const show = okQ && okM && okT && okS;
+        const okSrc = !src || (tr.dataset.source || "").includes(src);
+        const show = okQ && okM && okT && okS && okSrc;
         tr.classList.toggle("hidden", !show);
         if (show) shown++;
       });
@@ -2533,16 +2380,13 @@
         sec.style.display = sec.querySelectorAll("tbody tr:not(.hidden)").length ? "" : "none";
       });
     }
-    ["fb-search", "fb-module", "fb-type", "fb-status"].forEach(id => {
+    ["fb-search", "fb-module", "fb-type", "fb-status", "fb-source"].forEach(id => {
       const el = document.getElementById(id);
       if (!el) return;
       el.addEventListener("input", filterFeedback);
       el.addEventListener("change", filterFeedback);
     });
 
-    if (document.getElementById("view-scope").classList.contains("active")) {
-      ensureMilestoneChart(false);
-    }
   </script>
 </body>
 </html>
