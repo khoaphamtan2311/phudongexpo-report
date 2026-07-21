@@ -381,6 +381,23 @@
       font-style: italic;
     }
 
+    .type-pill {
+      display: inline-block; padding: 0.22rem 0.5rem; border-radius: 999px;
+      font-size: 0.7rem; font-weight: 700; white-space: nowrap;
+    }
+    .type-pill.bug { background: #fde8e9; color: #c41218; }
+    .type-pill.ux { background: #e8eef8; color: #0848a0; }
+    .type-pill.ai { background: #e8f5ee; color: #1a7a4c; }
+    .type-pill.new { background: #fff1e6; color: #c45c1a; }
+    .type-pill.sec { background: #f3e8ff; color: #6b4ea3; }
+    .fb-table td { vertical-align: top; }
+    .fb-table .fb-title { font-weight: 700; color: var(--ink); margin-bottom: 0.2rem; }
+    .fb-table .fb-group-label { font-size: 0.78rem; color: var(--muted); }
+    .fb-desc-block { font-size: 0.82rem; color: var(--muted); line-height: 1.45; margin-top: 0.35rem; }
+    .fb-desc-block strong { color: var(--ink); font-weight: 600; }
+    .fb-table tr.hidden { display: none; }
+    .fb-mod-section { scroll-margin-top: 4.5rem; }
+
   </style>
 </head>
 <body>
@@ -391,6 +408,7 @@
         <button class="nav-tab active" data-view="docs" type="button">Văn bản</button>
         <button class="nav-tab" data-view="users" type="button">Người dùng</button>
         <button class="nav-tab" data-view="scope" type="button">Phạm vi &amp; tính năng</button>
+        <button class="nav-tab" data-view="feedback" type="button">Lỗi &amp; góp ý</button>
       </div>
     </nav>
 
@@ -1693,195 +1711,530 @@
         </div>
     </section>
     
-    <div class="section-title" id="feedback-detail">
-      <h2>Góp ý tính năng AI Chat</h2>
-      <p>Nguồn: [20260526] AI Chat Feedback.pdf · 20 hạng mục</p>
+
     </div>
-    <!-- FEEDBACK_START -->
-    <div class="feedback-banner panel" id="feedback-summary">
-      <div class="feedback-banner-top">
-        <div>
-          <p class="eyebrow">Góp ý từ cán bộ</p>
-          <h3>Danh sách góp ý tính năng AI Chat</h3>
-          <p class="feedback-banner-lead">Tổng hợp phản hồi thực tế khi dùng hệ thống — dùng để ưu tiên cải tiến phạm vi &amp; tính năng.</p>
+
+    <div class="view" id="view-feedback">
+      <header class="hero">
+        <div class="hero-top">
+          <div class="brand-row">
+            <img class="brand-logo" src="logo-xuan-hoa.png" alt="Logo Phường Xuân Hòa" />
+            <div class="brand-text">
+              <h1>Lỗi &amp; góp ý</h1>
+              <p>Danh sách hạng mục để họp plan deliver với dev · Phù Đổng Expo AI Chat</p>
+            </div>
+          </div>
+          <div class="meta-pills">
+            <span class="pill neutral">36 hạng mục</span>
+            <span class="pill">Cập nhật: 21/07/2026</span>
+          </div>
+        </div>
+        <div class="stats">
+          <div class="stat"><div class="label">Tổng hạng mục</div><div class="value" id="fb-stat-total">36</div><div class="hint">Lỗi + góp ý + tính năng</div></div>
+          <div class="stat"><div class="label">Đã xong</div><div class="value" id="fb-stat-done">2</div><div class="hint">Đã xử lý</div></div>
+          <div class="stat"><div class="label">Đang triển khai</div><div class="value" id="fb-stat-progress">11</div><div class="hint">Đang làm</div></div>
+          <div class="stat"><div class="label">Chưa triển khai</div><div class="value" id="fb-stat-todo">23</div><div class="hint">Lỗi: 5</div></div>
+        </div>
+      </header>
+
+
+      <div class="section-title"><h2>Theo mục tính năng</h2><p>Nhấn thẻ để nhảy tới danh sách chi tiết</p></div>
+      <div class="mod-grid" style="margin-bottom:1.25rem;">
+    <a class="mod-card" href="#fb-mod-Quản-lý-tài-liệu" style="--accent:#1a7a4c">
+      <div class="mod-card-top"><span class="mod-dot"></span><h3>Quản lý tài liệu</h3></div>
+      <div class="mod-progress">
+        <div class="mod-progress-bar"><span style="width:33%;background:#1a7a4c"></span></div>
+        <div class="mod-progress-label"><strong>33%</strong> đã xong · 6 hạng mục</div>
+      </div>
+      <div class="mod-stats">
+        <span class="st done">2 xong</span>
+        <span class="st progress">2 đang làm</span>
+        <span class="st todo">2 chưa làm</span>
+      </div>
+    </a>
+    <a class="mod-card" href="#fb-mod-Trợ-lý-AI" style="--accent:#6b4ea3">
+      <div class="mod-card-top"><span class="mod-dot"></span><h3>Trợ lý AI</h3></div>
+      <div class="mod-progress">
+        <div class="mod-progress-bar"><span style="width:0%;background:#6b4ea3"></span></div>
+        <div class="mod-progress-label"><strong>0%</strong> đã xong · 22 hạng mục</div>
+      </div>
+      <div class="mod-stats">
+        <span class="st done">0 xong</span>
+        <span class="st progress">2 đang làm</span>
+        <span class="st todo">20 chưa làm</span>
+      </div>
+    </a>
+    <a class="mod-card" href="#fb-mod-Dashboard" style="--accent:#c45c1a">
+      <div class="mod-card-top"><span class="mod-dot"></span><h3>Dashboard</h3></div>
+      <div class="mod-progress">
+        <div class="mod-progress-bar"><span style="width:0%;background:#c45c1a"></span></div>
+        <div class="mod-progress-label"><strong>0%</strong> đã xong · 7 hạng mục</div>
+      </div>
+      <div class="mod-stats">
+        <span class="st done">0 xong</span>
+        <span class="st progress">7 đang làm</span>
+        <span class="st todo">0 chưa làm</span>
+      </div>
+    </a>
+    <a class="mod-card" href="#fb-mod-Giao-diện" style="--accent:#e81820">
+      <div class="mod-card-top"><span class="mod-dot"></span><h3>Giao diện</h3></div>
+      <div class="mod-progress">
+        <div class="mod-progress-bar"><span style="width:0%;background:#e81820"></span></div>
+        <div class="mod-progress-label"><strong>0%</strong> đã xong · 1 hạng mục</div>
+      </div>
+      <div class="mod-stats">
+        <span class="st done">0 xong</span>
+        <span class="st progress">0 đang làm</span>
+        <span class="st todo">1 chưa làm</span>
+      </div>
+    </a>
+      </div>
+
+      <div class="panel" style="margin-bottom:1.25rem;">
+        <div class="filters">
+          <input id="fb-search" type="search" placeholder="Tìm chức năng, mô tả…" />
+          <select id="fb-module">
+            <option value="">Tất cả mục</option>
+            <option value="Quản lý tài liệu">Quản lý tài liệu</option><option value="Trợ lý AI">Trợ lý AI</option><option value="Dashboard">Dashboard</option><option value="Giao diện">Giao diện</option>
+          </select>
+          <select id="fb-type">
+            <option value="">Tất cả loại</option>
+            <option value="Cải tiến UX">Cải tiến UX (14)</option><option value="Tính năng mới">Tính năng mới (9)</option><option value="Chất lượng AI">Chất lượng AI (7)</option><option value="Bug">Lỗi (5)</option><option value="Bảo mật/Ràng buộc">Bảo mật/Ràng buộc (1)</option>
+          </select>
+          <select id="fb-status">
+            <option value="">Tất cả tình trạng</option>
+            <option value="Chưa triển khai">Chưa triển khai (23)</option>
+            <option value="Đang triển khai">Đang triển khai (11)</option>
+            <option value="Đã xong">Đã xong (2)</option>
+          </select>
+          <span class="result-count" id="fb-count">36 hạng mục</span>
         </div>
       </div>
-      <div class="feedback-kpis">
-        <div class="feedback-kpi"><strong>20</strong><span>góp ý</span></div>
-        <div class="feedback-kpi"><strong>3</strong><span>nhóm tính năng</span></div>
-        <div class="feedback-kpi"><strong>15</strong><span>về Chatbot AI</span></div>
-        <div class="feedback-kpi"><strong>4</strong><span>về quản lý tài liệu</span></div>
-      </div>
-      <div class="chip-row" style="margin-top:0.85rem;">
-        <span class="chip">Quản lý tài liệu <strong>4</strong></span><span class="chip">Chatbot AI <strong>15</strong></span><span class="chip">Giao diện <strong>1</strong></span>
-      </div>
-    </div>
-    <div class="panel feedback-detail-panel">
-      
-    <div class="fb-group">
-      <div class="fb-group-head">
-        <h3>Quản lý tài liệu</h3>
-        <span class="chip">4 góp ý</span>
-      </div>
-      <div class="fb-grid">
-        <article class="fb-card">
-          <div class="fb-card-head">
-            <span class="fb-num">01</span>
-            <h4>Chính xác bao lâu thì văn bản sẽ sẵn sàng để thực hiện truy vấn</h4>
-          </div>
-          <p class="fb-empty">Chưa có mô tả chi tiết trong tài liệu góp ý.</p>
-        </article>
-        <article class="fb-card">
-          <div class="fb-card-head">
-            <span class="fb-num">02</span>
-            <h4>Cho phép tải tài liệu trên 10MB</h4>
-          </div>
-          <p class="fb-empty">Chưa có mô tả chi tiết trong tài liệu góp ý.</p>
-        </article>
-        <article class="fb-card">
-          <div class="fb-card-head">
-            <span class="fb-num">03</span>
-            <h4>Drag &amp; Drop văn bản</h4>
-          </div>
-          <div class="fb-desc">Chức năng tải lên văn bản hiện chỉ hỗ trợ lựa chọn tệp thông qua hộp thoại (Browse/Chọn tệp), chưa hỗ trợ thao tác kéo và thả (Drag &amp; Drop) từ máy tính vào khu vực tải lên.<br/>Bổ sung cơ chế Drag &amp; Drop Upload, đồng thời vẫn giữ tùy chọn Chọn tệp để đảm bảo tương thích với mọi đối tượng sử dụng.<br/>Kết quả kỳ vọng Hệ thống nên hỗ trợ:<br/>Kéo và thả (Drag &amp; Drop) một hoặc nhiều tệp vào khu vực tải lên.<br/>Hiển thị vùng nhận tệp rõ ràng khi người dùng kéo tệp vào.<br/>Kiểm tra định dạng và dung lượng ngay khi thả tệp.<br/>Hiển thị tiến trình tải lên và thông báo kết quả.</div>
-        </article>
-        <article class="fb-card">
-          <div class="fb-card-head">
-            <span class="fb-num">04</span>
-            <h4>Ghi nhận văn bản bổ sung hoặc trùng khi phân loại tải lên</h4>
-          </div>
-          <p class="fb-empty">Chưa có mô tả chi tiết trong tài liệu góp ý.</p>
-        </article></div>
-    </div>
-    <div class="fb-group">
-      <div class="fb-group-head">
-        <h3>Chatbot AI</h3>
-        <span class="chip">15 góp ý</span>
-      </div>
-      <div class="fb-grid">
-        <article class="fb-card">
-          <div class="fb-card-head">
-            <span class="fb-num">01</span>
-            <h4>Link với Thư viện pháp luật / Cổng thông tin chính phủ</h4>
-          </div>
-          <p class="fb-empty">Chưa có mô tả chi tiết trong tài liệu góp ý.</p>
-        </article>
-        <article class="fb-card">
-          <div class="fb-card-head">
-            <span class="fb-num">02</span>
-            <h4>Đối chiếu với văn bản trùng với TVPL</h4>
-          </div>
-          <p class="fb-empty">Chưa có mô tả chi tiết trong tài liệu góp ý.</p>
-        </article>
-        <article class="fb-card">
-          <div class="fb-card-head">
-            <span class="fb-num">03</span>
-            <h4>AI còn phụ thuộc nguồn dữ liệu nội bộ, chưa liên kết bên ngoài</h4>
-          </div>
-          <p class="fb-empty">Chưa có mô tả chi tiết trong tài liệu góp ý.</p>
-        </article>
-        <article class="fb-card">
-          <div class="fb-card-head">
-            <span class="fb-num">04</span>
-            <h4>Chưa đầy đủ vai trò trợ lý, trích lục, lưu mục tài liệu</h4>
-          </div>
-          <p class="fb-empty">Chưa có mô tả chi tiết trong tài liệu góp ý.</p>
-        </article>
-        <article class="fb-card">
-          <div class="fb-card-head">
-            <span class="fb-num">05</span>
-            <h4>Nghị định 16 — AI chưa hiểu áp dụng cho tổ chức</h4>
-          </div>
-          <div class="fb-desc">Nghị định 16, áp dụng cho tổ chức AI chưa hiểu</div>
-        </article>
-        <article class="fb-card">
-          <div class="fb-card-head">
-            <span class="fb-num">06</span>
-            <h4>Chưa ưu tiên các văn bản có giá trị pháp lý cao</h4>
-          </div>
-          <div class="fb-desc">Hiện trạng: Một số câu trả lời liệt kê văn bản nhưng chưa theo thứ tự ưu tiên.<br/>Nên ưu tiên theo thứ tự: Luật → Nghị định → Quyết định → Thông tư → Công văn</div>
-        </article>
-        <article class="fb-card">
-          <div class="fb-card-head">
-            <span class="fb-num">07</span>
-            <h4>Chưa nhận diện đúng mục đích câu hỏi</h4>
-          </div>
-          <div class="fb-desc">Câu hỏi kiểm thử: &quot;Một UBND phường chuẩn bị triển khai hệ thống quản lý văn bản điện tử. Hãy lập checklist các yêu cầu pháp lý cần đáp ứng theo các văn bản trong kho dữ liệu,<br/>sắp xếp theo thứ tự ưu tiên...&quot;<br/>Kết quả thực tế: Hệ thống tóm tắt Nghị định 30/2020/NĐ-CP, liệt kê Điều 5, Điều 19, Điều 21... nhưng không tạo checklist, không sắp xếp theo ưu tiên và chỉ sử dụng một văn bản.<br/>Vấn đề ghi nhận: Người dùng yêu cầu checklist nhưng nhận được nội dung tóm tắt luật,<br/>vẫn phải tự tổng hợp.<br/>Đề xuất cải thiện: Hệ thống nên sinh checklist theo đầu việc, sắp xếp ưu tiên và tổng hợp nhiều văn bản.</div>
-        </article>
-        <article class="fb-card">
-          <div class="fb-card-head">
-            <span class="fb-num">08</span>
-            <h4>Chưa tổng hợp nhiều văn bản</h4>
-          </div>
-          <div class="fb-desc">Câu hỏi kiểm thử: &quot;Khi một UBND phường triển khai hệ thống chia sẻ dữ liệu giữa các phòng ban và cung cấp dịch vụ công trực tuyến, cần áp dụng những văn bản nào?&quot;<br/>Kết quả thực tế: Chatbot chủ yếu trả lời theo Nghị định 47 hoặc Nghị định 30 dù trước đó đã xác định trong kho còn có Luật Dữ liệu, Luật Giao dịch điện tử, Nghị định 130...<br/>Vấn đề ghi nhận: Thiếu căn cứ pháp lý tổng hợp, câu trả lời chưa đầy đủ.<br/>Đề xuất cải thiện: Tổng hợp theo mức độ liên quan: Luật → Nghị định → Thông tư và giải thích vai trò từng văn bản.</div>
-        </article>
-        <article class="fb-card">
-          <div class="fb-card-head">
-            <span class="fb-num">09</span>
-            <h4>Chưa chuyển hóa quy định thành nghiệp vụ</h4>
-          </div>
-          <div class="fb-desc">Câu hỏi kiểm thử: &quot;Để triển khai hệ thống quản lý văn bản điện tử... cần đáp ứng đồng thời những yêu cầu nào về dữ liệu, giao dịch điện tử, chữ ký số và lưu trữ?&quot;<br/>Kết quả thực tế: Chatbot trả lời theo Điều 5, 19, 21, 29 của Nghị định 30 thay vì các yêu cầu như ký số, lưu trữ, phân quyền, chia sẻ dữ liệu.<br/>Đề xuất cải thiện: Chuyển điều luật thành các đầu việc nghiệp vụ kèm căn cứ.</div>
-        </article>
-        <article class="fb-card">
-          <div class="fb-card-head">
-            <span class="fb-num">10</span>
-            <h4>Chưa tổ chức nội dung theo yêu cầu</h4>
-          </div>
-          <div class="fb-desc">Câu hỏi kiểm thử: Yêu cầu: &quot;Tổng hợp theo từng nhóm yêu cầu&quot;.<br/>Kết quả thực tế: Hệ thống trình bày theo điều luật thay vì nhóm Dữ liệu, Giao dịch điện tử, Chữ ký số, Lưu trữ.</div>
-        </article>
-        <article class="fb-card">
-          <div class="fb-card-head">
-            <span class="fb-num">11</span>
-            <h4>Chưa biết ưu tiên thông tin</h4>
-          </div>
-          <div class="fb-desc">Câu hỏi kiểm thử: Yêu cầu: &quot;Chỉ chọn 03 văn bản quan trọng nhất...&quot;<br/>Kết quả thực tế: Hệ thống vẫn liệt kê nhiều văn bản, không có thứ tự ưu tiên.<br/>Đề xuất cải thiện: Bổ sung cơ chế xếp hạng và giải thích lý do ưu tiên</div>
-        </article>
-        <article class="fb-card">
-          <div class="fb-card-head">
-            <span class="fb-num">12</span>
-            <h4>Chưa hỗ trợ ra quyết định</h4>
-          </div>
-          <div class="fb-desc">Câu hỏi kiểm thử: Nhiều câu hỏi tình huống triển khai Kết quả thực tế: Sau phần phân tích dài, chatbot không kết luận nên áp dụng văn bản nào trước hoặc cần thực hiện bước nào trước.<br/>Đề xuất cải thiện: Luôn có mục &#x27;Kết luận&#x27;.</div>
-        </article>
-        <article class="fb-card">
-          <div class="fb-card-head">
-            <span class="fb-num">13</span>
-            <h4>Nhiều câu trả lời đánh dấu mục bị sai thứ tự</h4>
-          </div>
-          <p class="fb-empty">Chưa có mô tả chi tiết trong tài liệu góp ý.</p>
-        </article>
-        <article class="fb-card">
-          <div class="fb-card-head">
-            <span class="fb-num">14</span>
-            <h4>Khi mở văn bản từ tài liệu từ đoạn chat thì bị mở tab mới</h4>
-          </div>
-          <div class="fb-desc">Hiện tại thì khi ấn vào 1 văn bản do AI cung cấp thì đột nhiên mở một Tab trình duyệt khác Ưu tiên cơ chế xem trước (Preview) hoặc mở trong panel bên cạnh thay vì mặc định mở tab mới. Đồng thời có thể bổ sung tùy chọn:<br/>- Xem nhanh<br/>- Mở toàn văn<br/>- Mở trong tab mới để người dùng lựa chọn theo nhu cầu.</div>
-        </article>
-        <article class="fb-card">
-          <div class="fb-card-head">
-            <span class="fb-num">15</span>
-            <h4>Đưa đúng đến vị trí đã trích dẫn từ văn bản</h4>
-          </div>
-          <div class="fb-desc">Nếu AI đã trích dẫn văn bản, khi người dùng nhấn vào, hệ thống nên đưa đúng đến vị trí đã trích dẫn (ví dụ đúng điều, khoản hoặc trang liên quan) thay vì chỉ mở toàn bộ văn bản từ trang đầu. Điều này sẽ giúp người dùng xác minh thông tin nhanh hơn và giảm thời gian tìm kiếm trong các văn bản dài. Đây là một cải tiến có giá trị thực tế cao đối với hệ thống tra cứu văn bản pháp luật.</div>
-        </article></div>
-    </div>
-    <div class="fb-group">
-      <div class="fb-group-head">
-        <h3>Giao diện</h3>
-        <span class="chip">1 góp ý</span>
-      </div>
-      <div class="fb-grid">
-        <article class="fb-card">
-          <div class="fb-card-head">
-            <span class="fb-num">01</span>
-            <h4>Tối ưu cho điện thoại</h4>
-          </div>
-          <p class="fb-empty">Chưa có mô tả chi tiết trong tài liệu góp ý.</p>
-        </article></div>
-    </div>
-    </div>
-    <!-- FEEDBACK_END -->
 
+      <section class="room-section fb-mod-section" id="fb-mod-Quản-lý-tài-liệu">
+        <div class="room-header">
+          <div>
+            <p class="eyebrow">Mục tính năng</p>
+            <h2>Quản lý tài liệu</h2>
+            <p class="room-summary">6 hạng mục</p>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="fb-table feat-table">
+            <thead><tr><th style="width:52px">STT</th><th>Chức năng / mô tả</th><th style="width:130px">Loại</th><th style="width:130px">Tình trạng</th></tr></thead>
+            <tbody>
+            <tr data-module="Quản lý tài liệu" data-type="Cải tiến UX" data-status="Chưa triển khai">
+              <td class="num mono-stt">01</td>
+              <td>
+                <div class="fb-title">Thời gian văn bản sẵn sàng truy vấn</div>
+                <div class="fb-group-label">Theo dõi tiến độ học tri thức</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Người dùng chưa biết chính xác bao lâu sau khi tải lên thì văn bản mới sẵn sàng để AI truy vấn.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Hiển thị rõ trạng thái và ước lượng thời gian (hoặc % tiến độ) từ lúc upload → AI học xong → có thể hỏi. Có thông báo khi văn bản đã sẵn sàng.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Gắn với màn &#x27;Theo dõi tiến độ bổ sung tri thức&#x27; đã có trên scope. Bổ sung ETA / thông báo hoàn tất.</div><div class="fb-desc-block"><strong>Nguồn:</strong> PDF Feedback 26/05</div>
+              </td>
+              <td><span class="type-pill ux">Cải tiến UX</span></td>
+              <td><span class="status-pill todo">Chưa triển khai</span></td>
+            </tr>
+            <tr data-module="Quản lý tài liệu" data-type="Cải tiến UX" data-status="Đã xong">
+              <td class="num mono-stt">02</td>
+              <td>
+                <div class="fb-title">Drag &amp; Drop upload văn bản</div>
+                <div class="fb-group-label">Tải lên tài liệu</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Chỉ hỗ trợ chọn tệp qua hộp thoại Browse, chưa kéo-thả từ máy vào vùng tải lên.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Hỗ trợ Drag &amp; Drop một/nhiều tệp; vùng nhận tệp rõ khi kéo vào; kiểm tra định dạng &amp; dung lượng ngay khi thả; giữ thêm nút Chọn tệp; hiển thị tiến trình và kết quả.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Scope ghi đã hoàn thành Drag &amp; Drop — cần xác nhận lại trên môi trường thực tế của phường; nếu chưa có thì đưa lại backlog.</div><div class="fb-desc-block"><strong>Ghi chú:</strong> Đối chiếu lại với bản đang deploy</div><div class="fb-desc-block"><strong>Nguồn:</strong> PDF Feedback 26/05</div>
+              </td>
+              <td><span class="type-pill ux">Cải tiến UX</span></td>
+              <td><span class="status-pill done">Đã xong</span></td>
+            </tr>
+            <tr data-module="Quản lý tài liệu" data-type="Tính năng mới" data-status="Đã xong">
+              <td class="num mono-stt">03</td>
+              <td>
+                <div class="fb-title">Cho phép tải tài liệu &gt; 10MB</div>
+                <div class="fb-group-label">Tải lên tài liệu</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Giới hạn dung lượng hiện tại (khoảng 10MB) khiến một số văn bản dài/scan không tải được.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Nâng hạn mức dung lượng (hoặc upload dạng chunk) cho các định dạng văn bản hành chính thường dùng; vẫn kiểm soát virus/định dạng.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Cần chốt mức MB tối đa với hạ tầng storage &amp; thời gian OCR/index.</div><div class="fb-desc-block"><strong>Nguồn:</strong> PDF Feedback 26/05</div>
+              </td>
+              <td><span class="type-pill new">Tính năng mới</span></td>
+              <td><span class="status-pill done">Đã xong</span></td>
+            </tr>
+            <tr data-module="Quản lý tài liệu" data-type="Tính năng mới" data-status="Chưa triển khai">
+              <td class="num mono-stt">04</td>
+              <td>
+                <div class="fb-title">Nhận diện văn bản bổ sung / trùng khi tải lên</div>
+                <div class="fb-group-label">Phân loại tài liệu</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Khi tải lên, hệ thống chưa phân biệt đây là văn bản mới bổ sung hay bản trùng/đã có trong kho.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Khi upload: so khớp (số ký hiệu, tên, hash/nội dung) → gợi ý phân loại: Văn bản mới / Bổ sung / Trùng; người dùng xác nhận trước khi đưa vào kho.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Có thể gộp với popup phân loại tài liệu (scope 2.14) và đối chiếu TVPL nếu có.</div><div class="fb-desc-block"><strong>Nguồn:</strong> PDF Feedback 26/05</div>
+              </td>
+              <td><span class="type-pill new">Tính năng mới</span></td>
+              <td><span class="status-pill todo">Chưa triển khai</span></td>
+            </tr>
+            <tr data-module="Quản lý tài liệu" data-type="Bảo mật/Ràng buộc" data-status="Đang triển khai">
+              <td class="num mono-stt">05</td>
+              <td>
+                <div class="fb-title">Chặn định dạng không phù hợp (ảnh, video, .ai, .xls, .doc…)</div>
+                <div class="fb-group-label">Kiểm tra định dạng upload</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Người dùng có thể tải/đính kèm các định dạng không phục vụ tra cứu văn bản (ảnh, video, AI design, xls, doc cũ…), gây hiểu nhầm và rủi ro xử lý.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Whitelist định dạng cho phép (ví dụ: pdf, docx…). Chặn rõ ràng ảnh, video, .ai, .xls, .doc (và các định dạng ngoài whitelist) kèm thông báo lý do.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Chốt danh sách whitelist với phường. Lưu ý: vẫn cần hỗ trợ .docx biểu mẫu (hạng mục riêng).</div><div class="fb-desc-block"><strong>Ghi chú:</strong> Phân biệt: chặn ở Chat đính kèm vs. kho tài liệu</div><div class="fb-desc-block"><strong>Nguồn:</strong> Góp ý thêm</div>
+              </td>
+              <td><span class="type-pill sec">Bảo mật/Ràng buộc</span></td>
+              <td><span class="status-pill progress">Đang triển khai</span></td>
+            </tr>
+            <tr data-module="Quản lý tài liệu" data-type="Tính năng mới" data-status="Đang triển khai">
+              <td class="num mono-stt">06</td>
+              <td>
+                <div class="fb-title">Bổ sung kho file biểu mẫu .docx</div>
+                <div class="fb-group-label">Biểu mẫu / Template</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Thiếu bộ biểu mẫu chuẩn (.docx) để AI/cán bộ dùng khi lập báo cáo, công văn.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Cung cấp thư viện biểu mẫu .docx của phường; gắn với chức năng điền số/điền form tự động.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Song song với hạng mục &#x27;Tạo văn mẫu điền số&#x27; ở Trợ lý AI.</div><div class="fb-desc-block"><strong>Ghi chú:</strong> Đang triển khai trước cho Văn phòng UBND</div><div class="fb-desc-block"><strong>Nguồn:</strong> Góp ý thêm</div>
+              </td>
+              <td><span class="type-pill new">Tính năng mới</span></td>
+              <td><span class="status-pill progress">Đang triển khai</span></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section class="room-section fb-mod-section" id="fb-mod-Trợ-lý-AI">
+        <div class="room-header">
+          <div>
+            <p class="eyebrow">Mục tính năng</p>
+            <h2>Trợ lý AI</h2>
+            <p class="room-summary">22 hạng mục</p>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="fb-table feat-table">
+            <thead><tr><th style="width:52px">STT</th><th>Chức năng / mô tả</th><th style="width:130px">Loại</th><th style="width:130px">Tình trạng</th></tr></thead>
+            <tbody>
+            <tr data-module="Trợ lý AI" data-type="Tính năng mới" data-status="Chưa triển khai">
+              <td class="num mono-stt">07</td>
+              <td>
+                <div class="fb-title">Liên kết Thư viện pháp luật / Cổng TTCP để cập nhật văn bản mới</div>
+                <div class="fb-group-label">Nguồn tri thức bên ngoài</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> AI chỉ phụ thuộc nguồn người dùng tải lên, chưa lấy được văn bản mới nhất từ nguồn công khai bên ngoài.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Có cơ chế đồng bộ/đối chiếu với TVPL, Cổng thông tin Chính phủ (hoặc nguồn pháp lý được phép) để bổ sung văn bản mới vào kho.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Phạm vi lớn (pháp lý + kỹ thuật crawl/API). Nên tách giai đoạn: (1) đối chiếu trùng thủ công/bán tự động, (2) đồng bộ tự động.</div><div class="fb-desc-block"><strong>Ghi chú:</strong> Phụ thuộc chính sách &amp; API nguồn</div><div class="fb-desc-block"><strong>Nguồn:</strong> PDF Feedback 26/05</div>
+              </td>
+              <td><span class="type-pill new">Tính năng mới</span></td>
+              <td><span class="status-pill todo">Chưa triển khai</span></td>
+            </tr>
+            <tr data-module="Trợ lý AI" data-type="Tính năng mới" data-status="Chưa triển khai">
+              <td class="num mono-stt">08</td>
+              <td>
+                <div class="fb-title">Đối chiếu văn bản trùng với Thư viện pháp luật</div>
+                <div class="fb-group-label">Nguồn tri thức bên ngoài</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Chưa có bước đối chiếu văn bản trong kho với bản trên TVPL để phát hiện trùng/khác phiên bản.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Khi upload hoặc định kỳ: báo văn bản đã có trên TVPL, phiên bản nào mới hơn, gợi ý cập nhật.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Là nhánh nhỏ hơn của hạng mục liên kết nguồn ngoài — có thể làm trước.</div><div class="fb-desc-block"><strong>Ghi chú:</strong> Thuộc nhóm &#x27;Nguồn tri thức bên ngoài&#x27;</div><div class="fb-desc-block"><strong>Nguồn:</strong> PDF Feedback 26/05</div>
+              </td>
+              <td><span class="type-pill new">Tính năng mới</span></td>
+              <td><span class="status-pill todo">Chưa triển khai</span></td>
+            </tr>
+            <tr data-module="Trợ lý AI" data-type="Chất lượng AI" data-status="Chưa triển khai">
+              <td class="num mono-stt">09</td>
+              <td>
+                <div class="fb-title">Hiểu và áp dụng đúng Nghị định 16 (và VB liên quan tổ chức AI)</div>
+                <div class="fb-group-label">Hiểu ngữ cảnh pháp lý</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Với câu hỏi liên quan Nghị định 16 / áp dụng cho tổ chức AI, hệ thống chưa hiểu và trả lời đúng.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Bổ sung/đảm bảo văn bản liên quan có trong kho; cải thiện retrieval + prompt để trả lời đúng phạm vi áp dụng.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Vừa là lỗi tri thức vừa là cải thiện retrieval. Kiểm tra văn bản đã index chưa.</div><div class="fb-desc-block"><strong>Nguồn:</strong> PDF Feedback 26/05</div>
+              </td>
+              <td><span class="type-pill ai">Chất lượng AI</span></td>
+              <td><span class="status-pill todo">Chưa triển khai</span></td>
+            </tr>
+            <tr data-module="Trợ lý AI" data-type="Chất lượng AI" data-status="Chưa triển khai">
+              <td class="num mono-stt">10</td>
+              <td>
+                <div class="fb-title">Ưu tiên văn bản có giá trị pháp lý cao</div>
+                <div class="fb-group-label">Ưu tiên &amp; xếp hạng nguồn</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Một số câu trả lời liệt kê văn bản nhưng chưa theo thứ tự ưu tiên pháp lý.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Sắp xếp nguồn theo: Luật → Nghị định → Quyết định → Thông tư → Công văn; giải thích ngắn lý do ưu tiên khi cần.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Rule ranking cố định + giải thích; gắn với &#x27;Chỉ chọn N văn bản quan trọng nhất&#x27;.</div><div class="fb-desc-block"><strong>Nguồn:</strong> PDF Feedback 26/05</div>
+              </td>
+              <td><span class="type-pill ai">Chất lượng AI</span></td>
+              <td><span class="status-pill todo">Chưa triển khai</span></td>
+            </tr>
+            <tr data-module="Trợ lý AI" data-type="Chất lượng AI" data-status="Chưa triển khai">
+              <td class="num mono-stt">11</td>
+              <td>
+                <div class="fb-title">Nhận diện đúng mục đích câu hỏi (checklist, tổng hợp, kết luận…)</div>
+                <div class="fb-group-label">Hiểu đúng ý định câu hỏi</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Ví dụ: hỏi lập checklist yêu cầu pháp lý theo ưu tiên → AI chỉ tóm tắt 1 nghị định, không tạo checklist, không tổng hợp nhiều VB.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Phân loại intent (checklist / tổng hợp VB / chuyển thành nghiệp vụ / kết luận…). Sinh đúng dạng đầu ra theo intent; tổng hợp nhiều văn bản khi cần.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Đây là epic chất lượng AI — các dòng 13–18 là các case con của epic này.</div><div class="fb-desc-block"><strong>Ghi chú:</strong> Epic cha cho các ý 13–18</div><div class="fb-desc-block"><strong>Nguồn:</strong> PDF Feedback 26/05</div>
+              </td>
+              <td><span class="type-pill ai">Chất lượng AI</span></td>
+              <td><span class="status-pill todo">Chưa triển khai</span></td>
+            </tr>
+            <tr data-module="Trợ lý AI" data-type="Bug" data-status="Chưa triển khai">
+              <td class="num mono-stt">12</td>
+              <td>
+                <div class="fb-title">Tổng hợp nhiều văn bản liên quan thay vì chỉ 1 nguồn</div>
+                <div class="fb-group-label">Hiểu đúng ý định câu hỏi</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Câu hỏi liên quan nhiều văn bản nhưng AI thường chỉ trả lời theo 1 nghị định; trích dẫn cũng chỉ 1 tài liệu.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Retrieval đa nguồn: liệt kê và dùng đủ VB liên quan (Luật, NĐ, TT…); mỗi luận điểm có trích dẫn tương ứng.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Ưu tiên cao cho họp deliver — ảnh hưởng trực tiếp độ tin cậy.</div><div class="fb-desc-block"><strong>Ghi chú:</strong> Trùng với vấn đề &#x27;chỉ trích 1 tài liệu&#x27;</div><div class="fb-desc-block"><strong>Nguồn:</strong> PDF Feedback 26/05 + Góp ý thêm</div>
+              </td>
+              <td><span class="type-pill bug">Lỗi</span></td>
+              <td><span class="status-pill todo">Chưa triển khai</span></td>
+            </tr>
+            <tr data-module="Trợ lý AI" data-type="Chất lượng AI" data-status="Chưa triển khai">
+              <td class="num mono-stt">13</td>
+              <td>
+                <div class="fb-title">Chuyển hóa quy định thành đầu việc nghiệp vụ</div>
+                <div class="fb-group-label">Hiểu đúng ý định câu hỏi</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Hỏi yêu cầu về dữ liệu, GTĐT, chữ ký số, lưu trữ → AI trả theo số điều luật thay vì checklist nghiệp vụ (ký số, lưu trữ, phân quyền…).</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Map điều luật → đầu việc nghiệp vụ kèm căn cứ; trình bày theo nhóm yêu cầu nghiệp vụ.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Sub-feature của epic &#x27;Hiểu đúng ý định&#x27;.</div><div class="fb-desc-block"><strong>Nguồn:</strong> PDF Feedback 26/05</div>
+              </td>
+              <td><span class="type-pill ai">Chất lượng AI</span></td>
+              <td><span class="status-pill todo">Chưa triển khai</span></td>
+            </tr>
+            <tr data-module="Trợ lý AI" data-type="Chất lượng AI" data-status="Chưa triển khai">
+              <td class="num mono-stt">14</td>
+              <td>
+                <div class="fb-title">Tổ chức nội dung đúng theo yêu cầu người dùng</div>
+                <div class="fb-group-label">Hiểu đúng ý định câu hỏi</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Yêu cầu &#x27;tổng hợp theo từng nhóm&#x27; nhưng hệ thống vẫn trình bày theo điều luật.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Tuân thủ cấu trúc đầu ra mà người dùng yêu cầu (theo nhóm, theo checklist, theo bước…).</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Sub-feature của epic &#x27;Hiểu đúng ý định&#x27;.</div><div class="fb-desc-block"><strong>Nguồn:</strong> PDF Feedback 26/05</div>
+              </td>
+              <td><span class="type-pill ai">Chất lượng AI</span></td>
+              <td><span class="status-pill todo">Chưa triển khai</span></td>
+            </tr>
+            <tr data-module="Trợ lý AI" data-type="Chất lượng AI" data-status="Chưa triển khai">
+              <td class="num mono-stt">15</td>
+              <td>
+                <div class="fb-title">Xếp hạng / chỉ chọn N văn bản quan trọng nhất</div>
+                <div class="fb-group-label">Hiểu đúng ý định câu hỏi</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Yêu cầu &#x27;chỉ chọn 03 văn bản quan trọng nhất&#x27; nhưng hệ thống vẫn liệt kê nhiều, không có thứ tự ưu tiên.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Cơ chế top-N + giải thích lý do chọn từng văn bản.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Sub-feature; dùng chung ranking với hạng mục ưu tiên pháp lý.</div><div class="fb-desc-block"><strong>Nguồn:</strong> PDF Feedback 26/05</div>
+              </td>
+              <td><span class="type-pill ai">Chất lượng AI</span></td>
+              <td><span class="status-pill todo">Chưa triển khai</span></td>
+            </tr>
+            <tr data-module="Trợ lý AI" data-type="Chất lượng AI" data-status="Chưa triển khai">
+              <td class="num mono-stt">16</td>
+              <td>
+                <div class="fb-title">Hỗ trợ ra quyết định — luôn có mục Kết luận</div>
+                <div class="fb-group-label">Hiểu đúng ý định câu hỏi</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Với câu hỏi tình huống triển khai, sau phân tích dài AI không kết luận nên áp dụng VB nào / làm bước nào trước.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Mọi câu trả lời dạng tư vấn/tình huống đều có mục &#x27;Kết luận&#x27; ngắn, hành động được ưu tiên.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Có thể chuẩn hóa template câu trả lời: Phân tích → Căn cứ → Kết luận.</div><div class="fb-desc-block"><strong>Nguồn:</strong> PDF Feedback 26/05</div>
+              </td>
+              <td><span class="type-pill ai">Chất lượng AI</span></td>
+              <td><span class="status-pill todo">Chưa triển khai</span></td>
+            </tr>
+            <tr data-module="Trợ lý AI" data-type="Bug" data-status="Chưa triển khai">
+              <td class="num mono-stt">17</td>
+              <td>
+                <div class="fb-title">Sửa thứ tự đánh số / đánh đầu mục bị sai</div>
+                <div class="fb-group-label">Định dạng câu trả lời</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Nhiều câu trả lời đánh đầu mục (1, 2, 3…) bị sai thứ tự.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Đảm bảo numbering đúng; kiểm tra pipeline markdown/render.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Bug UI/render hoặc bug sinh nội dung — cần reproduce kèm screenshot.</div><div class="fb-desc-block"><strong>Nguồn:</strong> PDF Feedback 26/05</div>
+              </td>
+              <td><span class="type-pill bug">Lỗi</span></td>
+              <td><span class="status-pill todo">Chưa triển khai</span></td>
+            </tr>
+            <tr data-module="Trợ lý AI" data-type="Bug" data-status="Chưa triển khai">
+              <td class="num mono-stt">18</td>
+              <td>
+                <div class="fb-title">AI từ chối nhiều câu hỏi nằm trong phạm vi hệ thống</div>
+                <div class="fb-group-label">Từ chối / phạm vi trả lời</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> AI vẫn từ chối hoặc trả &#x27;không có thông tin&#x27; với nhiều câu hỏi thực tế thuộc phạm vi kho / nghiệp vụ phường — chưa hiểu đúng yêu cầu.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Giảm false-refuse: cải thiện hiểu câu hỏi + retrieval; nếu thiếu dữ liệu thì gợi ý cách hỏi lại / liệt kê VB gần liên quan thay vì từ chối khô.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Ưu tiên cao. Thu thập log câu bị từ chối để họp triage với dev.</div><div class="fb-desc-block"><strong>Ghi chú:</strong> Cần log để chứng minh</div><div class="fb-desc-block"><strong>Nguồn:</strong> Góp ý thêm</div>
+              </td>
+              <td><span class="type-pill bug">Lỗi</span></td>
+              <td><span class="status-pill todo">Chưa triển khai</span></td>
+            </tr>
+            <tr data-module="Trợ lý AI" data-type="Tính năng mới" data-status="Chưa triển khai">
+              <td class="num mono-stt">19</td>
+              <td>
+                <div class="fb-title">Quét hết văn bản liên quan → người dùng chọn → hỏi tiếp</div>
+                <div class="fb-group-label">Luồng hỏi đa bước</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Khi hỏi thông tin (vd. địa chỉ một nhà), AI không liệt kê đầy đủ các văn bản chứa thông tin đó để người dùng chọn và đào sâu.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Bước 1: trả danh sách VB/đoạn liên quan. Bước 2: người dùng chọn VB. Bước 3: AI trả lời chi tiết trong VB đã chọn. Hỗ trợ hỏi tiếp trên ngữ cảnh đã chọn.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Pattern &#x27;search → select → deepen&#x27;. Liên quan lưu mục tài liệu (hạng mục 9).</div><div class="fb-desc-block"><strong>Nguồn:</strong> Góp ý thêm</div>
+              </td>
+              <td><span class="type-pill new">Tính năng mới</span></td>
+              <td><span class="status-pill todo">Chưa triển khai</span></td>
+            </tr>
+            <tr data-module="Trợ lý AI" data-type="Bug" data-status="Chưa triển khai">
+              <td class="num mono-stt">20</td>
+              <td>
+                <div class="fb-title">Liên kết đầy đủ các trích dẫn trong câu trả lời</div>
+                <div class="fb-group-label">Trích dẫn nguồn</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Trích dẫn văn bản còn chưa liên kết được hết — một số nguồn hiện text thuần, không click được.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Mọi nguồn được nhắc trong câu trả lời đều là thẻ/link mở được tới tài liệu tương ứng.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Kiểm tra lại pipeline citation binding sau khi generate.</div><div class="fb-desc-block"><strong>Nguồn:</strong> Góp ý thêm</div>
+              </td>
+              <td><span class="type-pill bug">Lỗi</span></td>
+              <td><span class="status-pill todo">Chưa triển khai</span></td>
+            </tr>
+            <tr data-module="Trợ lý AI" data-type="Cải tiến UX" data-status="Chưa triển khai">
+              <td class="num mono-stt">21</td>
+              <td>
+                <div class="fb-title">Mở văn bản đúng vị trí đã trích dẫn (điều/khoản/trang)</div>
+                <div class="fb-group-label">Trích dẫn nguồn</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Khi bấm nguồn, hệ thống mở toàn văn từ trang đầu, không nhảy tới đoạn AI đã trích.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Deep-link tới đúng điều/khoản/trang; highlight đoạn liên quan để xác minh nhanh.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Scope ghi đã có (3.16–3.17) — cần verify trên bản thực tế; nếu chưa đạt thì reopen bug.</div><div class="fb-desc-block"><strong>Ghi chú:</strong> Đối chiếu scope đã &#x27;Hoàn thành&#x27;</div><div class="fb-desc-block"><strong>Nguồn:</strong> PDF Feedback 26/05</div>
+              </td>
+              <td><span class="type-pill ux">Cải tiến UX</span></td>
+              <td><span class="status-pill todo">Chưa triển khai</span></td>
+            </tr>
+            <tr data-module="Trợ lý AI" data-type="Bug" data-status="Chưa triển khai">
+              <td class="num mono-stt">22</td>
+              <td>
+                <div class="fb-title">Hiển thị số trang dạng 1, 2, 3… (không phải 0000001)</div>
+                <div class="fb-group-label">Trích dẫn nguồn</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Khi mở liên kết trong đoạn truy vấn, số trang hiện dạng 0000001, 0000002.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Chuẩn hóa hiển thị số trang: 1, 2, 3… (bỏ zero-padding).</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Lỗi format UI nhỏ — có thể fix nhanh trong sprint.</div><div class="fb-desc-block"><strong>Ghi chú:</strong> Quick win</div><div class="fb-desc-block"><strong>Nguồn:</strong> Góp ý thêm</div>
+              </td>
+              <td><span class="type-pill bug">Lỗi</span></td>
+              <td><span class="status-pill todo">Chưa triển khai</span></td>
+            </tr>
+            <tr data-module="Trợ lý AI" data-type="Cải tiến UX" data-status="Chưa triển khai">
+              <td class="num mono-stt">23</td>
+              <td>
+                <div class="fb-title">Preview / panel bên cạnh thay vì mặc định mở tab mới</div>
+                <div class="fb-group-label">Xem tài liệu từ chat</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Bấm văn bản do AI cung cấp thì mở Tab trình duyệt mới, làm gián đoạn luồng làm việc.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Ưu tiên Preview hoặc panel cạnh chat. Thêm tùy chọn: Xem nhanh | Mở toàn văn | Mở tab mới.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> UX ưu tiên cao — ảnh hưởng trải nghiệm hàng ngày.</div><div class="fb-desc-block"><strong>Nguồn:</strong> PDF Feedback 26/05 + Góp ý thêm</div>
+              </td>
+              <td><span class="type-pill ux">Cải tiến UX</span></td>
+              <td><span class="status-pill todo">Chưa triển khai</span></td>
+            </tr>
+            <tr data-module="Trợ lý AI" data-type="Cải tiến UX" data-status="Chưa triển khai">
+              <td class="num mono-stt">24</td>
+              <td>
+                <div class="fb-title">Trạng thái tiến trình + phản hồi liên tục (streaming)</div>
+                <div class="fb-group-label">Trải nghiệm trả lời</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Sau khi gửi câu hỏi, hệ thống đứng im một lúc rồi hiện toàn bộ câu trả lời cùng lúc — không có trạng thái xử lý / hiển thị dần.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Có indicator tiến trình (Đang tìm tài liệu → Đang tổng hợp → …) và/hoặc stream nội dung dần để người dùng biết hệ thống vẫn hoạt động.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Streaming + progress steps. Nếu stream khó ngay, làm tối thiểu progress status trước.</div><div class="fb-desc-block"><strong>Nguồn:</strong> Góp ý thêm</div>
+              </td>
+              <td><span class="type-pill ux">Cải tiến UX</span></td>
+              <td><span class="status-pill todo">Chưa triển khai</span></td>
+            </tr>
+            <tr data-module="Trợ lý AI" data-type="Tính năng mới" data-status="Chưa triển khai">
+              <td class="num mono-stt">25</td>
+              <td>
+                <div class="fb-title">Tạo văn mẫu báo cáo — điền số liệu thay vì nhập tay</div>
+                <div class="fb-group-label">Sinh văn bản / biểu mẫu</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Cán bộ phải nhập tay số liệu vào báo cáo; chưa có luồng chọn mẫu → AI/điền số tự động.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Chọn biểu mẫu .docx → hệ thống điền số/liệu từ tri thức hoặc dữ liệu nhập có kiểm soát → xuất file hoàn chỉnh.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Khớp scope 3.8–3.9 (template + auto-fill). Ưu tiên sau khi có kho biểu mẫu.</div><div class="fb-desc-block"><strong>Ghi chú:</strong> Phụ thuộc hạng mục biểu mẫu docx</div><div class="fb-desc-block"><strong>Nguồn:</strong> Góp ý thêm</div>
+              </td>
+              <td><span class="type-pill new">Tính năng mới</span></td>
+              <td><span class="status-pill todo">Chưa triển khai</span></td>
+            </tr>
+            <tr data-module="Trợ lý AI" data-type="Cải tiến UX" data-status="Đang triển khai">
+              <td class="num mono-stt">26</td>
+              <td>
+                <div class="fb-title">Tắt nút &#x27;Đính kèm&#x27; trên khung chat</div>
+                <div class="fb-group-label">Giao diện Chat</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Nút &#x27;Đính kèm&#x27; trên chat dễ gây hiểu nhầm (người dùng tưởng đính file để AI đọc ngay như ChatGPT).</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Ẩn/tắt chức năng Đính kèm ở mục chat (hoặc chỉ hiện khi nghiệp vụ thật sự cần).</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Quick win UI.</div><div class="fb-desc-block"><strong>Ghi chú:</strong> Quick win</div><div class="fb-desc-block"><strong>Nguồn:</strong> Góp ý thêm</div>
+              </td>
+              <td><span class="type-pill ux">Cải tiến UX</span></td>
+              <td><span class="status-pill progress">Đang triển khai</span></td>
+            </tr>
+            <tr data-module="Trợ lý AI" data-type="Tính năng mới" data-status="Chưa triển khai">
+              <td class="num mono-stt">26</td>
+              <td>
+                <div class="fb-title">Cung cấp API để tích hợp vào hệ thống của phường</div>
+                <div class="fb-group-label">Tích hợp hệ thống</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Chưa có API công khai để hệ thống nội bộ phường gọi chat/truy vấn/tri thức.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Cung cấp bộ API (auth, hỏi đáp, lấy lịch sử, metadata…) kèm tài liệu tích hợp cho hệ thống phường.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Cần chốt phạm vi API phase 1 (chỉ chat? hay cả tài liệu?).</div><div class="fb-desc-block"><strong>Nguồn:</strong> Góp ý thêm</div>
+              </td>
+              <td><span class="type-pill new">Tính năng mới</span></td>
+              <td><span class="status-pill todo">Chưa triển khai</span></td>
+            </tr>
+            <tr data-module="Trợ lý AI" data-type="Cải tiến UX" data-status="Đang triển khai">
+              <td class="num mono-stt">27</td>
+              <td>
+                <div class="fb-title">Nhắc like/dislike; mặc định coi là đúng nếu không đánh giá</div>
+                <div class="fb-group-label">Đánh giá câu trả lời</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Người dùng thường quên đánh giá; thiếu cơ chế nhắc; chưa có quy ước mặc định khi không đánh giá.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Thêm câu nhắc đánh giá like/dislike sau câu trả lời. Nếu người dùng không đánh giá → mặc định tính là đúng/hữu ích phục vụ dashboard chất lượng.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Làm rõ với BLĐ: &#x27;mặc định đúng&#x27; chỉ dùng cho thống kê, không ghi đè feedback thật.</div><div class="fb-desc-block"><strong>Ghi chú:</strong> Ảnh hưởng công thức % chính xác dashboard</div><div class="fb-desc-block"><strong>Nguồn:</strong> Góp ý thêm</div>
+              </td>
+              <td><span class="type-pill ux">Cải tiến UX</span></td>
+              <td><span class="status-pill progress">Đang triển khai</span></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section class="room-section fb-mod-section" id="fb-mod-Dashboard">
+        <div class="room-header">
+          <div>
+            <p class="eyebrow">Mục tính năng</p>
+            <h2>Dashboard</h2>
+            <p class="room-summary">7 hạng mục</p>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="fb-table feat-table">
+            <thead><tr><th style="width:52px">STT</th><th>Chức năng / mô tả</th><th style="width:130px">Loại</th><th style="width:130px">Tình trạng</th></tr></thead>
+            <tbody>
+            <tr data-module="Dashboard" data-type="Cải tiến UX" data-status="Đang triển khai">
+              <td class="num mono-stt">30</td>
+              <td>
+                <div class="fb-title">Bỏ hết từ &#x27;Thống kê&#x27; trên dashboard</div>
+                <div class="fb-group-label">Đặt tên &amp; copy UI</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Nhiều tiêu đề widget mang từ &#x27;Thống kê…&#x27;, làm giao diện nặng và trùng lặp.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Đổi toàn bộ nhãn: bỏ tiền tố &#x27;Thống kê&#x27;; đặt tên ngắn, mô tả đúng nội dung biểu đồ.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Quick win copywriting — làm cùng đợt đổi tên bên dưới.</div><div class="fb-desc-block"><strong>Nguồn:</strong> Góp ý thêm</div>
+              </td>
+              <td><span class="type-pill ux">Cải tiến UX</span></td>
+              <td><span class="status-pill progress">Đang triển khai</span></td>
+            </tr>
+            <tr data-module="Dashboard" data-type="Cải tiến UX" data-status="Đang triển khai">
+              <td class="num mono-stt">31</td>
+              <td>
+                <div class="fb-title">Đổi tên: Lượng tài nguyên sử dụng theo phòng</div>
+                <div class="fb-group-label">Đặt tên &amp; copy UI</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Nhãn cũ: &#x27;Thống kê lượng đơn vị sử dụng&#x27; — dễ gây hiểu nhầm.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Đổi thành: &#x27;Lượng tài nguyên sử dụng theo phòng&#x27;.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Gói cùng đợt rename dashboard.</div><div class="fb-desc-block"><strong>Nguồn:</strong> Góp ý thêm</div>
+              </td>
+              <td><span class="type-pill ux">Cải tiến UX</span></td>
+              <td><span class="status-pill progress">Đang triển khai</span></td>
+            </tr>
+            <tr data-module="Dashboard" data-type="Cải tiến UX" data-status="Đang triển khai">
+              <td class="num mono-stt">32</td>
+              <td>
+                <div class="fb-title">Đổi tên: Số lượng tài khoản theo phòng</div>
+                <div class="fb-group-label">Đặt tên &amp; copy UI</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Nhãn cũ: &#x27;Thống kê người dùng trên hệ thống&#x27;.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Đổi thành: &#x27;Số lượng tài khoản theo phòng&#x27;.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Gói cùng đợt rename dashboard.</div><div class="fb-desc-block"><strong>Nguồn:</strong> Góp ý thêm</div>
+              </td>
+              <td><span class="type-pill ux">Cải tiến UX</span></td>
+              <td><span class="status-pill progress">Đang triển khai</span></td>
+            </tr>
+            <tr data-module="Dashboard" data-type="Cải tiến UX" data-status="Đang triển khai">
+              <td class="num mono-stt">33</td>
+              <td>
+                <div class="fb-title">Sắp xếp thứ tự: Tập thể → Cá nhân → Đơn vị sử dụng → Log câu hỏi</div>
+                <div class="fb-group-label">Bố cục dashboard</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Thứ tự các khối trên dashboard chưa theo luồng đọc mong muốn của lãnh đạo.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Sắp xếp lại theo thứ tự: (1) Tập thể, (2) Cá nhân, (3) Đơn vị sử dụng, (4) Log câu hỏi của người dùng.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Chốt mapping widget nào thuộc &#x27;Tập thể/Cá nhân/Đơn vị&#x27; trong buổi họp.</div><div class="fb-desc-block"><strong>Nguồn:</strong> Góp ý thêm</div>
+              </td>
+              <td><span class="type-pill ux">Cải tiến UX</span></td>
+              <td><span class="status-pill progress">Đang triển khai</span></td>
+            </tr>
+            <tr data-module="Dashboard" data-type="Cải tiến UX" data-status="Đang triển khai">
+              <td class="num mono-stt">34</td>
+              <td>
+                <div class="fb-title">Lượt truy vấn theo phòng — kéo dài nhãn tên + số ở đầu bar</div>
+                <div class="fb-group-label">Biểu đồ lượt truy vấn</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Tên phòng bị cắt; số liệu nằm cuối bar khó đọc nhanh.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Kéo dài khung hiện tên phòng; đặt số chính xác ở đầu bar (thay vì cuối bar).</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Chỉnh chart config — effort thấp.</div><div class="fb-desc-block"><strong>Nguồn:</strong> Góp ý thêm</div>
+              </td>
+              <td><span class="type-pill ux">Cải tiến UX</span></td>
+              <td><span class="status-pill progress">Đang triển khai</span></td>
+            </tr>
+            <tr data-module="Dashboard" data-type="Cải tiến UX" data-status="Đang triển khai">
+              <td class="num mono-stt">35</td>
+              <td>
+                <div class="fb-title">Các widget: Lượng tri thức khai thác theo đơn vị; Lượng người dùng trên hệ thống</div>
+                <div class="fb-group-label">Phân tích sử dụng</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Cần làm rõ và chuẩn hóa tên/hiển thị các khối: lượng tri thức khai thác theo đơn vị; lượng người dùng trên hệ thống.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Hiển thị đúng số liệu, đúng nhãn đã thống nhất (không dùng chữ &#x27;Thống kê&#x27;); đảm bảo số khớp log thực tế.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Verify data source của từng widget khi họp.</div><div class="fb-desc-block"><strong>Nguồn:</strong> Góp ý thêm</div>
+              </td>
+              <td><span class="type-pill ux">Cải tiến UX</span></td>
+              <td><span class="status-pill progress">Đang triển khai</span></td>
+            </tr>
+            <tr data-module="Dashboard" data-type="Tính năng mới" data-status="Đang triển khai">
+              <td class="num mono-stt">36</td>
+              <td>
+                <div class="fb-title">Ghi log chi tiết câu truy vấn để admin kiểm tra</div>
+                <div class="fb-group-label">Log &amp; giám sát</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Chưa có log chi tiết đủ để admin rà soát câu hỏi bị từ chối, câu trả lời sai, hoặc hành vi sử dụng.</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Log: user, phòng, thời gian, câu hỏi, câu trả lời (hoặc tóm tắt), nguồn trích dẫn, like/dislike, cờ từ chối/lỗi. Có màn admin lọc/xuất.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Nền tảng cho triage chất lượng AI và báo cáo theo user/phòng.</div><div class="fb-desc-block"><strong>Nguồn:</strong> Góp ý thêm</div>
+              </td>
+              <td><span class="type-pill new">Tính năng mới</span></td>
+              <td><span class="status-pill progress">Đang triển khai</span></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section class="room-section fb-mod-section" id="fb-mod-Giao-diện">
+        <div class="room-header">
+          <div>
+            <p class="eyebrow">Mục tính năng</p>
+            <h2>Giao diện</h2>
+            <p class="room-summary">1 hạng mục</p>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="fb-table feat-table">
+            <thead><tr><th style="width:52px">STT</th><th>Chức năng / mô tả</th><th style="width:130px">Loại</th><th style="width:130px">Tình trạng</th></tr></thead>
+            <tbody>
+            <tr data-module="Giao diện" data-type="Cải tiến UX" data-status="Chưa triển khai">
+              <td class="num mono-stt">27</td>
+              <td>
+                <div class="fb-title">Tối ưu giao diện cho điện thoại</div>
+                <div class="fb-group-label">Responsive</div>
+                <div class="fb-desc-block"><strong>Hiện trạng:</strong> Trải nghiệm trên điện thoại chưa tối ưu (chat, xem tài liệu, dashboard).</div><div class="fb-desc-block"><strong>Kỳ vọng:</strong> Responsive các màn chính: chat, tải tài liệu, xem trước, dashboard cơ bản trên mobile.</div><div class="fb-desc-block"><strong>Gợi ý họp:</strong> Có thể chia phase: Chat mobile trước, Dashboard sau.</div><div class="fb-desc-block"><strong>Nguồn:</strong> PDF Feedback 26/05</div>
+              </td>
+              <td><span class="type-pill ux">Cải tiến UX</span></td>
+              <td><span class="status-pill todo">Chưa triển khai</span></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
     </div>
 
     <footer>
@@ -1889,7 +2242,7 @@
         Nguồn văn bản: <code>pxuanhoa-export_202607131204.csv</code><br />
         Nguồn người dùng: <code>[20260623] Danh sách thông tin cán bộ Phường Xuân Hòa.xlsx</code><br />
         Nguồn phạm vi: <code>[20260526] Phù Đổng Expo - AI Chat Scope - Timeline Delivery Danh sách tính năng.pdf</code><br />
-        Nguồn góp ý: <code>[20260526] AI Chat Feedback.pdf</code><br />
+        Nguồn góp ý: <code>[20260526] AI Chat Feedback.pdf</code> + <code>[20260721] Phu Dong Expo - Danh sach Bug &amp; Gop y AI Chat.xlsx</code><br />
         Báo cáo tạo ngày 13/07/2026 · UBND Phường Xuân Hòa
       </div>
       <img src="logo-xuan-hoa.png" alt="Logo Phường Xuân Hòa" />
@@ -1983,7 +2336,7 @@
       });
     });
     const hash = location.hash.replace("#", "");
-    if (["users", "scope", "docs"].includes(hash)) {
+    if (["users", "scope", "docs", "feedback"].includes(hash)) {
       const tab = document.querySelector('[data-view="' + hash + '"]');
       if (tab) tab.click();
     }
@@ -2157,6 +2510,35 @@
         }
       };
     }
+
+
+    function filterFeedback() {
+      const q = (document.getElementById("fb-search").value || "").toLowerCase().trim();
+      const mod = document.getElementById("fb-module").value;
+      const typ = document.getElementById("fb-type").value;
+      const st = document.getElementById("fb-status").value;
+      let shown = 0;
+      document.querySelectorAll("#view-feedback .fb-table tbody tr").forEach(tr => {
+        const hay = tr.textContent.toLowerCase();
+        const okQ = !q || hay.includes(q);
+        const okM = !mod || tr.dataset.module === mod;
+        const okT = !typ || tr.dataset.type === typ;
+        const okS = !st || tr.dataset.status === st;
+        const show = okQ && okM && okT && okS;
+        tr.classList.toggle("hidden", !show);
+        if (show) shown++;
+      });
+      document.getElementById("fb-count").textContent = shown + " hạng mục";
+      document.querySelectorAll("#view-feedback .fb-mod-section").forEach(sec => {
+        sec.style.display = sec.querySelectorAll("tbody tr:not(.hidden)").length ? "" : "none";
+      });
+    }
+    ["fb-search", "fb-module", "fb-type", "fb-status"].forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.addEventListener("input", filterFeedback);
+      el.addEventListener("change", filterFeedback);
+    });
 
     if (document.getElementById("view-scope").classList.contains("active")) {
       ensureMilestoneChart(false);
